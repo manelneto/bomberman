@@ -19,4 +19,11 @@ class PositionTest {
         assertEquals(x + 1, position.getRight().getX());
         assertEquals(y, position.getRight().getY());
     }
+
+    @Property
+    void getDown(@ForAll int x, @ForAll int y) {
+        Position position = new Position(x, y);
+        assertEquals(x, position.getDown().getX());
+        assertEquals(y + 1, position.getDown().getY());
+    }
 }
