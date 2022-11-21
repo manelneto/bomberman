@@ -16,4 +16,8 @@ public class Position {
     public int getY() {
         return y;
     }
+
+    public Position getUp() {
+        return new Position(x, y - 1);
+    }
 }
