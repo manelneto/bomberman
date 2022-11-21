@@ -32,4 +32,14 @@ public class Position {
     public Position getLeft() {
         return new Position(x - 1, y);
     }
+
+    public Position getRandomNeighbour() {
+        int n = (int) (Math.random() * 4);
+        return switch (n) {
+            case 0 -> getUp();
+            case 1 -> getRight();
+            case 2 -> getDown();
+            default -> getLeft();
+        };
+    }
 }
