@@ -27,7 +27,7 @@ class LaternaGUITest {
     void drawBomberman() {
         gui.drawBomberman(new Position(10, 10));
 
-        Mockito.verify(textGraphics, Mockito.times(1)).setForegroundColor(new TextColor.RGB(255, 0, 0));
+        Mockito.verify(textGraphics, Mockito.times(1)).setForegroundColor(new TextColor.RGB(0, 0, 255));
         Mockito.verify(textGraphics, Mockito.times(1)).putString(10, 10, "B");
     }
 
