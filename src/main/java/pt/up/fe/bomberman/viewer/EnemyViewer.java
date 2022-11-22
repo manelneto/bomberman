@@ -5,7 +5,7 @@ import pt.up.fe.bomberman.model.elements.Enemy;
 
 public class EnemyViewer implements ElementViewer<Enemy> {
     @Override
-    public void draw(Enemy element, GUI gui) {
-        gui.drawEnemy(element.getPosition());
+    public void draw(Enemy enemy, GUI gui) {
+        gui.drawEnemy(enemy.getPosition());
     }
 }
