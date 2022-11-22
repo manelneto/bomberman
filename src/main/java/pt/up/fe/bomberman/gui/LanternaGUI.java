@@ -26,8 +26,7 @@ public class LanternaGUI implements GUI {
     private Terminal createTerminal(int width, int height) throws IOException {
         TerminalSize terminalSize = new TerminalSize(width, height);
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
-        Terminal terminal = terminalFactory.createTerminal();
-        return terminal;
+        return terminalFactory.createTerminal();
     }
 
     private Screen createScreen(Terminal terminal) throws IOException {
@@ -52,12 +51,12 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawObstacle(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'O', "#505050"); //grey
+        drawCharacter(position.getX(), position.getY(), 'O', "#964B00"); //brown
     }
 
     @Override
     public void drawWall(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'W', "#964B00"); //brown
+        drawCharacter(position.getX(), position.getY(), 'W', "#505050"); //grey
     }
 
     @Override
