@@ -46,4 +46,12 @@ class LaternaGUITest {
         Mockito.verify(textGraphics, Mockito.times(1)).setForegroundColor(new TextColor.RGB(150, 75, 0));
         Mockito.verify(textGraphics, Mockito.times(1)).putString(20, 20, "W");
     }
+
+    @Test
+    void drawEnemy() {
+        gui.drawEnemy(new Position(7, 13));
+
+        Mockito.verify(textGraphics, Mockito.times(1)).setForegroundColor(new TextColor.RGB(255, 0, 0));
+        Mockito.verify(textGraphics, Mockito.times(1)).putString(7, 13, "E");
+    }
 }
