@@ -1,4 +1,4 @@
-package pt.up.fe.bomberman.viewer;
+package pt.up.fe.bomberman.viewer.game;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
