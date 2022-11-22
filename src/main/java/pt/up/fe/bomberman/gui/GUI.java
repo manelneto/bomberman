@@ -3,7 +3,7 @@ package pt.up.fe.bomberman.gui;
 import pt.up.fe.bomberman.model.Position;
 
 public interface GUI {
-    enum ACTION {UP, RIGHT, DOWN, LEFT, ENTER}
+    enum ACTION {UP, RIGHT, DOWN, LEFT, ENTER, NONE}
 
     ACTION getNextAction();
 
