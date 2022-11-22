@@ -12,6 +12,7 @@ public class GameViewer extends Viewer<Arena> {
     public GameViewer(Arena arena) {
         super(arena);
     }
+
     @Override
     public void drawElements(GUI gui) {
         drawElement(gui, getModel().getBomberman(), new BombermanViewer());
