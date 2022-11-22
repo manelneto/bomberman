@@ -2,6 +2,8 @@ package pt.up.fe.bomberman.gui;
 
 import pt.up.fe.bomberman.model.Position;
 
+import java.io.IOException;
+
 public interface GUI {
     enum ACTION {UP, RIGHT, DOWN, LEFT, ENTER, NONE}
 
@@ -17,7 +19,7 @@ public interface GUI {
 
     void clear();
 
-    void refresh();
+    void refresh() throws IOException;
 
-    void close();
+    void close() throws IOException;
 }
