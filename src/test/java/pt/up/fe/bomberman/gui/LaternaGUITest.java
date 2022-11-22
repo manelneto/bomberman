@@ -30,4 +30,12 @@ class LaternaGUITest {
         Mockito.verify(textGraphics, Mockito.times(1)).setForegroundColor(new TextColor.RGB(255, 0, 0));
         Mockito.verify(textGraphics, Mockito.times(1)).putString(10, 10, "B");
     }
+
+    @Test
+    void drawObstacle() {
+        gui.drawObstacle(new Position(5, 5));
+
+        Mockito.verify(textGraphics, Mockito.times(1)).setForegroundColor(new TextColor.RGB(50, 50, 50));
+        Mockito.verify(textGraphics, Mockito.times(1)).putString(10, 10, "O");
+    }
 }
