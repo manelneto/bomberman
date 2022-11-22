@@ -52,7 +52,7 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawObstacle(Position position) {
-
+        drawCharacter(position.getX(), position.getY(), 'O', "#505050"); //grey
     }
 
     @Override
