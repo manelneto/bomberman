@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import pt.up.fe.bomberman.gui.GUI;
 import pt.up.fe.bomberman.model.elements.Wall;
+import pt.up.fe.bomberman.viewer.game.WallViewer;
 
 public class WallViewerTest {
     private Wall wall;
