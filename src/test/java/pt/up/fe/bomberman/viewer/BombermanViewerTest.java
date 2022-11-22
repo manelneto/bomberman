@@ -19,7 +19,7 @@ public class BombermanViewerTest {
     }
 
     @Test
-    void drawElement() {
+    void drawBomberman() {
         viewer.draw(bomberman, gui);
         Mockito.verify(gui, Mockito.times(1)).drawBomberman(bomberman.getPosition());
     }

@@ -1,11 +1,12 @@
 package pt.up.fe.bomberman.viewer;
 
 import pt.up.fe.bomberman.gui.GUI;
-import pt.up.fe.bomberman.model.elements.Element;
+import pt.up.fe.bomberman.model.elements.Bomberman;
 
-public class BombermanViewer implements ElementViewer {
+public class BombermanViewer implements ElementViewer<Bomberman> {
 
     @Override
-    public void draw(Element element, GUI gui) {
+    public void draw(Bomberman bomberman, GUI gui) {
+        gui.drawBomberman(bomberman.getPosition());
     }
 }
