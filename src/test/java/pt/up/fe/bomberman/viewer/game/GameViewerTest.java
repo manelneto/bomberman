@@ -28,7 +28,7 @@ public class GameViewerTest {
         arena.setBomberman(new Bomberman(1, 1));
         arena.setEnemies(Arrays.asList(new Enemy(5, 5), new Enemy(7, 7)));
         arena.setObstacles(Arrays.asList(new Obstacle(10, 10), new Obstacle(12, 12), new Obstacle(14, 14)));
-        arena.setWalls(Arrays.asList(new Wall(15, 15)));
+        arena.setWalls(Arrays.asList(new Wall(15, 15), new Wall(16, 16), new Wall(17, 17), new Wall(18, 18)));
     }
 
     @Test
@@ -56,5 +56,16 @@ public class GameViewerTest {
         Mockito.verify(gui, Mockito.times(1)).drawObstacle(new Position(12, 12));
         Mockito.verify(gui, Mockito.times(1)).drawObstacle(new Position(14, 14));
         Mockito.verify(gui, Mockito.times(3)).drawObstacle(Mockito.any(Position.class));
+    }
+
+    @Test
+    void drawWalls() throws IOException {
+        viewer.draw(gui);
+
+        Mockito.verify(gui, Mockito.times(1)).drawWall(new Position(15, 15));
+        Mockito.verify(gui, Mockito.times(1)).drawWall(new Position(16, 16));
+        Mockito.verify(gui, Mockito.times(1)).drawWall(new Position(17, 17));
+        Mockito.verify(gui, Mockito.times(1)).drawWall(new Position(18, 18));
+        Mockito.verify(gui, Mockito.times(4)).drawWall(Mockito.any(Position.class));
     }
 }
