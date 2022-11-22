@@ -38,4 +38,12 @@ class LaternaGUITest {
         Mockito.verify(textGraphics, Mockito.times(1)).setForegroundColor(new TextColor.RGB(80, 80, 80));
         Mockito.verify(textGraphics, Mockito.times(1)).putString(5, 5, "O");
     }
+
+    @Test
+    void drawWall() {
+        gui.drawWall(new Position(20, 20));
+
+        Mockito.verify(textGraphics, Mockito.times(1)).setForegroundColor(new TextColor.RGB(150, 75, 0));
+        Mockito.verify(textGraphics, Mockito.times(1)).putString(20, 20, "W");
+    }
 }
