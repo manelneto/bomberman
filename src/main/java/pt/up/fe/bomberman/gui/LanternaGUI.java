@@ -47,7 +47,7 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawBomberman(Position position) {
-
+        drawCharacter(position.getX(), position.getY(), 'B', "#FF0000"); //red
     }
 
     @Override
