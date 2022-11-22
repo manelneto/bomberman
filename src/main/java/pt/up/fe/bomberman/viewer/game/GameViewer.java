@@ -15,6 +15,7 @@ public class GameViewer extends Viewer<Arena> {
     public void drawElements(GUI gui) {
         drawElement(gui, getModel().getBomberman(), new BombermanViewer());
         drawElements(gui, getModel().getEnemies(), new EnemyViewer());
+        drawElements(gui, getModel().getObstacles(), new ObstacleViewer());
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {

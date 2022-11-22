@@ -55,6 +55,6 @@ public class GameViewerTest {
         Mockito.verify(gui, Mockito.times(1)).drawObstacle(new Position(10, 10));
         Mockito.verify(gui, Mockito.times(1)).drawObstacle(new Position(12, 12));
         Mockito.verify(gui, Mockito.times(1)).drawObstacle(new Position(14, 14));
-        Mockito.verify(gui, Mockito.times(3)).drawEnemy(Mockito.any(Position.class));
+        Mockito.verify(gui, Mockito.times(3)).drawObstacle(Mockito.any(Position.class));
     }
 }
