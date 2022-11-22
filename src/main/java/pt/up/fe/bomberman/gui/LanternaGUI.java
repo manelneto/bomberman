@@ -1,6 +1,8 @@
 package pt.up.fe.bomberman.gui;
 
 import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.TextColor;
+import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
@@ -60,7 +62,12 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawEnemy(Position position) {
+    }
 
+    private void drawCharacter(int x, int y, char c, String color) {
+        TextGraphics textGraphics = screen.newTextGraphics();
+        textGraphics.setForegroundColor(TextColor.Factory.fromString(color));
+        textGraphics.putString(x, y, "" + c);
     }
 
     @Override
