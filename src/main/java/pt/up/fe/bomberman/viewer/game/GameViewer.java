@@ -5,6 +5,8 @@ import pt.up.fe.bomberman.model.arena.Arena;
 import pt.up.fe.bomberman.model.elements.Element;
 import pt.up.fe.bomberman.viewer.Viewer;
 
+import java.util.List;
+
 public class GameViewer extends Viewer<Arena> {
     public GameViewer(Arena arena) {
         super(arena);
@@ -12,6 +14,12 @@ public class GameViewer extends Viewer<Arena> {
     @Override
     public void drawElements(GUI gui) {
         drawElement(gui, getModel().getBomberman(), new BombermanViewer());
+        drawElements(gui, getModel().getEnemies(), new EnemyViewer());
+    }
+
+    private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {
+        for (T element : elements)
+            drawElement(gui, element, viewer);
     }
 
     private <T extends Element> void drawElement(GUI gui, T element, ElementViewer<T> viewer) {
