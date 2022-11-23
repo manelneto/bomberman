@@ -17,6 +17,8 @@ public interface GUI {
 
     void drawEnemy(Position position);
 
+    void drawPowerup(Position position);
+
     void clear();
 
     void refresh() throws IOException;
