@@ -5,3 +5,4 @@ public class Bomberman extends Element {
         super(x, y);
     }
 }
+

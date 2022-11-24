@@ -61,3 +61,4 @@ public class Arena {
         this.walls = walls;
     }
 }
+

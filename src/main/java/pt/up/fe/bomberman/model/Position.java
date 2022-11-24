@@ -58,3 +58,4 @@ public class Position {
         return Objects.hash(x, y);
     }
 }
+

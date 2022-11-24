@@ -5,7 +5,6 @@ import pt.up.fe.bomberman.model.elements.Enemy;
 import pt.up.fe.bomberman.model.elements.Obstacle;
 import pt.up.fe.bomberman.model.elements.Wall;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class ArenaBuilder {
@@ -32,3 +31,4 @@ public abstract class ArenaBuilder {
 
     protected abstract Bomberman createBomberman();
 }
+

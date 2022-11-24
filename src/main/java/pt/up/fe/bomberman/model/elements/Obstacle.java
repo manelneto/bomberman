@@ -5,3 +5,4 @@ public class Obstacle extends Element {
         super(x, y);
     }
 }
+

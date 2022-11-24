@@ -5,3 +5,4 @@ public class Enemy extends Element {
         super(x, y);
     }
 }
+
