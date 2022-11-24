@@ -9,3 +9,4 @@ public class ObstacleViewer implements ElementViewer<Obstacle> {
         gui.drawObstacle(obstacle.getPosition());
     }
 }
+

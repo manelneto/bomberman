@@ -10,3 +10,4 @@ public class BombermanViewer implements ElementViewer<Bomberman> {
         gui.drawBomberman(bomberman.getPosition());
     }
 }
+

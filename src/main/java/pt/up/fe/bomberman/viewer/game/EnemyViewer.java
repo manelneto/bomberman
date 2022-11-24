@@ -9,3 +9,4 @@ public class EnemyViewer implements ElementViewer<Enemy> {
         gui.drawEnemy(enemy.getPosition());
     }
 }
+
