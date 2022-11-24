@@ -10,6 +10,6 @@ public class Detonator extends Powerup {
 
     @Override
     public void applyEffect(Bomberman bomberman) {
-        //bomberman.setDetonate(true);
+        bomberman.ableDetonate();
     }
 }

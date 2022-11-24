@@ -35,11 +35,11 @@ public class Bomberman extends Element {
 
 
     //setters
-    void increaseSpeed(){speed += 0.5;}
-    void increaseMaxBombs(){ usableBombs++; }
+    public void increaseSpeed(){speed++;}
+    public void increaseUsableBombs(){ usableBombs++; }
     public void increaseBombRange() { bombRange++;}
-    void ableBombpass() { bombpass = true;}
-    void ableWallpass() { wallpass = true;}
-    void ableDetonate() { detonator = true;}
-    void setFlamepass() {flamepass = true;}
+    public void ableBombpass() { bombpass = true;}
+    public void ableWallpass() { wallpass = true;}
+    public void ableDetonate() { detonator = true;}
+    public void ableFlamepass() {flamepass = true;}
 }

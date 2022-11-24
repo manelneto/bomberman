@@ -10,7 +10,6 @@ public class Bombs extends Powerup {
 
     @Override
     public void applyEffect(Bomberman bomberman) {
-        //max_bombs++;
-        return;
+        bomberman.increaseUsableBombs();
     }
 }

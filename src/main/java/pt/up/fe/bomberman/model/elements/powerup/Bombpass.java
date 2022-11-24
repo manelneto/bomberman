@@ -10,6 +10,6 @@ public class Bombpass extends Powerup {
 
     @Override
     public void applyEffect(Bomberman bomberman) {
-        //.setBombpass(true);
+        bomberman.ableBombpass();
     }
 }

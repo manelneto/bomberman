@@ -10,6 +10,6 @@ public class Flamepass extends Powerup {
 
     @Override
     public void applyEffect(Bomberman bomberman) {
-        //bomberman.setInvencible(true);
+        bomberman.ableFlamepass();
     }
 }

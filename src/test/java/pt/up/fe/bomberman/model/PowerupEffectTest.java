@@ -56,7 +56,7 @@ public class PowerupEffectTest {
     void speedTest(){
         powerup = new Speed(5,5);
         powerup.applyEffect(bomberman);
-        assertTrue(bomberman.getSpeed() == 1.5);
+        assertTrue(bomberman.getSpeed() == 2);
     }
 
     @Test

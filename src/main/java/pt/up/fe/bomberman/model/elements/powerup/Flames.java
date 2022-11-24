@@ -10,6 +10,6 @@ public class Flames extends Powerup {
 
     @Override
     public void applyEffect(Bomberman bomberman) {
-        //bombs.setRange(bombs.getRange()++);
+        bomberman.increaseBombRange();
     }
 }

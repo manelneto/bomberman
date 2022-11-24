@@ -10,6 +10,6 @@ public class Speed extends Powerup {
 
     @Override
     public void applyEffect(Bomberman bomberman) {
-        //bomberman.speed()++;
+        bomberman.increaseSpeed();
     }
 }

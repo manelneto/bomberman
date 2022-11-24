@@ -10,6 +10,6 @@ public class Wallpass extends Powerup {
 
     @Override
     public void applyEffect(Bomberman bomberman) {
-        //bomberman.setWallpass(true);
+        bomberman.ableWallpass();
     }
 }
