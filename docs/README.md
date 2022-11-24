@@ -36,10 +36,6 @@ This project was developed by *Diogo Sarmento* (*up202109663*@fe.up.pt), *Manuel
 
 ### SELF-EVALUATION
 
-> In this section describe how the work regarding the project was divided between the students. In the event that members of the group do not agree on a work distribution, the group should send an email to the teacher explaining the disagreement.
-
-**Example**:
-
-- John Doe: 40%
-- Jane Doe: 60%
-
+- Diogo Sarmento: 33%
+- Manuel Neto: 33%
+- Tomás Vicente: 33%
