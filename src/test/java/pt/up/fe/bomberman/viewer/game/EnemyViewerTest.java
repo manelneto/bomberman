@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import pt.up.fe.bomberman.gui.GUI;
 import pt.up.fe.bomberman.model.elements.Enemy;
+import pt.up.fe.bomberman.model.elements.enemy.Balloom;
 
 public class EnemyViewerTest {
     private Enemy enemy;
@@ -13,7 +14,7 @@ public class EnemyViewerTest {
 
     @BeforeEach
     void setUp() {
-        enemy = new Enemy(13, 17);
+        enemy = new Balloom(13, 17);
         viewer = new EnemyViewer();
         gui = Mockito.mock(GUI.class);
     }
