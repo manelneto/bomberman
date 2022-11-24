@@ -1,5 +1,6 @@
 package pt.up.fe.bomberman.model.elements.powerup;
 
+import pt.up.fe.bomberman.model.elements.Bomberman;
 import pt.up.fe.bomberman.model.elements.Powerup;
 
 public class Bombpass extends Powerup {
@@ -8,7 +9,7 @@ public class Bombpass extends Powerup {
     }
 
     @Override
-    public void applyEffect() {
-        //bomberman.setBombpass(true);
+    public void applyEffect(Bomberman bomberman) {
+        //.setBombpass(true);
     }
 }
