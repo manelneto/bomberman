@@ -23,9 +23,11 @@ public class Game {
     }
 
     private void start() throws IOException {
+        //temporary version just to see if everything is working as intended
         ArenaBuilder arenaBuilder = new LoaderArenaBuilder(1);
         Arena arena = arenaBuilder.createArena();
         Viewer viewer = new GameViewer(arena);
         viewer.draw(gui);
     }
 }
+
