@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import pt.up.fe.bomberman.gui.GUI;
 import pt.up.fe.bomberman.model.elements.Obstacle;
-import pt.up.fe.bomberman.viewer.game.ObstacleViewer;
 
 public class ObstacleViewerTest {
     private Obstacle obstacle;
@@ -25,3 +24,4 @@ public class ObstacleViewerTest {
         Mockito.verify(gui, Mockito.times(1)).drawObstacle(obstacle.getPosition());
     }
 }
+
