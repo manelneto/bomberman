@@ -30,7 +30,7 @@ This project was developed by *Diogo Sarmento* (*up202109663*@fe.up.pt), *Manuel
 ### TESTING
 
 - Screenshot of coverage report.
-![Alt text](coverage_tests.jpg?raw=true "Title")
+![Alt text](coverage_tests.png?raw=true "Title")
 - Link to mutation testing report.
 
 
