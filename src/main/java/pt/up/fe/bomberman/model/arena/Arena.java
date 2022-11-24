@@ -19,7 +19,6 @@ public class Arena {
     public Arena(int width, int height) {
         this.width = width;
         this.height = height;
-
     }
 
     public Bomberman getBomberman() {
