@@ -20,3 +20,26 @@ This project was developed by *Diogo Sarmento* (*up202109663*@fe.up.pt), *Manuel
 ### DESIGN
 
 
+#### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
+
+> This section should describe 3 to 5 different code smells that you have identified in your current implementation, and suggest ways in which the code could be refactored to eliminate them. Each smell and refactoring suggestions should be described in its own subsection.
+
+**Example of such a subsection**:
+
+
+### TESTING
+
+- Screenshot of coverage report.
+![Alt text](coverage_tests.jpg?raw=true "Title")
+- Link to mutation testing report.
+
+
+### SELF-EVALUATION
+
+> In this section describe how the work regarding the project was divided between the students. In the event that members of the group do not agree on a work distribution, the group should send an email to the teacher explaining the disagreement.
+
+**Example**:
+
+- John Doe: 40%
+- Jane Doe: 60%
+
