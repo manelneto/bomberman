@@ -9,6 +9,8 @@ public interface GUI {
 
     ACTION getNextAction() throws IOException;
 
+    void paintBackground(int width, int height);
+
     void drawBomberman(Position position);
 
     void drawObstacle(Position position);

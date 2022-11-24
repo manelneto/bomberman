@@ -8,12 +8,9 @@ import pt.up.fe.bomberman.model.elements.Wall;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArenaBuilder {
-    private final int width = 20;
-    private final int height = 20;
-
+public abstract class ArenaBuilder {
     public Arena createArena() {
-        Arena arena = new Arena(width, height);
+        Arena arena = new Arena(getWidth(), getHeight());
 
         arena.setBomberman(createBomberman());
         arena.setEnemies(createEnemies());
@@ -23,25 +20,15 @@ public class ArenaBuilder {
         return arena;
     }
 
-    private Bomberman createBomberman() {
-        return new Bomberman(1, 1);
-    }
+    protected abstract int getWidth();
 
-    private List<Enemy> createEnemies() {
-        List<Enemy> enemies = new ArrayList<>();
-        enemies.add(new Enemy(5, 5));
-        return enemies;
-    }
+    protected abstract int getHeight();
 
-    private List<Obstacle> createObstacles() {
-        List<Obstacle> obstacles = new ArrayList<>();
-        obstacles.add(new Obstacle(10, 10));
-        return obstacles;
-    }
+    protected abstract List<Wall> createWalls();
 
-    private List<Wall> createWalls() {
-        List<Wall> walls = new ArrayList<>();
-        walls.add(new Wall(15, 15));
-        return walls;
-    }
+    protected abstract List<Obstacle> createObstacles();
+
+    protected abstract List<Enemy> createEnemies();
+
+    protected abstract Bomberman createBomberman();
 }
