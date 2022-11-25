@@ -7,7 +7,7 @@ This project was developed by *Diogo Sarmento* (*up202109663*@fe.up.pt), *Manuel
 
 ### IMPLEMENTED FEATURES
 
-
+- **Loading level from a file** - The level to be played is loaded from a file that contains the "map" of that level.
 
 ### PLANNED FEATURES
 
@@ -19,25 +19,37 @@ This project was developed by *Diogo Sarmento* (*up202109663*@fe.up.pt), *Manuel
 
 ### DESIGN
 
-#### FACTORY METHOD TITLE
+#### THE VIEWERS
 
 **Problem in Context**
 
+We wanted to implement a viewer for each component of the game (bomberman, enemies, obstacles, walls - and, in the future, bombs).
+So, we had a class that couldn't anticipate the class of objects it must create, thus the class wanted the subclasses to specify the objects it creates.
+
 **The Pattern**
 
-We have applied the **Factory Method** pattern. This pattern allows you to  
+We have applied the **Factory Method** pattern.
+This pattern consists in defining and interface for creating an object, but letting subclasses decide which class to instantiate.
+Because of that, this pattern was a good fit for the problem.
 
 **Implementation**
 
+The following UML class diagram shows how the pattern's roles were mapped to the application classes.
+
+![img](bomberman-UML.png)
+
+The interface and the classes can be found in the following files:
+
+- [Interface ElementViewer](../src/main/java/pt/up/fe/bomberman/viewer/game/ElementViewer.java)
+- [Class BombermanViewer](../src/main/java/pt/up/fe/bomberman/viewer/game/BombermanViewer.java)
+- [Class EnemyViewer](../src/main/java/pt/up/fe/bomberman/viewer/game/EnemyViewer.java)
+- [Class ObstacleViewer](../src/main/java/pt/up/fe/bomberman/viewer/game/ObstacleViewer.java)
+- [Class WallViewer](../src/main/java/pt/up/fe/bomberman/viewer/game/WallViewer.java)
+
 **Consequences**
 
-
-#### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
-
-> This section should describe 3 to 5 different code smells that you have identified in your current implementation, and suggest ways in which the code could be refactored to eliminate them. Each smell and refactoring suggestions should be described in its own subsection.
-
-**Example of such a subsection**:
-
+The use of the Factory Method Pattern in the current design eliminates the need to bind application-specific classes into the code.
+The code only need to deal with the ElementViewer interface; therefore it can work it with any of the concrete classes.
 
 ### TESTING
 
