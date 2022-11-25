@@ -22,3 +22,4 @@ public abstract class State<T> {
         return model;
     }
 }
+

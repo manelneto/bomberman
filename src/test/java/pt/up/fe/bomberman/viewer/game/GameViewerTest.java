@@ -69,4 +69,3 @@ public class GameViewerTest {
         Mockito.verify(gui, Mockito.times(4)).drawWall(Mockito.any(Position.class));
     }
 }
-

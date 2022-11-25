@@ -17,4 +17,3 @@ public class Element {
         this.position = position;
     }
 }
-

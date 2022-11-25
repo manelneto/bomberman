@@ -8,3 +8,4 @@ public class ArenaController extends GameController {
         super(arena);
     }
 }
+

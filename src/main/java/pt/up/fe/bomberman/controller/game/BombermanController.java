@@ -8,3 +8,4 @@ public class BombermanController extends GameController {
         super(arena);
     }
 }
+

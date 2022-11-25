@@ -21,3 +21,4 @@ public class GameState extends State<Arena> {
         return new ArenaController(getModel());
     }
 }
+

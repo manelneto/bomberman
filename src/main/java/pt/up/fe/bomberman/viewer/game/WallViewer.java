@@ -9,4 +9,3 @@ public class WallViewer implements ElementViewer<Wall> {
         gui.drawWall(wall.getPosition());
     }
 }
-

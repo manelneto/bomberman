@@ -27,3 +27,4 @@ public interface GUI {
 
     void close() throws IOException;
 }
+

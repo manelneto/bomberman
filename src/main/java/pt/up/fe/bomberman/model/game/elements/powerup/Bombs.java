@@ -13,3 +13,4 @@ public class Bombs extends Powerup {
         bomberman.increaseUsableBombs();
     }
 }
+

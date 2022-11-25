@@ -26,3 +26,4 @@ public class PowerupViewerTest {
         Mockito.verify(gui, Mockito.times(1)).drawPowerup(powerup.getPosition());
     }
 }
+

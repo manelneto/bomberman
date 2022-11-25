@@ -30,4 +30,3 @@ public class Game {
         viewer.draw(gui);
     }
 }
-

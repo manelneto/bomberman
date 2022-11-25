@@ -24,4 +24,3 @@ public class EnemyViewerTest {
         Mockito.verify(gui, Mockito.times(1)).drawEnemy(enemy.getPosition());
     }
 }
-

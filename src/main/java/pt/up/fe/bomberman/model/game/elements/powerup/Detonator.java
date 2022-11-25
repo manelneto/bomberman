@@ -13,3 +13,4 @@ public class Detonator extends Powerup {
         bomberman.ableDetonate();
     }
 }
+

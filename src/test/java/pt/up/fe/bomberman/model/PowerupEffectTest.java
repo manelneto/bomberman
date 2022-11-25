@@ -66,3 +66,4 @@ public class PowerupEffectTest {
         assertTrue(bomberman.canWallpass());
     }
 }
+

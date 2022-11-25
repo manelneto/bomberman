@@ -24,4 +24,3 @@ public class WallViewerTest {
         Mockito.verify(gui, Mockito.times(1)).drawWall(wall.getPosition());
     }
 }
-

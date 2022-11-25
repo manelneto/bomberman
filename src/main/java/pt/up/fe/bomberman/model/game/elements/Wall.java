@@ -5,4 +5,3 @@ public class Wall extends Element {
         super(x, y);
     }
 }
-

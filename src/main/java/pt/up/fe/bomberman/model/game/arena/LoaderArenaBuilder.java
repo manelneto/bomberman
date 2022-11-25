@@ -99,4 +99,3 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         return walls;
     }
 }
-

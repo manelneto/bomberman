@@ -13,3 +13,4 @@ public class Wallpass extends Powerup {
         bomberman.ableWallpass();
     }
 }
+

@@ -9,3 +9,4 @@ public class PowerupViewer implements ElementViewer<Powerup> {
         gui.drawPowerup(element.getPosition());
     }
 }
+

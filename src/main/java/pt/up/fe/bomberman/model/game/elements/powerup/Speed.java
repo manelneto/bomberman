@@ -13,3 +13,4 @@ public class Speed extends Powerup {
         bomberman.increaseSpeed();
     }
 }
+

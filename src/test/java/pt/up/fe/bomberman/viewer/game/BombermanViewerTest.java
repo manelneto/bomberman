@@ -24,4 +24,3 @@ public class BombermanViewerTest {
         Mockito.verify(gui, Mockito.times(1)).drawBomberman(bomberman.getPosition());
     }
 }
-

@@ -13,3 +13,4 @@ public class Flames extends Powerup {
         bomberman.increaseBombRange();
     }
 }
+

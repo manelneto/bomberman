@@ -9,3 +9,4 @@ public class GameController extends Controller<Arena> {
         super(arena);
     }
 }
+

@@ -11,4 +11,3 @@ public abstract class Controller<T> {
         return model;
     }
 }
-

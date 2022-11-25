@@ -30,4 +30,3 @@ public class GameViewer extends Viewer<Arena> {
         viewer.draw(element, gui);
     }
 }
-

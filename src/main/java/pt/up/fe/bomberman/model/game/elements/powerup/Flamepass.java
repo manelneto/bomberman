@@ -13,3 +13,4 @@ public class Flamepass extends Powerup {
         bomberman.ableFlamepass();
     }
 }
+

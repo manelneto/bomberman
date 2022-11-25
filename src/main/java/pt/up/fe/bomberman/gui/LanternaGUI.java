@@ -136,3 +136,4 @@ public class LanternaGUI implements GUI {
         screen.close();
     }
 }
+

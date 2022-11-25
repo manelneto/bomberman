@@ -43,4 +43,3 @@ public class Bomberman extends Element {
     public void ableDetonate() { detonator = true;}
     public void ableFlamepass() {flamepass = true;}
 }
-

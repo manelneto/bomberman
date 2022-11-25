@@ -56,8 +56,8 @@ The code only need to deal with the ElementViewer interface; therefore it can wo
 - Screenshot of coverage report.
 
 ![Alt text](coverage_tests.png?raw=true "Coverage Report")
-- Link to mutation testing report.
 
+- [Link to mutation testing report](report/index.html)
 
 ### SELF-EVALUATION
 

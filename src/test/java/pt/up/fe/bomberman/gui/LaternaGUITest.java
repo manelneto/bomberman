@@ -59,4 +59,3 @@ class LaternaGUITest {
         Mockito.verify(textGraphics, Mockito.times(1)).putString(7, 13, "E");
     }
 }
-

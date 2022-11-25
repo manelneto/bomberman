@@ -9,3 +9,4 @@ public class MenuController extends Controller<Menu> {
         super(menu);
     }
 }
+

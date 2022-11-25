@@ -34,4 +34,3 @@ class PositionTest {
         assertEquals(y, position.getLeft().getY());
     }
 }
-

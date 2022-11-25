@@ -24,4 +24,3 @@ public class ObstacleViewerTest {
         Mockito.verify(gui, Mockito.times(1)).drawObstacle(obstacle.getPosition());
     }
 }
-
