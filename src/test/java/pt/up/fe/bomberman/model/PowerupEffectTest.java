@@ -1,12 +1,12 @@
 package pt.up.fe.bomberman.model;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import pt.up.fe.bomberman.model.elements.Bomberman;
-import pt.up.fe.bomberman.model.elements.Powerup;
-import pt.up.fe.bomberman.model.elements.powerup.*;
+import pt.up.fe.bomberman.model.game.elements.Powerup;
+import pt.up.fe.bomberman.model.game.elements.powerup.*;
+import pt.up.fe.bomberman.model.game.elements.Bomberman;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PowerupEffectTest {
     private Powerup powerup;

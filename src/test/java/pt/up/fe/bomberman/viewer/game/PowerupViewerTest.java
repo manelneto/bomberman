@@ -4,8 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import pt.up.fe.bomberman.gui.GUI;
-import pt.up.fe.bomberman.model.elements.Powerup;
-import pt.up.fe.bomberman.model.elements.powerup.Bombpass;
+import pt.up.fe.bomberman.model.game.elements.Powerup;
+import pt.up.fe.bomberman.model.game.elements.powerup.Bombpass;
 
 public class PowerupViewerTest {
     private Powerup powerup;

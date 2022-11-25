@@ -1,7 +1,7 @@
-package pt.up.fe.bomberman.model.elements.powerup;
+package pt.up.fe.bomberman.model.game.elements.powerup;
 
-import pt.up.fe.bomberman.model.elements.Bomberman;
-import pt.up.fe.bomberman.model.elements.Powerup;
+import pt.up.fe.bomberman.model.game.elements.Bomberman;
+import pt.up.fe.bomberman.model.game.elements.Powerup;
 
 public class Speed extends Powerup {
     public Speed(int x, int y) {
