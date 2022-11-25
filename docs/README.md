@@ -20,3 +20,23 @@ This project was developed by *Diogo Sarmento* (*up202109663*@fe.up.pt), *Manuel
 ### DESIGN
 
 
+#### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
+
+> This section should describe 3 to 5 different code smells that you have identified in your current implementation, and suggest ways in which the code could be refactored to eliminate them. Each smell and refactoring suggestions should be described in its own subsection.
+
+**Example of such a subsection**:
+
+
+### TESTING
+
+- Screenshot of coverage report.
+
+![Alt text](coverage_tests.png?raw=true "Coverage Report")
+- Link to mutation testing report.
+
+
+### SELF-EVALUATION
+
+- Diogo Sarmento: 33%
+- Manuel Neto: 33%
+- Tomás Vicente: 33%
