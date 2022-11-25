@@ -19,6 +19,18 @@ This project was developed by *Diogo Sarmento* (*up202109663*@fe.up.pt), *Manuel
 
 ### DESIGN
 
+#### FACTORY METHOD TITLE
+
+**Problem in Context**
+
+**The Pattern**
+
+We have applied the **Factory Method** pattern. This pattern allows you to  
+
+**Implementation**
+
+**Consequences**
+
 
 #### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
 
