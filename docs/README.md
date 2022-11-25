@@ -17,6 +17,10 @@ This project was developed by *Diogo Sarmento* (*up202109663*@fe.up.pt), *Manuel
 - **Kill enemies** - When the bomb's explosion reaches an enemy, it will kill it.
 - **Die** - The player can lose the game if they die, either if they explode themselves with a bomb or an enemy gets to them.
 
+In the future, the game should look like this mockup:
+
+![img](mockup.png)
+
 ### DESIGN
 
 #### THE VIEWERS
