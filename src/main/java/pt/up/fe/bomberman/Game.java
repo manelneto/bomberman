@@ -1,9 +1,9 @@
 package pt.up.fe.bomberman;
 
 import pt.up.fe.bomberman.gui.LanternaGUI;
-import pt.up.fe.bomberman.model.arena.Arena;
-import pt.up.fe.bomberman.model.arena.ArenaBuilder;
-import pt.up.fe.bomberman.model.arena.LoaderArenaBuilder;
+import pt.up.fe.bomberman.model.game.arena.Arena;
+import pt.up.fe.bomberman.model.game.arena.ArenaBuilder;
+import pt.up.fe.bomberman.model.game.arena.LoaderArenaBuilder;
 import pt.up.fe.bomberman.viewer.Viewer;
 import pt.up.fe.bomberman.viewer.game.GameViewer;
 
