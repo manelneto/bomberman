@@ -5,7 +5,7 @@ import pt.up.fe.bomberman.model.elements.Enemy;
 
 public class Pass extends Enemy {
     public Pass(int x, int y) {
-        super(x, y);
+        super(x, y,4,3,false);
     }
 
     @Override
@@ -13,7 +13,4 @@ public class Pass extends Enemy {
         return false;
     }
 
-    private final int speed = 4;
-    private final int smart = 3;
-    private final boolean wallpass = false;
 }

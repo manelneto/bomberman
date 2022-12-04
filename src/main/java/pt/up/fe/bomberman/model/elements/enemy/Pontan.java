@@ -5,7 +5,7 @@ import pt.up.fe.bomberman.model.elements.Enemy;
 
 public class Pontan extends Enemy {
     public Pontan(int x, int y) {
-        super(x, y);
+        super(x, y,4,3,true);
     }
 
     @Override
@@ -13,7 +13,4 @@ public class Pontan extends Enemy {
         return false;
     }
 
-    private final int speed = 4;
-    private final int smart = 3;
-    private final boolean wallpass = true;
 }

@@ -6,12 +6,8 @@ import pt.up.fe.bomberman.model.elements.Wall;
 
 public class Balloom extends Enemy {
     public Balloom(int x, int y) {
-        super(x, y);
+        super(x, y,2,1,false);
     }
-
-    private final int speed = 2;
-    private final int smart = 1;
-    private final boolean wallpass = false;
 
     @Override
     public boolean canMove(Position position){
