@@ -27,7 +27,6 @@ class LaternaGUITest {
     void drawBomberman() {
         gui.drawBomberman(new Position(10, 10));
 
-        Mockito.verify(textGraphics, Mockito.times(1)).setForegroundColor(new TextColor.RGB(0, 0, 255));
         Mockito.verify(textGraphics, Mockito.times(1)).putString(10, 10, "B");
     }
 
@@ -35,7 +34,6 @@ class LaternaGUITest {
     void drawObstacle() {
         gui.drawObstacle(new Position(5, 5));
 
-        Mockito.verify(textGraphics, Mockito.times(1)).setForegroundColor(new TextColor.RGB(80, 80, 80));
         Mockito.verify(textGraphics, Mockito.times(1)).putString(5, 5, "O");
     }
 
@@ -43,15 +41,20 @@ class LaternaGUITest {
     void drawWall() {
         gui.drawWall(new Position(20, 20));
 
-        Mockito.verify(textGraphics, Mockito.times(1)).setForegroundColor(new TextColor.RGB(150, 75, 0));
-        Mockito.verify(textGraphics, Mockito.times(1)).putString(20, 20, "W");
+        Mockito.verify(textGraphics, Mockito.times(1)).putString(20, 20, "#");
     }
 
     @Test
     void drawEnemy() {
         gui.drawEnemy(new Position(7, 13));
 
-        Mockito.verify(textGraphics, Mockito.times(1)).setForegroundColor(new TextColor.RGB(255, 0, 0));
         Mockito.verify(textGraphics, Mockito.times(1)).putString(7, 13, "E");
+    }
+    @Test
+    void drawText() {
+        gui.drawText(new Position(1, 1), "Hello World", "#336699");
+
+        Mockito.verify(textGraphics, Mockito.times(1)).setForegroundColor(new TextColor.RGB(51, 102, 153));
+        Mockito.verify(textGraphics, Mockito.times(1)).putString(1, 1, "Hello World");
     }
 }

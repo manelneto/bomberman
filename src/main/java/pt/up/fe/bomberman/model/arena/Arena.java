@@ -1,5 +1,6 @@
 package pt.up.fe.bomberman.model.arena;
 
+import pt.up.fe.bomberman.model.Position;
 import pt.up.fe.bomberman.model.elements.Bomberman;
 import pt.up.fe.bomberman.model.elements.Enemy;
 import pt.up.fe.bomberman.model.elements.Obstacle;
@@ -20,6 +21,13 @@ public class Arena {
         this.width = width;
         this.height = height;
 
+    }
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
     }
 
     public Bomberman getBomberman() {
@@ -52,5 +60,21 @@ public class Arena {
 
     public void setWalls(List<Wall> walls) {
         this.walls = walls;
+    }
+
+    public boolean isEmpty(Position position){
+        for (Obstacle obstacle : obstacles)
+            if (obstacle.getPosition().equals(position))
+                return false;
+        for (Wall wall : walls)
+            if (wall.getPosition().equals(position))
+                return false;
+        return true;
+    }
+    public boolean isEnemy(Position position){
+        for (Enemy enemy : enemies)
+            if (enemy.getPosition().equals(position))
+                return true;
+        return false;
     }
 }

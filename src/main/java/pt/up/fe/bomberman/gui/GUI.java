@@ -5,9 +5,11 @@ import pt.up.fe.bomberman.model.Position;
 import java.io.IOException;
 
 public interface GUI {
-    enum ACTION {UP, RIGHT, DOWN, LEFT, ENTER, NONE}
+    enum ACTION {UP, RIGHT, DOWN, LEFT, ENTER, NONE, QUIT,SPACE}
 
-    ACTION getNextAction();
+    ACTION getNextAction() throws IOException;
+
+    void drawText(Position position, String text, String color);
 
     void drawBomberman(Position position);
 
@@ -22,4 +24,7 @@ public interface GUI {
     void refresh() throws IOException;
 
     void close() throws IOException;
+
+    void paintBackground(int width, int height);
+
 }

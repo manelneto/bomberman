@@ -37,12 +37,14 @@ public class Position {
 
     public Position getRandomNeighbour() {
         int n = (int) (Math.random() * 4);
+        /*
         return switch (n) {
-            case 0 -> getUp();
-            case 1 -> getRight();
-            case 2 -> getDown();
-            default -> getLeft();
-        };
+            case 0: return getUp();
+            case 1: return getRight();
+            case 2: return getDown();
+            default: return  getLeft();
+        }*/
+        if(n==0)return getUp();if(n==1)return getRight();if(n==2)return getDown();else return getLeft();
     }
 
     @Override
