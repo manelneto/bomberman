@@ -1,3 +1,4 @@
+
 package pt.up.fe.bomberman.states;
 
 import pt.up.fe.bomberman.Game;
@@ -33,3 +34,4 @@ public abstract class State<T> {
 
 
 }
+

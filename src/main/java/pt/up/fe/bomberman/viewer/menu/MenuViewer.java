@@ -1,5 +1,5 @@
-package pt.up.fe.bomberman.viewer.menu;
 
+package pt.up.fe.bomberman.viewer.menu;
 import pt.up.fe.bomberman.gui.GUI;
 import pt.up.fe.bomberman.model.Position;
 import pt.up.fe.bomberman.model.menu.Menu;
@@ -18,3 +18,5 @@ public class MenuViewer extends Viewer<Menu> {
             gui.drawText(new Position(5, 7 + i), getModel().getOption(i), getModel().isSelected(i) ? "#FFD700" : "#FFFFFF");
         }
     }
+
+

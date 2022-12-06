@@ -1,3 +1,4 @@
+
 package pt.up.fe.bomberman.states;
 
 import pt.up.fe.bomberman.controller.Controller;
@@ -21,3 +22,4 @@ public class MenuState extends State<Menu> {
         return new MenuController(getModel());
     }
 }
+

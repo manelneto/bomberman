@@ -1,9 +1,11 @@
+
 package pt.up.fe.bomberman.controller.game;
 
 import pt.up.fe.bomberman.Game;
 import pt.up.fe.bomberman.gui.GUI;
 import pt.up.fe.bomberman.model.Position;
-import pt.up.fe.bomberman.model.arena.Arena;
+
+import pt.up.fe.bomberman.model.game.arena.Arena;
 
 public class BombermanController extends GameController {
     public BombermanController(Arena arena) {
@@ -43,3 +45,4 @@ public class BombermanController extends GameController {
 
 
 }
+

@@ -1,3 +1,4 @@
+
 package pt.up.fe.bomberman.controller.menu;
 
 import pt.up.fe.bomberman.Game;
@@ -29,3 +30,4 @@ public class MenuController extends Controller<Menu> {
         }
     }
 }
+

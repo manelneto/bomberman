@@ -1,4 +1,4 @@
-package pt.up.fe.bomberman.model.elements;
+package pt.up.fe.bomberman.model.game.elements;
 
 public class Enemy extends Element {
 

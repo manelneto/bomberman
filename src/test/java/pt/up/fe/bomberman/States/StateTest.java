@@ -1,19 +1,17 @@
 package pt.up.fe.bomberman.States;
 
-import com.googlecode.lanterna.screen.Screen;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import pt.up.fe.bomberman.Game;
+
 import pt.up.fe.bomberman.controller.Controller;
 import pt.up.fe.bomberman.controller.game.GameController;
 import pt.up.fe.bomberman.controller.menu.MenuController;
-import pt.up.fe.bomberman.gui.GUI;
-import pt.up.fe.bomberman.gui.LanternaGUI;
-import pt.up.fe.bomberman.model.Position;
-import pt.up.fe.bomberman.model.arena.Arena;
-import pt.up.fe.bomberman.model.elements.Bomberman;
+
+
+import pt.up.fe.bomberman.model.game.arena.Arena;
 import pt.up.fe.bomberman.model.menu.Menu;
 import pt.up.fe.bomberman.states.GameState;
 import pt.up.fe.bomberman.states.MenuState;
@@ -24,7 +22,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import static org.mockito.Mockito.when;
+
 
 public class StateTest {
 

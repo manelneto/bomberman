@@ -13,6 +13,9 @@ import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import pt.up.fe.bomberman.model.Position;
 
+
+import javax.swing.*;
+
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -35,6 +38,7 @@ public class LanternaGUI implements GUI {
         URL resource = getClass().getClassLoader().getResource("fonts/Bomber-Regular.ttf");
         File fontFile = new File(resource.toURI());
         Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+
 
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
@@ -63,6 +67,7 @@ public class LanternaGUI implements GUI {
     }
 
 
+    @Override
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
         if (keyStroke == null) return ACTION.NONE;
@@ -78,32 +83,47 @@ public class LanternaGUI implements GUI {
         if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.ENTER;
 
         return ACTION.NONE;
+
+    }
+
+    @Override
+    public void paintBackground(int width, int height) {
+        TextGraphics textGraphics = screen.newTextGraphics();
+        textGraphics.setBackgroundColor(TextColor.Factory.fromString("#397C00"));
+        textGraphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
+
     }
 
     @Override
     public void drawBomberman(Position position) {
         drawCharacter(position.getX(), position.getY(), '!', "#64A4FF"); //blue
     }
-    @Override
-    public void paintBackground(int width, int height) {
-        TextGraphics textGraphics = screen.newTextGraphics();
-        textGraphics.setBackgroundColor(TextColor.Factory.fromString("#397C00"));
-        textGraphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
-    }
+
 
     @Override
     public void drawObstacle(Position position) {
+
         drawCharacter(position.getX(), position.getY(), '?', "#C9C9C9"); //brown
+
     }
 
     @Override
     public void drawWall(Position position) {
         drawCharacter(position.getX(), position.getY(), ';', "#C9C9C9"); //grey
+
     }
 
     @Override
     public void drawEnemy(Position position) {
+
         drawCharacter(position.getX(), position.getY(), ':', "#FA732C"); //redO
+}
+
+
+    @Override
+    public void drawPowerup(Position position) {
+        drawCharacter(position.getX(), position.getY(),'P', "#F7EF8A"); //gold
+
     }
 
     private void drawCharacter(int x, int y, char c, String color) {
@@ -135,3 +155,4 @@ public class LanternaGUI implements GUI {
         textGraphics.putString(position.getX(), position.getY(), text);
     }
 }
+

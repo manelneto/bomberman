@@ -1,3 +1,4 @@
+
 package pt.up.fe.bomberman.controller;
 
 import pt.up.fe.bomberman.Game;
@@ -19,3 +20,4 @@ public abstract class Controller<T> {
     public abstract void step(Game game, GUI.ACTION action, long time) throws IOException;
 
 }
+

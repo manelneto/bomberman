@@ -5,11 +5,11 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import pt.up.fe.bomberman.gui.GUI;
 import pt.up.fe.bomberman.model.Position;
-import pt.up.fe.bomberman.model.arena.Arena;
-import pt.up.fe.bomberman.model.elements.Bomberman;
-import pt.up.fe.bomberman.model.elements.Enemy;
-import pt.up.fe.bomberman.model.elements.Obstacle;
-import pt.up.fe.bomberman.model.elements.Wall;
+import pt.up.fe.bomberman.model.game.arena.Arena;
+import pt.up.fe.bomberman.model.game.elements.Bomberman;
+import pt.up.fe.bomberman.model.game.elements.Enemy;
+import pt.up.fe.bomberman.model.game.elements.Obstacle;
+import pt.up.fe.bomberman.model.game.elements.Wall;
 
 import java.io.IOException;
 import java.util.Arrays;
