@@ -13,7 +13,7 @@ public interface GUI {
     void drawText(Position position, String text, String color);
 
 
-    void drawBomberman(Position position);
+    void drawBomberman(Position position, char face);
 
     void drawObstacle(Position position);
 

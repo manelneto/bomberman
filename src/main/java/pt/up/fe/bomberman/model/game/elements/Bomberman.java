@@ -1,7 +1,11 @@
 package pt.up.fe.bomberman.model.game.elements;
 
+import javax.swing.*;
+
 public class Bomberman extends Element {
     private int hp=1;
+
+    private char action;
 
     private int speed = 1;
     private int usableBombs = 1;
@@ -12,7 +16,7 @@ public class Bomberman extends Element {
     private boolean detonator = false;
 
     public Bomberman(int x, int y) {
-        super(x, y);
+        super(x, y); action='D';
     }
 
     public int getSpeed() {
@@ -49,7 +53,22 @@ public class Bomberman extends Element {
 
     public int getHp(){return hp;}
 
+    public char getAction() {return action;}
+
     public void TakesHit(){
         hp--;
     }
+    public void Face_down(){
+        action='D';
+    }
+    public void Face_Up(){
+        action='U';
+    }
+    public void Face_right(){
+        action='R';
+    }
+    public void Face_left(){
+        action='L';
+    }
+
 }

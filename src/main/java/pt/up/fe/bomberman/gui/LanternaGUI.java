@@ -95,8 +95,18 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void drawBomberman(Position position) {
-        drawCharacter(position.getX(), position.getY(), '!', "#64A4FF"); //blue
+    public void drawBomberman(Position position,char face) {
+        switch (face) {
+            case 'U':
+                drawCharacter(position.getX(), position.getY(), '"', "#64A4FF");break;
+            case 'L':
+                drawCharacter(position.getX(), position.getY(), ',', "#64A4FF");break;
+            case 'R':
+                drawCharacter(position.getX(), position.getY(), '.', "#64A4FF");break;
+            default:
+                drawCharacter(position.getX(), position.getY(), '!', "#64A4FF");
+        }
+
     }
 
 

@@ -7,6 +7,6 @@ public class BombermanViewer implements ElementViewer<Bomberman> {
 
     @Override
     public void draw(Bomberman bomberman, GUI gui) {
-        gui.drawBomberman(bomberman.getPosition());
+        gui.drawBomberman(bomberman.getPosition(),bomberman.getAction());
     }
 }

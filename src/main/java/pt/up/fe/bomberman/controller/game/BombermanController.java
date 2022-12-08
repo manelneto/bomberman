@@ -8,23 +8,30 @@ import pt.up.fe.bomberman.model.Position;
 import pt.up.fe.bomberman.model.game.arena.Arena;
 
 public class BombermanController extends GameController {
+    private long lastMovementTime;
     public BombermanController(Arena arena) {
         super(arena);
     }
 
     public void moveBombermanLeft() {
+
+        getModel().getBomberman().Face_left();
         moveBomber(getModel().getBomberman().getPosition().getLeft());
     }
 
     public void moveBombermanRight() {
+        getModel().getBomberman().Face_right();
         moveBomber(getModel().getBomberman().getPosition().getRight());
     }
 
     public void moveBombermanUp() {
+        getModel().getBomberman().Face_Up();
         moveBomber(getModel().getBomberman().getPosition().getUp());
     }
 
     public void moveBombermanDown() {
+
+        getModel().getBomberman().Face_down();
         moveBomber(getModel().getBomberman().getPosition().getDown());
     }
 
@@ -37,10 +44,15 @@ public class BombermanController extends GameController {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
-        if (action == GUI.ACTION.UP) moveBombermanUp();
-        if (action == GUI.ACTION.RIGHT) moveBombermanRight();
-        if (action == GUI.ACTION.DOWN) moveBombermanDown();
-        if (action == GUI.ACTION.LEFT) moveBombermanLeft();
+        if (time - lastMovementTime > (250/getModel().getBomberman().getSpeed())) {
+
+
+
+            if (action == GUI.ACTION.UP) {moveBombermanUp();this.lastMovementTime = time;}
+            if (action == GUI.ACTION.RIGHT){ moveBombermanRight();this.lastMovementTime = time;}
+            if (action == GUI.ACTION.DOWN){ moveBombermanDown();this.lastMovementTime = time;}
+            if (action == GUI.ACTION.LEFT){ moveBombermanLeft();this.lastMovementTime = time;}
+        }
     }
 
 

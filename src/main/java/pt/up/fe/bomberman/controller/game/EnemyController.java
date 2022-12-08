@@ -19,7 +19,7 @@ public class EnemyController extends GameController {
     }
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        if (time - lastMovementTime > 500) {
+        if (time - lastMovementTime > 350) {
             for (Enemy monster : getModel().getEnemies())
                 moveEnemy(monster, monster.getPosition().getRandomNeighbour());
             this.lastMovementTime = time;
