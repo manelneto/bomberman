@@ -56,12 +56,12 @@ public class Arena {
     public void Explode(long time){
 
         for(int i=1;i<=getBomb().getExplodeRadius();i++){
-            explosion.add(new ExplosionVertical(getBomb().getPosition().getX(),getBomb().getPosition().getY()+i,time));
-            explosion.add(new ExplosionVertical(getBomb().getPosition().getX(),getBomb().getPosition().getY()-i,time));
+            explosion.add(new Explosion(getBomb().getPosition().getX(),getBomb().getPosition().getY()+i,time,'V'));
+            explosion.add(new Explosion(getBomb().getPosition().getX(),getBomb().getPosition().getY()-i,time,'V'));
         }
         for(int i=1;i<=getBomb().getExplodeRadius();i++){
-            explosion.add(new ExplosionHorizontal(getBomb().getPosition().getX()+i,getBomb().getPosition().getY(),time));
-            explosion.add(new ExplosionHorizontal(getBomb().getPosition().getX()-i,getBomb().getPosition().getY(),time));
+            explosion.add(new Explosion(getBomb().getPosition().getX()+i,getBomb().getPosition().getY(),time,'H'));
+            explosion.add(new Explosion(getBomb().getPosition().getX()-i,getBomb().getPosition().getY(),time,'H'));
         }
         List<Explosion> delExplo =new ArrayList<>();
         for(Wall wall : walls){
