@@ -7,9 +7,4 @@ public class Flames extends Powerup {
     public Flames(int x, int y) {
         super(x, y);
     }
-
-    @Override
-    public void applyEffect(Bomberman bomberman) {
-        bomberman.increaseBombRange();
-    }
 }

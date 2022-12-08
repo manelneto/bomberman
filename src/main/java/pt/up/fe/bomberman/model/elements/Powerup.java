@@ -5,6 +5,6 @@ public abstract class Powerup extends Element{
         super(x, y);
     }
 
-    public abstract void applyEffect(Bomberman bomberman); // aplica o efeito do powerup
+//implementar função apllyEffect no Controller de Powerup
 
 }

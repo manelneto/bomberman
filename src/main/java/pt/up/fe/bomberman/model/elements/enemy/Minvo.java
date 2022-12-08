@@ -8,8 +8,4 @@ public class Minvo extends Enemy {
         super(x, y,4,2,false);
     }
 
-    @Override
-    public boolean canMove(Position position) {
-        return false;
-    }
 }

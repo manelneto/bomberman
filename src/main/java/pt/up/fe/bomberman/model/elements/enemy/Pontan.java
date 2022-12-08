@@ -8,9 +8,4 @@ public class Pontan extends Enemy {
         super(x, y,4,3,true);
     }
 
-    @Override
-    public boolean canMove(Position position) {
-        return false;
-    }
-
 }

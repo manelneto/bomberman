@@ -5,12 +5,6 @@ import pt.up.fe.bomberman.model.elements.Enemy;
 
 public class Kondria extends Enemy {
     public Kondria(int x, int y) {
-        super(x, y,1,3,true);
+        super(x, y, 1, 3, true);
     }
-
-    @Override
-    public boolean canMove(Position position) {
-        return false;
-    }
-
 }

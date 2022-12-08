@@ -7,9 +7,4 @@ public class Wallpass extends Powerup {
     public Wallpass(int x, int y) {
         super(x, y);
     }
-
-    @Override
-    public void applyEffect(Bomberman bomberman) {
-        bomberman.ableWallpass();
-    }
 }

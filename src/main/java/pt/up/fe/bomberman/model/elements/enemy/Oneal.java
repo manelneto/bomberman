@@ -8,8 +8,4 @@ public class Oneal extends Enemy {
         super(x, y,3,2,false);
     }
 
-    @Override
-    public boolean canMove(Position position) {
-        return false;
-    }
 }

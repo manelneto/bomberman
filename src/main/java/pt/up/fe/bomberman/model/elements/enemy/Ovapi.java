@@ -8,8 +8,4 @@ public class Ovapi extends Enemy {
         super(x, y,2,2, true);
     }
 
-    @Override
-    public boolean canMove(Position position) {
-        return false;
-    }
 }

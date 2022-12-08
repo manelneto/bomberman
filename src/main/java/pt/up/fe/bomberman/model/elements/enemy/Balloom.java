@@ -9,10 +9,4 @@ public class Balloom extends Enemy {
         super(x, y,2,1,false);
     }
 
-    @Override
-    public boolean canMove(Position position){
-        //for (Wall wall : walls) if (wall.getPosition() == position) return false;
-
-        return true;
-    }
 }

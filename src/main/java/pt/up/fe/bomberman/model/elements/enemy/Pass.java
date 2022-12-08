@@ -8,9 +8,5 @@ public class Pass extends Enemy {
         super(x, y,4,3,false);
     }
 
-    @Override
-    public boolean canMove(Position position) {
-        return false;
-    }
 
 }

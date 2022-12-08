@@ -1,4 +1,4 @@
-package pt.up.fe.bomberman.model;
+package pt.up.fe.bomberman.controler;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
