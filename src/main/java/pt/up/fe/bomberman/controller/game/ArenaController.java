@@ -13,11 +13,15 @@ import java.io.IOException;
 public class ArenaController extends GameController {
 
     private final BombermanController bombermanController;
+    private final BombController bombController;
     private final EnemyController enemyController;
+    private final ExplosionController explosionController;
 
     public ArenaController(Arena arena) {
         super(arena);
 
+        this.explosionController= new ExplosionController(arena);
+        this.bombController= new BombController(arena);
         this.bombermanController = new BombermanController(arena);
         this.enemyController = new EnemyController(arena);
     }
@@ -27,6 +31,8 @@ public class ArenaController extends GameController {
         if (action == GUI.ACTION.QUIT || getModel().getBomberman().getHp() == 0)
             game.setState(new MenuState(new Menu()));
         else {
+            if(getModel().HasBomb()) bombController.step(game,action,time);
+            if(!getModel().GetExplosion().isEmpty()) explosionController.step(game,action,time);
             bombermanController.step(game, action, time);
             enemyController.step(game, action, time);
         }

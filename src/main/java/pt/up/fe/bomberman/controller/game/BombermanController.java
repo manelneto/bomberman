@@ -6,6 +6,7 @@ import pt.up.fe.bomberman.gui.GUI;
 import pt.up.fe.bomberman.model.Position;
 
 import pt.up.fe.bomberman.model.game.arena.Arena;
+import pt.up.fe.bomberman.model.game.elements.Bomb;
 
 public class BombermanController extends GameController {
     private long lastMovementTime;
@@ -52,6 +53,7 @@ public class BombermanController extends GameController {
             if (action == GUI.ACTION.RIGHT){ moveBombermanRight();this.lastMovementTime = time;}
             if (action == GUI.ACTION.DOWN){ moveBombermanDown();this.lastMovementTime = time;}
             if (action == GUI.ACTION.LEFT){ moveBombermanLeft();this.lastMovementTime = time;}
+            if (getModel().HasBomb()==false && action == GUI.ACTION.SPACE ){ getModel().CreateBomb(time);this.lastMovementTime = time;}
         }
     }
 

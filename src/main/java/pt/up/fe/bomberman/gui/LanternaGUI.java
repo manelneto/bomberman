@@ -79,7 +79,7 @@ public class LanternaGUI implements GUI {
         if (keyStroke.getKeyType() == KeyType.ArrowRight) return ACTION.RIGHT;
         if (keyStroke.getKeyType() == KeyType.ArrowDown) return ACTION.DOWN;
         if (keyStroke.getKeyType() == KeyType.ArrowLeft) return ACTION.LEFT;
-
+        if (keyStroke.getKeyType() ==KeyType.Character && keyStroke.getCharacter() == ' ')return ACTION.SPACE;
         if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.ENTER;
 
         return ACTION.NONE;
@@ -128,12 +128,26 @@ public class LanternaGUI implements GUI {
 
         drawCharacter(position.getX(), position.getY(), ':', "#FA732C"); //redO
 }
+    @Override
+    public void drawBomb(Position position){
+        drawCharacter(position.getX(), position.getY(), 'c', "#000000");//Black
+    }
 
 
     @Override
     public void drawPowerup(Position position) {
         drawCharacter(position.getX(), position.getY(),'P', "#F7EF8A"); //gold
 
+    }
+    public void drawExplosionVertical(Position position){
+        drawCharacter(position.getX(), position.getY(),'b', "#FF4500");//kinda orange
+    }
+
+    public void drawExplosion(Position position){
+        drawCharacter(position.getX(), position.getY(),'b', "#FF4500");//kinda orange
+    }
+    public void drawExplosionHorizontal(Position position){
+        drawCharacter(position.getX(), position.getY(),'a', "#FF4500");//kinda orange
     }
 
     private void drawCharacter(int x, int y, char c, String color) {
