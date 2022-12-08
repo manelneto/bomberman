@@ -8,9 +8,5 @@ public class Bombpass extends Powerup {
         super(x, y);
     }
 
-    @Override
-    public void applyEffect(Bomberman bomberman) {
-        bomberman.ableBombpass();
-    }
 }
 

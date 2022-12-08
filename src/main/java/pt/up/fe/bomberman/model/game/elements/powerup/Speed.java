@@ -7,10 +7,5 @@ public class Speed extends Powerup {
     public Speed(int x, int y) {
         super(x, y);
     }
-
-    @Override
-    public void applyEffect(Bomberman bomberman) {
-        bomberman.increaseSpeed();
-    }
 }
 

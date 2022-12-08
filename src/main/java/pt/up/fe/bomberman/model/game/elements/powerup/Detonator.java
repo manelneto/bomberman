@@ -8,9 +8,5 @@ public class Detonator extends Powerup {
         super(x, y);
     }
 
-    @Override
-    public void applyEffect(Bomberman bomberman) {
-        bomberman.ableDetonate();
-    }
 }
 

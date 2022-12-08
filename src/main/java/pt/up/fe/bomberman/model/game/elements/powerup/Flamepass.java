@@ -8,9 +8,5 @@ public class Flamepass extends Powerup {
         super(x, y);
     }
 
-    @Override
-    public void applyEffect(Bomberman bomberman) {
-        bomberman.ableFlamepass();
-    }
 }
 
