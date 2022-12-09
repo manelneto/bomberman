@@ -53,8 +53,8 @@ public class Arena {
     public List<Explosion> GetExplosion(){
         return explosion;
     }
-    public void Explode(long time){
 
+    private void UpdateRealExplosionData(long time){
         for(int i=1;i<=getBomb().getExplodeRadius();i++){
             explosion.add(new Explosion(getBomb().getPosition().getX(),getBomb().getPosition().getY()+i,time,'V'));
             explosion.add(new Explosion(getBomb().getPosition().getX(),getBomb().getPosition().getY()-i,time,'V'));
@@ -66,17 +66,24 @@ public class Arena {
         List<Explosion> delExplo =new ArrayList<>();
         for(Wall wall : walls){
             for(Explosion explosion1 : explosion  ) {
-            if(explosion1.getPosition().equals(wall.getPosition())) delExplo.add(explosion1);
+                if(explosion1.getPosition().equals(wall.getPosition())) delExplo.add(explosion1);
             }
         }
         for(Explosion dell: delExplo)
             explosion.remove(dell);
+    }
+    private void DestroyOb(){
+
         ArrayList<Obstacle> DestroyedObs=new ArrayList<>();
         for(Obstacle obstacle : obstacles){
             for(Explosion explosion1 : explosion  ) {
                 if(explosion1.getPosition().equals(obstacle.getPosition())) DestroyedObs.add(obstacle);
             }
         }
+        for(Obstacle dell: DestroyedObs)
+            obstacles.remove(dell);
+    }
+    private void KillEnemies(){
         ArrayList<Enemy> Enemieskilled=new ArrayList<>();
         for(Explosion explosion1 : explosion  ) {
             for(Enemy enemy:enemies){
@@ -84,14 +91,26 @@ public class Arena {
             }
 
         }
+        for(Enemy enemy: Enemieskilled)
+            enemies.remove(enemy);
+    }
+    private void checksuicide(){
+
         for(Explosion explosion1 : explosion  ) {
             if(getBomberman().getPosition().equals(explosion1.getPosition()))
                 getBomberman().TakesHit();
         }
-        for(Enemy enemy: Enemieskilled)
-            enemies.remove(enemy);
-        for(Obstacle dell: DestroyedObs)
-            obstacles.remove(dell);
+    }
+    public void Explode(long time){
+
+        UpdateRealExplosionData(time);
+
+        DestroyOb();
+
+        KillEnemies();
+
+        checksuicide();
+
 
         Hasbomb=false;
     }
