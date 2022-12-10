@@ -14,6 +14,9 @@ import pt.up.fe.bomberman.model.game.elements.enemy.Balloom;
 import java.io.IOException;
 import java.util.Arrays;
 
+import static org.mockito.ArgumentMatchers.anyChar;
+import static org.mockito.ArgumentMatchers.eq;
+
 public class GameViewerTest {
     private GUI gui;
     private GameViewer viewer;
@@ -35,8 +38,8 @@ public class GameViewerTest {
     void drawBomberman() throws IOException {
         viewer.draw(gui);
 
-        Mockito.verify(gui, Mockito.times(1)).drawBomberman(new Position(1, 1));
-        Mockito.verify(gui, Mockito.times(1)).drawBomberman(Mockito.any(Position.class));
+        Mockito.verify(gui, Mockito.times(1)).drawBomberman(eq(new Position(1, 1)),eq(viewer.getModel().getBomberman().getAction()));
+        Mockito.verify(gui, Mockito.times(1)).drawBomberman(Mockito.any(Position.class),eq(viewer.getModel().getBomberman().getAction()));
     }
 
     @Test

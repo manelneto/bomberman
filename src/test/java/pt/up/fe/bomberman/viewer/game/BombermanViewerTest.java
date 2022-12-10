@@ -21,6 +21,6 @@ public class BombermanViewerTest {
     @Test
     void drawBomberman() {
         viewer.draw(bomberman, gui);
-        Mockito.verify(gui, Mockito.times(1)).drawBomberman(bomberman.getPosition());
+        Mockito.verify(gui, Mockito.times(1)).drawBomberman(bomberman.getPosition(),'D');
     }
 }

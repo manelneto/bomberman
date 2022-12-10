@@ -1,7 +1,9 @@
+
 package pt.up.fe.bomberman.states;
 
 import pt.up.fe.bomberman.controller.Controller;
 import pt.up.fe.bomberman.controller.game.ArenaController;
+
 import pt.up.fe.bomberman.model.game.arena.Arena;
 import pt.up.fe.bomberman.viewer.Viewer;
 import pt.up.fe.bomberman.viewer.game.GameViewer;

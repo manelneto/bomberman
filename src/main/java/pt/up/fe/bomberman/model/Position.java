@@ -37,6 +37,7 @@ public class Position {
 
     public Position getRandomNeighbour() {
         int n = (int) (Math.random() * 4);
+
         switch (n) {
             case 0:
                 return getUp();
@@ -47,6 +48,7 @@ public class Position {
             default:
                 return getLeft();
         }
+
     }
 
     @Override

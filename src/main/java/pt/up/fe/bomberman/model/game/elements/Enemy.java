@@ -13,4 +13,5 @@ public abstract class Enemy extends Element {
     private final boolean wallpass;
 
     //canMove personalized based on speed, smart and wallpass
+
 }

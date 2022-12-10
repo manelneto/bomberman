@@ -13,7 +13,9 @@ import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import pt.up.fe.bomberman.model.Position;
 
+
 import javax.swing.*;
+
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -32,11 +34,11 @@ public class LanternaGUI implements GUI {
         Terminal terminal = createTerminal(width, height, font);
         screen = createScreen(terminal);
     }
-
     private AWTTerminalFontConfiguration loadFont() throws URISyntaxException, IOException, FontFormatException {
-        URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
+        URL resource = getClass().getClassLoader().getResource("fonts/Bomber-Regular.ttf");
         File fontFile = new File(resource.toURI());
         Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+
 
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
@@ -64,6 +66,7 @@ public class LanternaGUI implements GUI {
         return screen;
     }
 
+
     @Override
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
@@ -76,10 +79,11 @@ public class LanternaGUI implements GUI {
         if (keyStroke.getKeyType() == KeyType.ArrowRight) return ACTION.RIGHT;
         if (keyStroke.getKeyType() == KeyType.ArrowDown) return ACTION.DOWN;
         if (keyStroke.getKeyType() == KeyType.ArrowLeft) return ACTION.LEFT;
-
-        if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.X;
+        if (keyStroke.getKeyType() ==KeyType.Character && keyStroke.getCharacter() == ' ')return ACTION.SPACE;
+        if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.ENTER;
 
         return ACTION.NONE;
+
     }
 
     @Override
@@ -87,31 +91,63 @@ public class LanternaGUI implements GUI {
         TextGraphics textGraphics = screen.newTextGraphics();
         textGraphics.setBackgroundColor(TextColor.Factory.fromString("#397C00"));
         textGraphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
+
     }
 
     @Override
-    public void drawBomberman(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'B', "#64A4FF");
+    public void drawBomberman(Position position,char face) {
+        switch (face) {
+            case 'U':
+                drawCharacter(position.getX(), position.getY(), '"', "#64A4FF");break;
+            case 'L':
+                drawCharacter(position.getX(), position.getY(), ',', "#64A4FF");break;
+            case 'R':
+                drawCharacter(position.getX(), position.getY(), '.', "#64A4FF");break;
+            default:
+                drawCharacter(position.getX(), position.getY(), '!', "#64A4FF");
+        }
+
     }
+
 
     @Override
     public void drawObstacle(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'O', "#C9C9C9");
+
+        drawCharacter(position.getX(), position.getY(), '?', "#C9C9C9"); //brown
+
     }
 
     @Override
     public void drawWall(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'W', "#010100");
+        drawCharacter(position.getX(), position.getY(), ';', "#C9C9C9"); //grey
+
     }
 
     @Override
     public void drawEnemy(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'E', "#FA732C");
+
+        drawCharacter(position.getX(), position.getY(), ':', "#FA732C"); //redO
+}
+    @Override
+    public void drawBomb(Position position){
+        drawCharacter(position.getX(), position.getY(), 'c', "#000000");//Black
     }
+
 
     @Override
     public void drawPowerup(Position position) {
         drawCharacter(position.getX(), position.getY(),'P', "#F7EF8A"); //gold
+
+    }
+    public void drawExplosionVertical(Position position){
+        drawCharacter(position.getX(), position.getY(),'b', "#FF4500");//kinda orange
+    }
+
+    public void drawExplosion(Position position){
+        drawCharacter(position.getX(), position.getY(),'b', "#FF4500");//kinda orange
+    }
+    public void drawExplosionHorizontal(Position position){
+        drawCharacter(position.getX(), position.getY(),'a', "#FF4500");//kinda orange
     }
 
     private void drawCharacter(int x, int y, char c, String color) {
@@ -134,6 +170,13 @@ public class LanternaGUI implements GUI {
     @Override
     public void close() throws IOException {
         screen.close();
+    }
+
+    @Override
+    public void drawText(Position position, String text, String color) {
+        TextGraphics textGraphics = screen.newTextGraphics();
+        textGraphics.setForegroundColor(TextColor.Factory.fromString(color));
+        textGraphics.putString(position.getX(), position.getY(), text);
     }
 }
 

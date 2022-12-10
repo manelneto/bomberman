@@ -25,29 +25,35 @@ class LaternaGUITest {
 
     @Test
     void drawBomberman() {
-        gui.drawBomberman(new Position(1, 1));
+        gui.drawBomberman(new Position(1, 1),'D');
+
 
         Mockito.verify(textGraphics, Mockito.times(1)).setForegroundColor(new TextColor.RGB(100, 164, 255)); //#64A4FF
         Mockito.verify(textGraphics, Mockito.times(1)).setBackgroundColor(new TextColor.RGB(57, 124, 0)); //#397C00
-        Mockito.verify(textGraphics, Mockito.times(1)).putString(1, 1, "B");
+        Mockito.verify(textGraphics, Mockito.times(1)).putString(1, 1, "!");
+
     }
 
     @Test
     void drawObstacle() {
         gui.drawObstacle(new Position(5, 5));
 
+
         Mockito.verify(textGraphics, Mockito.times(1)).setForegroundColor(new TextColor.RGB(201, 201, 201)); //#C9C9C9
         Mockito.verify(textGraphics, Mockito.times(1)).setBackgroundColor(new TextColor.RGB(57, 124, 0)); //#397C00
-        Mockito.verify(textGraphics, Mockito.times(1)).putString(5, 5, "O");
+
+        Mockito.verify(textGraphics, Mockito.times(1)).putString(5, 5, "?");
     }
 
     @Test
     void drawWall() {
         gui.drawWall(new Position(10, 10));
 
-        Mockito.verify(textGraphics, Mockito.times(1)).setForegroundColor(new TextColor.RGB(1, 1, 0)); //#010100
+
+        Mockito.verify(textGraphics, Mockito.times(1)).setForegroundColor(new TextColor.RGB(201, 201, 201)); //#010100
         Mockito.verify(textGraphics, Mockito.times(1)).setBackgroundColor(new TextColor.RGB(57, 124, 0)); //#397C00
-        Mockito.verify(textGraphics, Mockito.times(1)).putString(10, 10, "W");
+        Mockito.verify(textGraphics, Mockito.times(1)).putString(10, 10, ";");
+
     }
 
     @Test
@@ -56,6 +62,14 @@ class LaternaGUITest {
 
         Mockito.verify(textGraphics, Mockito.times(1)).setForegroundColor(new TextColor.RGB(250, 115, 44)); //FA732C
         Mockito.verify(textGraphics, Mockito.times(1)).setBackgroundColor(new TextColor.RGB(57, 124, 0)); //#397C00
-        Mockito.verify(textGraphics, Mockito.times(1)).putString(7, 13, "E");
+
+        Mockito.verify(textGraphics, Mockito.times(1)).putString(7, 13, ":");
+    }
+    @Test
+    void drawText() {
+        gui.drawText(new Position(1, 1), "Hello World", "#336699");
+
+        Mockito.verify(textGraphics, Mockito.times(1)).setForegroundColor(new TextColor.RGB(51, 102, 153));
+        Mockito.verify(textGraphics, Mockito.times(1)).putString(1, 1, "Hello World");
     }
 }
