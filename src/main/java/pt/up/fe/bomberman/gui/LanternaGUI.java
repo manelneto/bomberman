@@ -13,9 +13,6 @@ import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import pt.up.fe.bomberman.model.Position;
 
-
-import javax.swing.*;
-
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;

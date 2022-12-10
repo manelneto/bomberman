@@ -20,6 +20,7 @@ public class Arena {
     private List<Enemy> enemies;
     private List<Obstacle> obstacles;
     private List<Wall> walls;
+    private List<Powerup> powerups;
 
     public Arena(int width, int height) {
         this.width = width;
@@ -147,6 +148,12 @@ public class Arena {
         this.walls = walls;
     }
 
+    public void setPowerups(List<Powerup> powerups) {
+        this.powerups = powerups;
+    }
+
+    public List<Powerup> getPowerups() {return powerups;}
+
     public boolean isEmpty(Position position){
         for (Obstacle obstacle : obstacles)
             if (obstacle.getPosition().equals(position))
@@ -164,7 +171,20 @@ public class Arena {
         return false;
     }
 
+    public boolean isPowerup(Position position){
+        for (Powerup powerup : powerups)
+            return (powerup.getPosition().equals(position));
+        return false;
+    }
+
+    public Powerup findPowerup(Position position){
+        for (Powerup powerup : powerups) if (powerup.getPosition().equals(position)) return powerup;
+        return null;
+    }
+
     public void ClearExplosion() {
         explosion.clear();
     }
+
+
 }

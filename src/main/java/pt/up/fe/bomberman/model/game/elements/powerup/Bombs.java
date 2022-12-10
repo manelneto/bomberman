@@ -5,7 +5,7 @@ import pt.up.fe.bomberman.model.game.elements.Powerup;
 
 public class Bombs extends Powerup {
     public Bombs(int x, int y) {
-        super(x, y);
+        super(x, y, Effect.Bombs);
     }
 
 }

@@ -1,10 +1,24 @@
 package pt.up.fe.bomberman.model.game.elements;
 
-public abstract class Powerup extends Element {
-    public Powerup(int x, int y) {
+public class Powerup extends Element {
+    private Effect Effect;
+
+    public Powerup(int x, int y, Effect efeito) {
         super(x, y);
+        this.Effect = efeito;
     }
 
-//implementar função apllyEffect no Controller de Powerup
+    public enum Effect{
+        Bombpass,
+        Bombs,
+        Detonator,
+        Flamepass,
+        Flames,
+        Speed,
+        Wallpass
+    }
 
+    public Effect getEffect(){
+        return Effect;
+    }
 }

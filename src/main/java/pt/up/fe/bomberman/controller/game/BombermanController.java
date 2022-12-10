@@ -7,6 +7,7 @@ import pt.up.fe.bomberman.model.Position;
 
 import pt.up.fe.bomberman.model.game.arena.Arena;
 import pt.up.fe.bomberman.model.game.elements.Bomb;
+import pt.up.fe.bomberman.model.game.elements.Powerup;
 
 public class BombermanController extends GameController {
     private long lastMovementTime;
@@ -40,6 +41,19 @@ public class BombermanController extends GameController {
         if (getModel().isEmpty(position)) {
             getModel().getBomberman().setPosition(position);
             if (getModel().isEnemy(position)) getModel().getBomberman().TakesHit();
+            else if (getModel().isPowerup(position)) applyEffect(getModel().findPowerup(position));
+        }
+    }
+
+    private void applyEffect(Powerup powerup){
+        switch (powerup.getEffect()) {
+            case Bombpass -> getModel().getBomberman().ableBombpass();
+            case Bombs -> getModel().getBomberman().increaseUsableBombs();
+            case Detonator -> getModel().getBomberman().ableDetonate();
+            case Flamepass -> getModel().getBomberman().ableFlamepass();
+            case Flames -> getModel().getBomberman().increaseBombRange();
+            case Speed -> getModel().getBomberman().increaseSpeed();
+            case Wallpass -> getModel().getBomberman().ableWallpass();
         }
     }
 
