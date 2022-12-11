@@ -1,5 +1,5 @@
-
 package pt.up.fe.bomberman.viewer.menu;
+
 import pt.up.fe.bomberman.gui.GUI;
 import pt.up.fe.bomberman.model.Position;
 import pt.up.fe.bomberman.model.menu.Menu;
