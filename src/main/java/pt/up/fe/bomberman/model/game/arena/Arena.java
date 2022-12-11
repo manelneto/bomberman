@@ -11,12 +11,12 @@ public class Arena {
     private final int height;
 
     private Bomberman bomberman;
-    private List<Bomb> bombs;
-    private List<Explosion> explosions;
+    private List<Bomb> bombs = new ArrayList<>();
+    private List<Explosion> explosions = new ArrayList<>();
     private List<Enemy> enemies;
     private List<Obstacle> obstacles;
     private List<Wall> walls;
-    private List<Powerup> powerups;
+    private List<Powerup> powerups = new ArrayList<>(); //no powerups for now
 
     public Arena(int width, int height) {
         this.width = width;
