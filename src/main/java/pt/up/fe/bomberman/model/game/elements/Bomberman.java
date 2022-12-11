@@ -46,7 +46,7 @@ public class Bomberman extends Element {
 
     public char getAction() { return action; }
 
-    public void takeHit(){
+    public void decreaseHp(){
         hp--;
     }
     public void faceDown(){

@@ -82,6 +82,36 @@ public class Arena {
         bombs.add(bomb);
     }
 
+    public boolean isEmpty(Position position) {
+        for (Obstacle obstacle : obstacles)
+            if (obstacle.getPosition().equals(position))
+                return false;
+        for (Wall wall : walls)
+            if (wall.getPosition().equals(position))
+                return false;
+        return true;
+    }
+
+    public boolean isEnemy(Position position){
+        for (Enemy enemy : enemies)
+            if (enemy.getPosition().equals(position))
+                return true;
+        return false;
+    }
+
+    public boolean isPowerup(Position position){
+        for (Powerup powerup : powerups)
+            return (powerup.getPosition().equals(position));
+        return false;
+    }
+
+    public Powerup findPowerup(Position position){
+        for (Powerup powerup : powerups)
+            if (powerup.getPosition().equals(position))
+                return powerup;
+        return null;
+    }
+
     /*private void UpdateRealExplosionData(long time){
         for(int i=1;i<=getBomb().getExplodeRadius();i++){
             explosion.add(new Explosion(getBomb().getPosition().getX(),getBomb().getPosition().getY()+i,time,'V'));
@@ -143,33 +173,6 @@ public class Arena {
         Hasbomb=false;
     }
 
-    public boolean isEmpty(Position position){
-        for (Obstacle obstacle : obstacles)
-            if (obstacle.getPosition().equals(position))
-                return false;
-        for (Wall wall : walls)
-            if (wall.getPosition().equals(position))
-                return false;
-        if(Hasbomb) if(bomb.getPosition().equals(position)) return false;
-        return true;
-    }
-    public boolean isEnemy(Position position){
-        for (Enemy enemy : enemies)
-            if (enemy.getPosition().equals(position))
-                return true;
-        return false;
-    }
-
-    public boolean isPowerup(Position position){
-        for (Powerup powerup : powerups)
-            return (powerup.getPosition().equals(position));
-        return false;
-    }
-
-    public Powerup findPowerup(Position position){
-        for (Powerup powerup : powerups) if (powerup.getPosition().equals(position)) return powerup;
-        return null;
-    }
 
     public void ClearExplosion() {
         explosion.clear();
