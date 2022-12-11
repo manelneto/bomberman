@@ -131,9 +131,6 @@ public class LanternaGUI implements GUI {
         drawCharacter(position.getX(), position.getY(),'b', "#FF4500");//kinda orange
     }
 
-    public void drawExplosion(Position position){
-        drawCharacter(position.getX(), position.getY(),'b', "#FF4500");//kinda orange
-    }
     public void drawExplosionHorizontal(Position position){
         drawCharacter(position.getX(), position.getY(),'a', "#FF4500");//kinda orange
     }

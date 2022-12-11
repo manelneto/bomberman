@@ -29,8 +29,6 @@ public interface GUI {
 
     void close() throws IOException;
 
-    public void drawExplosion(Position position);
-
     void paintBackground(int width, int height);
 
     void drawExplosionHorizontal(Position position);

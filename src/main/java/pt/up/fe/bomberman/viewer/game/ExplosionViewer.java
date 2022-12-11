@@ -7,6 +7,9 @@ public class ExplosionViewer implements ElementViewer<Explosion>{
 
     @Override
     public void draw(Explosion explosion, GUI gui) {
-        gui.drawExplosion(explosion.getPosition());
+        if (explosion.getType() == 'H')
+            gui.drawExplosionHorizontal(explosion.getPosition());
+        else
+            gui.drawExplosionVertical(explosion.getPosition());
     }
 }
