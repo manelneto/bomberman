@@ -2,12 +2,9 @@ package pt.up.fe.bomberman;
 
 import pt.up.fe.bomberman.gui.LanternaGUI;
 
-import pt.up.fe.bomberman.model.arena.ArenaBuilder;
 import pt.up.fe.bomberman.model.menu.Menu;
 import pt.up.fe.bomberman.states.MenuState;
 import pt.up.fe.bomberman.states.State;
-import pt.up.fe.bomberman.viewer.Viewer;
-import pt.up.fe.bomberman.viewer.game.GameViewer;
 
 import java.awt.*;
 import java.io.IOException;

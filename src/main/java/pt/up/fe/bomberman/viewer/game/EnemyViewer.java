@@ -6,6 +6,10 @@ import pt.up.fe.bomberman.model.game.elements.Enemy;
 public class EnemyViewer implements ElementViewer<Enemy> {
     @Override
     public void draw(Enemy enemy, GUI gui) {
-        gui.drawEnemy(enemy.getPosition());
+        switch(enemy.getType()) {
+            case 'B': gui.drawBalloom(enemy.getPosition()); break;
+            case 'O':gui.drawOneal(enemy.getPosition()); break;
+            case 'D':gui.drawDoll(enemy.getPosition()); break;
+        }
     }
 }

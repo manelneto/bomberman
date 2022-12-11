@@ -7,5 +7,8 @@ public class Pass extends Enemy {
         super(x, y,4,3,false);
     }
 
-
+    @Override
+    public char getType() {
+        return 'P';
+    }
 }

@@ -7,4 +7,8 @@ public class Doll extends Enemy {
         super(x, y,3,1,false);
     }
 
+    @Override
+    public char getType() {
+        return 'D';
+    }
 }

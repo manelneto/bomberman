@@ -1,4 +1,4 @@
-package pt.up.fe.bomberman.model.arena;
+package pt.up.fe.bomberman.model.arenaLoader;
 
 
 
@@ -7,6 +7,8 @@ import pt.up.fe.bomberman.model.game.elements.Enemy;
 import pt.up.fe.bomberman.model.game.elements.Obstacle;
 import pt.up.fe.bomberman.model.game.elements.Wall;
 import pt.up.fe.bomberman.model.game.elements.enemy.Balloom;
+import pt.up.fe.bomberman.model.game.elements.enemy.Doll;
+import pt.up.fe.bomberman.model.game.elements.enemy.Oneal;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -54,8 +56,11 @@ public class LoaderArenaBuilder extends ArenaBuilder {
 
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
-            for (int x = 0; x < line.length(); x++)
+            for (int x = 0; x < line.length(); x++){
                 if (line.charAt(x) == 'M') enemy.add(new Balloom(x, y));
+                if (line.charAt(x) == 'E') enemy.add(new Oneal(x, y));
+                if (line.charAt(x) == 'L') enemy.add(new Doll(x, y));
+            }
         }
 
         return enemy;

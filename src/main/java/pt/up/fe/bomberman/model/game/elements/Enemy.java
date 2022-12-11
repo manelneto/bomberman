@@ -7,6 +7,9 @@ public abstract class Enemy extends Element {
         this.smart = smart;
         this.wallpass = wallpass;
     }
+    public char getType() {
+        return 'B';
+    }
 
     private final int speed;
     private final int smart;

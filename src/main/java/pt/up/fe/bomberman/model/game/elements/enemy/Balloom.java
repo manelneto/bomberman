@@ -6,5 +6,8 @@ public class Balloom extends Enemy {
     public Balloom(int x, int y) {
         super(x, y,2,1,false);
     }
-
+    @Override
+    public char getType() {
+        return 'B';
+    }
 }

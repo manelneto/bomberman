@@ -7,4 +7,9 @@ public class Oneal extends Enemy {
         super(x, y,3,2,false);
     }
 
+
+    @Override
+    public char getType() {
+        return 'O';
+    }
 }

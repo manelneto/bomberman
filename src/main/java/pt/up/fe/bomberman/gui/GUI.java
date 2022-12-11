@@ -7,7 +7,6 @@ import java.io.IOException;
 public interface GUI {
 
 
-
     enum ACTION {UP, RIGHT, DOWN, LEFT, ENTER, NONE, QUIT,SPACE}
 
     ACTION getNextAction() throws IOException;
@@ -40,6 +39,14 @@ public interface GUI {
     void drawExplosionHorizontal(Position position);
 
     void drawExplosionVertical(Position position);
+
+    void drawOneal(Position position);
+
+    void drawBalloom(Position position);
+
+    void drawDoll(Position position);
+
+
 
 
 }

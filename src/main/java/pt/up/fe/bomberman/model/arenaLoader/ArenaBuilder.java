@@ -1,4 +1,4 @@
-package pt.up.fe.bomberman.model.arena;
+package pt.up.fe.bomberman.model.arenaLoader;
 
 
 import pt.up.fe.bomberman.model.game.arena.Arena;

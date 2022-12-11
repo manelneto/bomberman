@@ -7,4 +7,9 @@ public class Pontan extends Enemy {
         super(x, y,4,3,true);
     }
 
+    @Override
+    public char getType() {
+        return 'o';
+    }
+
 }
