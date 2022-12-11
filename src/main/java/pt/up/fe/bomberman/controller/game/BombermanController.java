@@ -47,13 +47,13 @@ public class BombermanController extends GameController {
 
     private void applyEffect(Powerup powerup){
         switch (powerup.getEffect()) {
-            case Bombpass -> getModel().getBomberman().ableBombpass();
-            case Bombs -> getModel().getBomberman().increaseUsableBombs();
-            case Detonator -> getModel().getBomberman().ableDetonate();
-            case Flamepass -> getModel().getBomberman().ableFlamepass();
-            case Flames -> getModel().getBomberman().increaseBombRange();
-            case Speed -> getModel().getBomberman().increaseSpeed();
-            case Wallpass -> getModel().getBomberman().ableWallpass();
+            case Bombpass : getModel().getBomberman().ableBombpass();
+            case Bombs : getModel().getBomberman().increaseUsableBombs();
+            case Detonator: getModel().getBomberman().ableDetonate();
+            case Flamepass :getModel().getBomberman().ableFlamepass();
+            case Flames : getModel().getBomberman().increaseBombRange();
+            case Speed : getModel().getBomberman().increaseSpeed();
+            case Wallpass : getModel().getBomberman().ableWallpass();
         }
     }
 

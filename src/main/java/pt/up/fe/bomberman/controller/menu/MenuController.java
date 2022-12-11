@@ -24,9 +24,15 @@ public class MenuController extends Controller<Menu> {
             case DOWN:
                 getModel().nextEntry();
                 break;
+            case LEFT:
+                if(getModel().isSelectedLevel()) getModel().previousLevel();
+                break;
+            case RIGHT:
+                if(getModel().isSelectedLevel()) getModel().nextLevel();
+                break;
             case ENTER:
                 if (getModel().isSelectedExit()) game.setState(null);
-                if (getModel().isSelectedStart()) game.setState(new GameState(new LoaderArenaBuilder(1).createArena()));
+                if (getModel().isSelectedStart()) game.setState(new GameState(new LoaderArenaBuilder(getModel().getLevel()).createArena()));
         }
     }
 }
