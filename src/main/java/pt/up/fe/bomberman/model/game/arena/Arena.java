@@ -92,6 +92,13 @@ public class Arena {
         bombs.add(bomb);
     }
 
+    public boolean isBomb(Position position) {
+        for (Bomb bomb : bombs)
+            if (bomb.getPosition().equals(position))
+                return true;
+        return false;
+    }
+
     public boolean isEnemy(Position position) {
         for (Enemy enemy : enemies)
             if (enemy.getPosition().equals(position))

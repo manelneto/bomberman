@@ -27,7 +27,7 @@ public class EnemyController extends GameController {
     }
 
     private void moveEnemy(Enemy monster, Position position) {
-        if (!getModel().isWall(position) && !getModel().isObstacle(position) && !getModel().isEnemy(position)) {
+        if (!getModel().isWall(position) && !getModel().isObstacle(position) && !getModel().isEnemy(position) && !getModel().isBomb(position)) {
             monster.setPosition(position);
             if (getModel().getBomberman().getPosition().equals(position))
                 getModel().getBomberman().decreaseHp();

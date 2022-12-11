@@ -34,7 +34,7 @@ public class BombermanController extends GameController {
     }
 
     private void moveBomberman(Position position) {
-        if (!getModel().isWall(position) && !getModel().isObstacle(position)) {
+        if (!getModel().isWall(position) && !getModel().isObstacle(position) && !getModel().isBomb(position)) {
             getModel().getBomberman().setPosition(position);
             if (getModel().isEnemy(position)) getModel().getBomberman().decreaseHp();
             if (getModel().isPowerup(position)) applyEffect(getModel().findPowerup(position));
