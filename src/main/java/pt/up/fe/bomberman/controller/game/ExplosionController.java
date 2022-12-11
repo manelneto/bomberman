@@ -11,9 +11,10 @@ public class ExplosionController extends GameController {
         super(arena);
     }
 
+    @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        if ((time-getModel().GetExplosion().get(0).GetTime())>2000) {
+        /*if ((time-getModel().GetExplosion().get(0).GetTime())>2000) {
             getModel().ClearExplosion();
-        }
+        }*/
     }
 }
