@@ -167,4 +167,3 @@ public class LanternaGUI implements GUI {
         textGraphics.putString(position.getX(), position.getY(), text);
     }
 }
-
