@@ -5,23 +5,22 @@ import java.util.List;
 
 public class Menu {
     private final List<String> options;
-
-    private int currentoption = 0;
+    private int currentOption = 0;
 
     public Menu() {
         this.options = Arrays.asList("START", "EXIT");
     }
 
     public void nextEntry() {
-        currentoption++;
-        if (currentoption > this.options.size() - 1)
-            currentoption = 0;
+        currentOption++;
+        if (currentOption > this.options.size() - 1)
+            currentOption = 0;
     }
 
     public void previousEntry() {
-        currentoption--;
-        if (currentoption < 0)
-            currentoption = this.options.size() - 1;
+        currentOption--;
+        if (currentOption < 0)
+            currentOption = this.options.size() - 1;
     }
 
     public String getOption(int i) {
@@ -29,7 +28,7 @@ public class Menu {
     }
 
     public boolean isSelected(int i) {
-        return currentoption == i;
+        return currentOption == i;
     }
 
     public boolean isSelectedExit() {
