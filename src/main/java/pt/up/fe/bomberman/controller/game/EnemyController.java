@@ -30,7 +30,7 @@ public class EnemyController extends GameController {
         if (getModel().isEmpty(position) && !getModel().isEnemy(position)) {
             monster.setPosition(position);
             if (getModel().getBomberman().getPosition().equals(position))
-                getModel().getBomberman().TakesHit();
+                getModel().getBomberman().decreaseHp();
         }
     }
 }
