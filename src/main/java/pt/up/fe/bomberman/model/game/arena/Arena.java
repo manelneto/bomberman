@@ -1,10 +1,7 @@
 package pt.up.fe.bomberman.model.game.arena;
 
 import pt.up.fe.bomberman.model.Position;
-
-
 import pt.up.fe.bomberman.model.game.elements.*;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +11,8 @@ public class Arena {
     private final int height;
 
     private Bomberman bomberman;
-    private boolean Hasbomb=false;
-    private List<Explosion> explosion=new ArrayList<>();
-    private Bomb bomb;
+    private List<Bomb> bombs;
+    private List<Explosion> explosions;
     private List<Enemy> enemies;
     private List<Obstacle> obstacles;
     private List<Wall> walls;
@@ -25,9 +21,7 @@ public class Arena {
     public Arena(int width, int height) {
         this.width = width;
         this.height = height;
-
     }
-
 
     public int getWidth() {
         return width;
@@ -41,18 +35,16 @@ public class Arena {
         return bomberman;
     }
 
-    public Bomb getBomb() {
-        return bomb;
+    public List<Bomb> getBombs() {
+        return bombs;
     }
-    public boolean HasBomb() {
-        return Hasbomb;
-    }
-    public void CreateBomb(long time){
-        Hasbomb=true;
-        bomb=new Bomb(bomberman.getPosition().getX(), bomberman.getPosition().getY(), time, getBomberman().getBombRange());
-    }
+
     public List<Explosion> GetExplosion(){
-        return explosion;
+        return explosions;
+    }
+
+    public void createBomb(long time) {
+        Bomb bomb = new Bomb(bomberman.getPosition().getX(), bomberman.getPosition().getY(), time, getBomberman().getBombRange());
     }
 
     private void UpdateRealExplosionData(long time){
