@@ -1,13 +1,9 @@
 package pt.up.fe.bomberman;
 
 import pt.up.fe.bomberman.gui.LanternaGUI;
-
-import pt.up.fe.bomberman.model.arena.ArenaBuilder;
 import pt.up.fe.bomberman.model.menu.Menu;
 import pt.up.fe.bomberman.states.MenuState;
 import pt.up.fe.bomberman.states.State;
-import pt.up.fe.bomberman.viewer.Viewer;
-import pt.up.fe.bomberman.viewer.game.GameViewer;
 
 import java.awt.*;
 import java.io.IOException;
@@ -17,20 +13,14 @@ public class Game {
     private final LanternaGUI gui;
     private State state;
 
-
-
     public Game() throws IOException, URISyntaxException, FontFormatException {
-
         this.gui = new LanternaGUI(20, 20);
         this.state = new MenuState(new Menu());
-
     }
 
     public static void main(String[] args) throws IOException, URISyntaxException, FontFormatException {
         new Game().start();
-        return ;
     }
-
 
     private void start() throws IOException{
         int FPS = 60;
@@ -51,10 +41,9 @@ public class Game {
         }
 
         gui.close();
-
     }
+
     public void setState(State state) {
         this.state = state;
-
     }
 }
