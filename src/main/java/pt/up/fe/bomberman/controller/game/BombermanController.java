@@ -34,7 +34,7 @@ public class BombermanController extends GameController {
     }
 
     private void moveBomberman(Position position) {
-        if (getModel().isEmpty(position)) {
+        if (!getModel().isWall(position) && !getModel().isObstacle(position)) {
             getModel().getBomberman().setPosition(position);
             if (getModel().isEnemy(position)) getModel().getBomberman().decreaseHp();
             if (getModel().isPowerup(position)) applyEffect(getModel().findPowerup(position));
@@ -60,7 +60,8 @@ public class BombermanController extends GameController {
             if (action == GUI.ACTION.RIGHT) moveBombermanRight(); //this.lastMovementTime = time;}
             if (action == GUI.ACTION.DOWN) moveBombermanDown(); //this.lastMovementTime = time;}
             if (action == GUI.ACTION.LEFT) moveBombermanLeft(); //this.lastMovementTime = time;}
-            if (action == GUI.ACTION.SPACE && getModel().getBomberman().getUsableBombs() - getModel().getBombs().size() > 0) getModel().createBomb(time);
+            if (action == GUI.ACTION.SPACE && getModel().getBomberman().getUsableBombs() - getModel().getBombs().size() > 0)
+                getModel().createBomb(time);
         //}
     }
 }

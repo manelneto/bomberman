@@ -30,10 +30,10 @@ public class ArenaController extends GameController {
         if (action == GUI.ACTION.QUIT || getModel().getBomberman().getHp() == 0)
             game.setState(new MenuState(new Menu()));
         else {
-            // if(getModel().HasBomb()) bombController.step(game,action,time);
-            // if(!getModel().GetExplosion().isEmpty()) explosionController.step(game,action,time);
             bombermanController.step(game, action, time);
             enemyController.step(game, action, time);
+            bombController.step(game,action,time);
+            explosionController.step(game,action,time);
         }
     }
 }

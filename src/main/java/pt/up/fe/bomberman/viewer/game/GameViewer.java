@@ -18,7 +18,7 @@ public class GameViewer extends Viewer<Arena> {
         drawElement(gui, getModel().getBomberman(), new BombermanViewer());
         drawElements(gui, getModel().getBombs(), new BombViewer());
         drawElements(gui, getModel().getEnemies(), new EnemyViewer());
-        drawElements(gui, getModel().getExplosion(), new ExplosionViewer());
+        drawElements(gui, getModel().getExplosions(), new ExplosionViewer());
         drawElements(gui, getModel().getObstacles(), new ObstacleViewer());
         drawElements(gui, getModel().getPowerups(), new PowerupViewer());
         drawElements(gui, getModel().getWalls(), new WallViewer());

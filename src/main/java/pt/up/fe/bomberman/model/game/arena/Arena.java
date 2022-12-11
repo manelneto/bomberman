@@ -39,7 +39,7 @@ public class Arena {
         return bombs;
     }
 
-    public List<Explosion> getExplosion(){
+    public List<Explosion> getExplosions() {
         return explosions;
     }
 
@@ -55,14 +55,24 @@ public class Arena {
         return walls;
     }
 
-    public List<Powerup> getPowerups() { return powerups; }
+    public List<Powerup> getPowerups() {
+        return powerups;
+    }
 
     public void setBomberman(Bomberman bomberman) {
         this.bomberman = bomberman;
     }
 
+    public void setBombs(List<Bomb> bombs) {
+        this.bombs = bombs;
+    }
+
     public void setEnemies(List<Enemy> enemies) {
         this.enemies = enemies;
+    }
+
+    public void setExplosions(List<Explosion> explosions) {
+        this.explosions = explosions;
     }
 
     public void setObstacles(List<Obstacle> obstacles) {
@@ -82,100 +92,85 @@ public class Arena {
         bombs.add(bomb);
     }
 
-    public boolean isEmpty(Position position) {
-        for (Obstacle obstacle : obstacles)
-            if (obstacle.getPosition().equals(position))
-                return false;
-        for (Wall wall : walls)
-            if (wall.getPosition().equals(position))
-                return false;
-        return true;
-    }
-
-    public boolean isEnemy(Position position){
+    public boolean isEnemy(Position position) {
         for (Enemy enemy : enemies)
             if (enemy.getPosition().equals(position))
                 return true;
         return false;
     }
 
-    public boolean isPowerup(Position position){
-        for (Powerup powerup : powerups)
-            return (powerup.getPosition().equals(position));
+    public boolean isObstacle(Position position) {
+        for (Obstacle obstacle : obstacles)
+            if (obstacle.getPosition().equals(position))
+                return true;
         return false;
     }
 
-    public Powerup findPowerup(Position position){
+    public boolean isPowerup(Position position) {
+        for (Powerup powerup : powerups)
+            if (powerup.getPosition().equals(position))
+                return true;
+        return false;
+    }
+
+    public boolean isWall(Position position) {
+        for (Wall wall : walls)
+            if (wall.getPosition().equals(position))
+                return true;
+        return false;
+    }
+
+    public Powerup findPowerup(Position position) {
         for (Powerup powerup : powerups)
             if (powerup.getPosition().equals(position))
                 return powerup;
         return null;
     }
 
-    /*private void UpdateRealExplosionData(long time){
-        for(int i=1;i<=getBomb().getExplodeRadius();i++){
-            explosion.add(new Explosion(getBomb().getPosition().getX(),getBomb().getPosition().getY()+i,time,'V'));
-            explosion.add(new Explosion(getBomb().getPosition().getX(),getBomb().getPosition().getY()-i,time,'V'));
-        }
-        for(int i=1;i<=getBomb().getExplodeRadius();i++){
-            explosion.add(new Explosion(getBomb().getPosition().getX()+i,getBomb().getPosition().getY(),time,'H'));
-            explosion.add(new Explosion(getBomb().getPosition().getX()-i,getBomb().getPosition().getY(),time,'H'));
-        }
-        List<Explosion> delExplo =new ArrayList<>();
-        for(Wall wall : walls){
-            for(Explosion explosion1 : explosion  ) {
-                if(explosion1.getPosition().equals(wall.getPosition())) delExplo.add(explosion1);
+    public void explodeBomb(Bomb bomb, long time) {
+        explosions.add(new Explosion(bomb.getPosition().getX(), bomb.getPosition().getY(), time));
+        for (int up = 1; up <= bomb.getExplosionRadius() && !isWall(new Position(bomb.getPosition().getX(), bomb.getPosition().getY() - up)); up++) {
+            explosions.add(new Explosion(bomb.getPosition().getX(), bomb.getPosition().getY() - up, time));
+            if (isObstacle(new Position(bomb.getPosition().getX(), bomb.getPosition().getY() - up))) {
+                break;
             }
         }
-        for(Explosion dell: delExplo)
-            explosion.remove(dell);
+        for (int down = 1; down <= bomb.getExplosionRadius() && !isWall(new Position(bomb.getPosition().getX(), bomb.getPosition().getY() + down)); down++) {
+            explosions.add(new Explosion(bomb.getPosition().getX(), bomb.getPosition().getY() + down, time));
+            if (isObstacle(new Position(bomb.getPosition().getX(), bomb.getPosition().getY() + down)))
+                break;
+        }
+        for (int left = 1; left <= bomb.getExplosionRadius() && !isWall(new Position(bomb.getPosition().getX() - left, bomb.getPosition().getY())); left++) {
+            explosions.add(new Explosion(bomb.getPosition().getX() - left, bomb.getPosition().getY(), time));
+            if (isObstacle(new Position(bomb.getPosition().getX() - left, bomb.getPosition().getY())))
+                break;
+        }
+        for (int right = 1; right <= bomb.getExplosionRadius() && !isWall(new Position(bomb.getPosition().getX() + right, bomb.getPosition().getY())); right++) {
+            explosions.add(new Explosion(bomb.getPosition().getX() + right, bomb.getPosition().getY(), time));
+            if (isObstacle(new Position(bomb.getPosition().getX() + right, bomb.getPosition().getY())))
+                break;
+        }
+        for (Explosion explosion : explosions) {
+            destroyObstacle(explosion.getPosition());
+            killEnemy(explosion.getPosition());
+            if (explosion.getPosition().equals(bomberman.getPosition()))
+                bomberman.decreaseHp();
+        }
     }
-    private void DestroyOb(){
 
-        ArrayList<Obstacle> DestroyedObs=new ArrayList<>();
-        for(Obstacle obstacle : obstacles){
-            for(Explosion explosion1 : explosion  ) {
-                if(explosion1.getPosition().equals(obstacle.getPosition())) DestroyedObs.add(obstacle);
+    public void destroyObstacle(Position position) {
+        for (Obstacle obstacle : obstacles)
+            if (obstacle.getPosition().equals(position)) {
+                obstacles.remove(obstacle);
+                break;
             }
-        }
-        for(Obstacle dell: DestroyedObs)
-            obstacles.remove(dell);
     }
-    private void KillEnemies(){
-        ArrayList<Enemy> Enemieskilled=new ArrayList<>();
-        for(Explosion explosion1 : explosion  ) {
-            for(Enemy enemy:enemies){
-                if(enemy.getPosition().equals(explosion1.getPosition())) Enemieskilled.add(enemy);
+
+    public void killEnemy(Position position) {
+        for (Enemy enemy : enemies)
+            if (enemy.getPosition().equals(position)) {
+                enemies.remove(enemy);
+                break;
             }
-
-        }
-        for(Enemy enemy: Enemieskilled)
-            enemies.remove(enemy);
     }
-    private void checksuicide(){
-
-        for(Explosion explosion1 : explosion  ) {
-            if(getBomberman().getPosition().equals(explosion1.getPosition()))
-                getBomberman().TakesHit();
-        }
-    }
-    public void Explode(long time){
-
-        UpdateRealExplosionData(time);
-
-        DestroyOb();
-
-        KillEnemies();
-
-        checksuicide();
-
-
-        Hasbomb=false;
-    }
-
-
-    public void ClearExplosion() {
-        explosion.clear();
-    }
-*/
 }
