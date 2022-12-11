@@ -5,15 +5,11 @@ import pt.up.fe.bomberman.model.Position;
 import java.io.IOException;
 
 public interface GUI {
-
-
-
-    enum ACTION {UP, RIGHT, DOWN, LEFT, ENTER, NONE, QUIT,SPACE}
+    enum ACTION {UP, RIGHT, DOWN, LEFT, ENTER, NONE, QUIT, SPACE}
 
     ACTION getNextAction() throws IOException;
 
     void drawText(Position position, String text, String color);
-
 
     void drawBomberman(Position position, char face);
 
@@ -40,7 +36,5 @@ public interface GUI {
     void drawExplosionHorizontal(Position position);
 
     void drawExplosionVertical(Position position);
-
-
 }
 

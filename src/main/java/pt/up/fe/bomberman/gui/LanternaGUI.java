@@ -36,7 +36,6 @@ public class LanternaGUI implements GUI {
         File fontFile = new File(resource.toURI());
         Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 
-
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
 
@@ -76,7 +75,7 @@ public class LanternaGUI implements GUI {
         if (keyStroke.getKeyType() == KeyType.ArrowRight) return ACTION.RIGHT;
         if (keyStroke.getKeyType() == KeyType.ArrowDown) return ACTION.DOWN;
         if (keyStroke.getKeyType() == KeyType.ArrowLeft) return ACTION.LEFT;
-        if (keyStroke.getKeyType() ==KeyType.Character && keyStroke.getCharacter() == ' ')return ACTION.SPACE;
+        if (keyStroke.getKeyType() ==KeyType.Character && keyStroke.getCharacter() == ' ') return ACTION.SPACE;
         if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.ENTER;
 
         return ACTION.NONE;
@@ -88,53 +87,45 @@ public class LanternaGUI implements GUI {
         TextGraphics textGraphics = screen.newTextGraphics();
         textGraphics.setBackgroundColor(TextColor.Factory.fromString("#397C00"));
         textGraphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
-
     }
 
     @Override
     public void drawBomberman(Position position,char face) {
         switch (face) {
             case 'U':
-                drawCharacter(position.getX(), position.getY(), '"', "#64A4FF");break;
+                drawCharacter(position.getX(), position.getY(), '"', "#64A4FF"); break;
             case 'L':
-                drawCharacter(position.getX(), position.getY(), ',', "#64A4FF");break;
+                drawCharacter(position.getX(), position.getY(), ',', "#64A4FF"); break;
             case 'R':
-                drawCharacter(position.getX(), position.getY(), '.', "#64A4FF");break;
+                drawCharacter(position.getX(), position.getY(), '.', "#64A4FF"); break;
             default:
-                drawCharacter(position.getX(), position.getY(), '!', "#64A4FF");
+                drawCharacter(position.getX(), position.getY(), '!', "#64A4FF"); break;
         }
-
     }
 
 
     @Override
     public void drawObstacle(Position position) {
-
         drawCharacter(position.getX(), position.getY(), '?', "#C9C9C9"); //brown
-
     }
 
     @Override
     public void drawWall(Position position) {
         drawCharacter(position.getX(), position.getY(), ';', "#C9C9C9"); //grey
-
     }
 
     @Override
     public void drawEnemy(Position position) {
-
-        drawCharacter(position.getX(), position.getY(), ':', "#FA732C"); //redO
-}
-    @Override
-    public void drawBomb(Position position){
-        drawCharacter(position.getX(), position.getY(), 'c', "#000000");//Black
+        drawCharacter(position.getX(), position.getY(), ':', "#FA732C"); //red
     }
-
+    @Override
+    public void drawBomb(Position position) {
+        drawCharacter(position.getX(), position.getY(), 'c', "#000000"); //black
+    }
 
     @Override
     public void drawPowerup(Position position) {
         drawCharacter(position.getX(), position.getY(),'P', "#F7EF8A"); //gold
-
     }
     public void drawExplosionVertical(Position position){
         drawCharacter(position.getX(), position.getY(),'b', "#FF4500");//kinda orange
