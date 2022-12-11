@@ -39,15 +39,50 @@ public class Arena {
         return bombs;
     }
 
-    public List<Explosion> GetExplosion(){
+    public List<Explosion> getExplosion(){
         return explosions;
+    }
+
+    public List<Enemy> getEnemies() {
+        return enemies;
+    }
+
+    public List<Obstacle> getObstacles() {
+        return obstacles;
+    }
+
+    public List<Wall> getWalls() {
+        return walls;
+    }
+
+    public List<Powerup> getPowerups() { return powerups; }
+
+    public void setBomberman(Bomberman bomberman) {
+        this.bomberman = bomberman;
+    }
+
+    public void setEnemies(List<Enemy> enemies) {
+        this.enemies = enemies;
+    }
+
+    public void setObstacles(List<Obstacle> obstacles) {
+        this.obstacles = obstacles;
+    }
+
+    public void setWalls(List<Wall> walls) {
+        this.walls = walls;
+    }
+
+    public void setPowerups(List<Powerup> powerups) {
+        this.powerups = powerups;
     }
 
     public void createBomb(long time) {
         Bomb bomb = new Bomb(bomberman.getPosition().getX(), bomberman.getPosition().getY(), time, getBomberman().getBombRange());
+        bombs.add(bomb);
     }
 
-    private void UpdateRealExplosionData(long time){
+    /*private void UpdateRealExplosionData(long time){
         for(int i=1;i<=getBomb().getExplodeRadius();i++){
             explosion.add(new Explosion(getBomb().getPosition().getX(),getBomb().getPosition().getY()+i,time,'V'));
             explosion.add(new Explosion(getBomb().getPosition().getX(),getBomb().getPosition().getY()-i,time,'V'));
@@ -108,44 +143,6 @@ public class Arena {
         Hasbomb=false;
     }
 
-    public void setBomberman(Bomberman bomberman) {
-        this.bomberman = bomberman;
-    }
-
-    public List<Enemy> getEnemies() {
-        return enemies;
-    }
-
-    public void setEnemies(List<Enemy> enemies) {
-        this.enemies = enemies;
-    }
-
-    public List<Obstacle> getObstacles() {
-        return obstacles;
-    }
-
-    public List<Explosion> getExplosion() {
-        return explosion;
-    }
-
-    public void setObstacles(List<Obstacle> obstacles) {
-        this.obstacles = obstacles;
-    }
-
-    public List<Wall> getWalls() {
-        return walls;
-    }
-
-    public void setWalls(List<Wall> walls) {
-        this.walls = walls;
-    }
-
-    public void setPowerups(List<Powerup> powerups) {
-        this.powerups = powerups;
-    }
-
-    public List<Powerup> getPowerups() {return powerups;}
-
     public boolean isEmpty(Position position){
         for (Obstacle obstacle : obstacles)
             if (obstacle.getPosition().equals(position))
@@ -177,6 +174,5 @@ public class Arena {
     public void ClearExplosion() {
         explosion.clear();
     }
-
-
+*/
 }
