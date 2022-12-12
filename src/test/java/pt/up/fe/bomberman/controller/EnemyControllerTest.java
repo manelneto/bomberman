@@ -11,6 +11,7 @@ import pt.up.fe.bomberman.model.game.arena.Arena;
 import pt.up.fe.bomberman.model.game.elements.Bomberman;
 import pt.up.fe.bomberman.model.game.elements.Enemy;
 import pt.up.fe.bomberman.model.game.elements.Obstacle;
+import pt.up.fe.bomberman.model.game.elements.Wall;
 import pt.up.fe.bomberman.model.game.elements.enemy.Balloom;
 
 import java.io.IOException;
@@ -56,6 +57,18 @@ public class EnemyControllerTest {
         Enemy enemy = new Balloom(10, 10);
         arena.setEnemies(Arrays.asList(enemy));
         arena.setObstacles(Arrays.asList(new Obstacle(11, 10), new Obstacle(9, 10), new Obstacle(10, 9), new Obstacle(10, 11)));
+
+        for (int i = 0; i < 10; i++)
+            controller.step(game, GUI.ACTION.NONE, 1000);
+
+        assertEquals(new Position(10, 10), enemy.getPosition());
+    }
+
+    @Test
+    void moveEnemyWall() throws IOException {
+        Enemy enemy = new Balloom(10, 10);
+        arena.setEnemies(Arrays.asList(enemy));
+        arena.setWalls(Arrays.asList(new Wall(11, 10), new Wall(9, 10), new Wall(10, 9), new Wall(10, 11)));
 
         for (int i = 0; i < 10; i++)
             controller.step(game, GUI.ACTION.NONE, 1000);
