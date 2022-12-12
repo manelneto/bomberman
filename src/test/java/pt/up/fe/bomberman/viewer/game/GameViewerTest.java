@@ -14,7 +14,6 @@ import pt.up.fe.bomberman.model.game.elements.enemy.Balloom;
 import java.io.IOException;
 import java.util.Arrays;
 
-import static org.mockito.ArgumentMatchers.anyChar;
 import static org.mockito.ArgumentMatchers.eq;
 
 public class GameViewerTest {
