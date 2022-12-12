@@ -47,4 +47,10 @@ public class BombermanControllerTest {
         controller.moveBombermanRight();
         assertEquals(new Position(11, 10), bomberman.getPosition());
     }
+
+    @Test
+    void moveBombermanLeftEmpty() {
+        controller.moveBombermanLeft();
+        assertEquals(new Position(9, 10), bomberman.getPosition());
+    }
 }
