@@ -3,7 +3,6 @@ package pt.up.fe.bomberman.controller.game;
 
 import pt.up.fe.bomberman.Game;
 import pt.up.fe.bomberman.gui.GUI;
-import pt.up.fe.bomberman.model.game.elements.Enemy;
 import pt.up.fe.bomberman.model.game.arena.Arena;
 import pt.up.fe.bomberman.model.menu.Menu;
 import pt.up.fe.bomberman.states.MenuState;
@@ -31,10 +30,10 @@ public class ArenaController extends GameController {
         if (action == GUI.ACTION.QUIT || getModel().getBomberman().getHp() == 0)
             game.setState(new MenuState(new Menu()));
         else {
-            if(getModel().HasBomb()) bombController.step(game,action,time);
-            if(!getModel().GetExplosion().isEmpty()) explosionController.step(game,action,time);
             bombermanController.step(game, action, time);
             enemyController.step(game, action, time);
+            bombController.step(game,action,time);
+            explosionController.step(game,action,time);
         }
     }
 }

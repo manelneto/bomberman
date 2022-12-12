@@ -22,4 +22,3 @@ public class MenuState extends State<Menu> {
         return new MenuController(getModel());
     }
 }
-

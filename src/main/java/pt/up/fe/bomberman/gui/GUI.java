@@ -6,13 +6,12 @@ import java.io.IOException;
 
 public interface GUI {
 
+    enum ACTION {UP, RIGHT, DOWN, LEFT, ENTER, NONE, QUIT, SPACE}
 
-    enum ACTION {UP, RIGHT, DOWN, LEFT, ENTER, NONE, QUIT,SPACE}
 
     ACTION getNextAction() throws IOException;
 
     void drawText(Position position, String text, String color);
-
 
     void drawBomberman(Position position, char face);
 
@@ -32,8 +31,6 @@ public interface GUI {
 
     void close() throws IOException;
 
-    public void drawExplosion(Position position);
-
     void paintBackground(int width, int height);
 
     void drawExplosionHorizontal(Position position);
@@ -45,8 +42,6 @@ public interface GUI {
     void drawBalloom(Position position);
 
     void drawDoll(Position position);
-
-
 
 
 }
