@@ -2,7 +2,6 @@ package pt.up.fe.bomberman.controller;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import pt.up.fe.bomberman.controller.game.BombermanController;
 import pt.up.fe.bomberman.model.game.arena.Arena;
 import pt.up.fe.bomberman.model.game.elements.*;
