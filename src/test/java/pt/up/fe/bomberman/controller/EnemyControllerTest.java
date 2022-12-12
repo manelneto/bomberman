@@ -10,11 +10,13 @@ import pt.up.fe.bomberman.model.Position;
 import pt.up.fe.bomberman.model.game.arena.Arena;
 import pt.up.fe.bomberman.model.game.elements.Bomberman;
 import pt.up.fe.bomberman.model.game.elements.Enemy;
+import pt.up.fe.bomberman.model.game.elements.Obstacle;
 import pt.up.fe.bomberman.model.game.elements.enemy.Balloom;
 
 import java.io.IOException;
 import java.util.Arrays;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class EnemyControllerTest {
@@ -47,5 +49,17 @@ public class EnemyControllerTest {
         controller.step(game, GUI.ACTION.NONE, 1000);
 
         assertNotEquals(new Position(10, 10), enemy.getPosition());
+    }
+
+    @Test
+    void moveEnemyObstacle() throws IOException {
+        Enemy enemy = new Balloom(10, 10);
+        arena.setEnemies(Arrays.asList(enemy));
+        arena.setObstacles(Arrays.asList(new Obstacle(11, 10), new Obstacle(9, 10), new Obstacle(10, 9), new Obstacle(10, 11)));
+
+        for (int i = 0; i < 10; i++)
+            controller.step(game, GUI.ACTION.NONE, 1000);
+
+        assertEquals(new Position(10, 10), enemy.getPosition());
     }
 }
