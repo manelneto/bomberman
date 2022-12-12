@@ -97,4 +97,11 @@ public class BombermanControllerTest {
         controller.moveBombermanLeft();
         assertEquals(new Position(9, 10), bomberman.getPosition());
     }
+
+    @Test
+    void moveBombermanLeftObstacle() {
+        arena.setObstacles(Arrays.asList(new Obstacle(9, 10)));
+        controller.moveBombermanLeft();
+        assertEquals(new Position(10, 10), bomberman.getPosition());
+    }
 }
