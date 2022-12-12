@@ -35,4 +35,10 @@ public class BombermanControllerTest {
         controller.moveBombermanUp();
         assertEquals(new Position(10, 9), bomberman.getPosition());
     }
+
+    @Test
+    void moveBombermanDownEmpty() {
+        controller.moveBombermanDown();
+        assertEquals(new Position(10, 11), bomberman.getPosition());
+    }
 }
