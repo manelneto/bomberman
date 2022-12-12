@@ -8,10 +8,7 @@ import pt.up.fe.bomberman.controller.game.EnemyController;
 import pt.up.fe.bomberman.gui.GUI;
 import pt.up.fe.bomberman.model.Position;
 import pt.up.fe.bomberman.model.game.arena.Arena;
-import pt.up.fe.bomberman.model.game.elements.Bomberman;
-import pt.up.fe.bomberman.model.game.elements.Enemy;
-import pt.up.fe.bomberman.model.game.elements.Obstacle;
-import pt.up.fe.bomberman.model.game.elements.Wall;
+import pt.up.fe.bomberman.model.game.elements.*;
 import pt.up.fe.bomberman.model.game.elements.enemy.Balloom;
 
 import java.io.IOException;
