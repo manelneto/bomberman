@@ -10,6 +10,8 @@ import pt.up.fe.bomberman.model.game.elements.Bomberman;
 import pt.up.fe.bomberman.model.game.elements.Obstacle;
 import pt.up.fe.bomberman.model.game.elements.Wall;
 import pt.up.fe.bomberman.model.game.elements.enemy.Balloom;
+import pt.up.fe.bomberman.model.game.elements.enemy.Doll;
+import pt.up.fe.bomberman.model.game.elements.enemy.Oneal;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -28,7 +30,7 @@ public class GameViewerTest {
         viewer = new GameViewer(arena);
 
         arena.setBomberman(new Bomberman(1, 1));
-        arena.setEnemies(Arrays.asList(new Balloom(5, 5), new Balloom(7, 7)));
+        arena.setEnemies(Arrays.asList(new Balloom(5, 5),new Oneal(1, 1), new Doll(7, 7)));
         arena.setObstacles(Arrays.asList(new Obstacle(10, 10), new Obstacle(12, 12), new Obstacle(14, 14)));
         arena.setWalls(Arrays.asList(new Wall(15, 15), new Wall(16, 16), new Wall(17, 17), new Wall(18, 18)));
     }
@@ -45,9 +47,9 @@ public class GameViewerTest {
     void drawEnemies() throws IOException {
         viewer.draw(gui);
 
-        Mockito.verify(gui, Mockito.times(1)).drawEnemy(new Position(5, 5));
-        Mockito.verify(gui, Mockito.times(1)).drawEnemy(new Position(7, 7));
-        Mockito.verify(gui, Mockito.times(2)).drawEnemy(Mockito.any(Position.class));
+        Mockito.verify(gui, Mockito.times(1)).drawBalloom(new Position(5, 5));
+        Mockito.verify(gui, Mockito.times(1)).drawDoll(new Position(7, 7));
+        Mockito.verify(gui, Mockito.times(1)).drawOneal(new Position(1, 1));
     }
 
     @Test
