@@ -14,7 +14,6 @@ public class PowerupViewerTest {
 
     @BeforeEach
     void setUp() {
-        //powerup = new Powerup(10, 10);
         viewer = new PowerupViewer();
         gui = Mockito.mock(GUI.class);
     }
