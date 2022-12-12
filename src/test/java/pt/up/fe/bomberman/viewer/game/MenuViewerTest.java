@@ -17,18 +17,19 @@ public class MenuViewerTest {
 
     @BeforeEach
     void setUp(){
-        menu=new Menu();
-        gui= Mockito.mock(GUI.class);
+        menu = new Menu();
+        gui = Mockito.mock(GUI.class);
         viewer = new MenuViewer(menu);
 
     }
+
     @Test
     void drawElements() throws IOException {
         viewer.draw(gui);
-        int i=0;
-        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(5, 5), "MENU", "#FFFFFF");
-        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(5, 7+i++), "START", "#FFD700");
-        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(5, 7+i),"EXIT", "#FFFFFF");
-    }
 
+        int i = 0;
+        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(5, 5), "MENU", "#FFFFFF");
+        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(5, 7 + i++), "START", "#FFD700");
+        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(5, 7 + i),"EXIT", "#FFFFFF");
+    }
 }
