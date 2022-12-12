@@ -104,4 +104,11 @@ public class BombermanControllerTest {
         controller.moveBombermanLeft();
         assertEquals(new Position(10, 10), bomberman.getPosition());
     }
+
+    @Test
+    void moveBombermanLeftWall() {
+        arena.setWalls(Arrays.asList(new Wall(9, 10)));
+        controller.moveBombermanLeft();
+        assertEquals(new Position(10, 10), bomberman.getPosition());
+    }
 }
