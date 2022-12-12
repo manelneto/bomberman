@@ -17,9 +17,9 @@ import java.util.Arrays;
 import static org.mockito.ArgumentMatchers.eq;
 
 public class GameViewerTest {
-    private GUI gui;
-    private GameViewer viewer;
     private Arena arena;
+    private GameViewer viewer;
+    private GUI gui;
 
     @BeforeEach
     void setUp() {

@@ -11,12 +11,9 @@ import pt.up.fe.bomberman.viewer.menu.MenuViewer;
 import java.io.IOException;
 
 public class MenuViewerTest {
-
-    private MenuViewer viewer;
-
-    private GUI gui;
-
     private Menu menu;
+    private MenuViewer viewer;
+    private GUI gui;
 
     @BeforeEach
     void setUp(){
