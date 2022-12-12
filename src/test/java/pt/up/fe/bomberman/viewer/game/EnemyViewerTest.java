@@ -14,7 +14,7 @@ public class EnemyViewerTest {
 
     @BeforeEach
     void setUp() {
-        Enemy enemy = new Balloom(13, 17);
+        enemy = new Balloom(13, 17);
         viewer = new EnemyViewer();
         gui = Mockito.mock(GUI.class);
     }
@@ -22,6 +22,6 @@ public class EnemyViewerTest {
     @Test
     void drawEnemy() {
         viewer.draw(enemy, gui);
-        Mockito.verify(gui, Mockito.times(1)).drawEnemy(enemy.getPosition());
+        Mockito.verify(gui, Mockito.times(1)).drawBalloom(enemy.getPosition());
     }
 }
