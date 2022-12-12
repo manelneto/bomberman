@@ -7,6 +7,7 @@ import pt.up.fe.bomberman.model.Position;
 import pt.up.fe.bomberman.model.game.arena.Arena;
 import pt.up.fe.bomberman.model.game.elements.Bomberman;
 import pt.up.fe.bomberman.model.game.elements.Obstacle;
+import pt.up.fe.bomberman.model.game.elements.Wall;
 
 import java.util.Arrays;
 
@@ -40,6 +41,13 @@ public class BombermanControllerTest {
     @Test
     void moveBombermanUpObstacle() {
         arena.setObstacles(Arrays.asList(new Obstacle(10, 9)));
+        controller.moveBombermanUp();
+        assertEquals(new Position(10, 10), bomberman.getPosition());
+    }
+
+    @Test
+    void moveBombermanUpWall() {
+        arena.setWalls(Arrays.asList(new Wall(10, 9)));
         controller.moveBombermanUp();
         assertEquals(new Position(10, 10), bomberman.getPosition());
     }
