@@ -19,15 +19,40 @@ public class DollController extends EnemyController {
     }
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        if (time - lastMovementTime > 450) {
+        if (time - lastMovementTime > 250) {
             for (Enemy monster : getModel().getEnemies())
                 if(monster.getType()=='D')
-                    moveEnemy(monster,monster.getmovePatern());
+                    moveEnemy(monster,getmovePatern(monster));
 
             this.lastMovementTime = time;
         }
     }
+    protected Position getmovePatern(Enemy monster){
+        switch (monster.getDirection()){
+            case('D'): if(canmoveto(monster,monster.getPosition().getRight())) {
+                monster.setDirection('R');
+                return monster.getPosition().getRight();
+            }
 
+            case('R'): if(canmoveto(monster,monster.getPosition().getUp())) {
+                monster.setDirection('U');
+                return monster.getPosition().getUp();
+            }
+
+            case('U'): if(canmoveto(monster,monster.getPosition().getLeft())) {
+                monster.setDirection('L');
+                return monster.getPosition().getLeft();
+            }
+
+            case('L'): if(canmoveto(monster,monster.getPosition().getDown())) {
+                monster.setDirection('D');
+                return monster.getPosition().getDown();
+            }
+
+        }
+        monster.setDirection('D');
+        return monster.getPosition().getDown();
+    }
 
 
 }

@@ -13,45 +13,54 @@ public class BalloomController extends EnemyController {
 
 
 
-        public BalloomController(Arena arena) {
-            super(arena);
+    public BalloomController(Arena arena) {
+        super(arena);
 
-            this.lastMovementTime = 0;
+        this.lastMovementTime = 0;
+    }
+
+    @Override
+    public void step(Game game, GUI.ACTION action, long time) throws IOException {
+        if (time - lastMovementTime > 350){
+            for (Enemy monster : getModel().getEnemies())
+                if(monster.getType()=='B')
+                    moveEnemy(monster,getmovePatern(monster));
+
+            this.lastMovementTime = time;
         }
-        @Override
-        public void step(Game game, GUI.ACTION action, long time) throws IOException {
-            if (time - lastMovementTime > 350){
-                for (Enemy monster : getModel().getEnemies())
-                    if(monster.getType()=='B')
-                        moveEnemy(monster,monster.getmovePatern());
 
-                this.lastMovementTime = time;
+    }
+
+
+    @Override
+    protected Position getmovePatern(Enemy monster){
+        switch (monster.getDirection()){
+            case('D'): if(canmoveto(monster,monster.getPosition().getDown())) {
+                monster.setDirection('D');
+                return monster.getPosition().getDown();
             }
-            
-        }
 
-    private Position movePatern(Enemy monster){
-        if(monster.getDirection()=='D')
-            return monster.getPosition().getDown();
-        if(monster.getDirection()=='U')
-            return monster.getPosition().getUp();
-        if(monster.getDirection()=='R')
-            return monster.getPosition().getRight();
-        if(monster.getDirection()=='L')
-            return monster.getPosition().getLeft();
-        return monster.getPosition().getDown();
+            case('U'): if(canmoveto(monster,monster.getPosition().getUp())) {
+                monster.setDirection('U');
+                return monster.getPosition().getUp();
+            }
+
+            case('R'): if(canmoveto(monster,monster.getPosition().getRight())) {
+                monster.setDirection('R');
+                return monster.getPosition().getRight();
+            }
+
+            case('L'): if(canmoveto(monster,monster.getPosition().getLeft())) {
+                monster.setDirection('L');
+                return monster.getPosition().getLeft();
+            }
+
+        }
+        monster.setDirection('D');
+        return monster.getPosition().getLeft();
     }
     
 
 
-    private void moveBalloom(Enemy monster) {
-        Position position =movePatern(monster);
 
-        if (!getModel().isWall(position) && !getModel().isObstacle(position) && !getModel().isEnemy(position) && !getModel().isBomb(position)) {
-            monster.setPosition(position);
-            if (getModel().getBomberman().getPosition().equals(position))
-                getModel().getBomberman().decreaseHp();
-        }
-        
-    }
 }

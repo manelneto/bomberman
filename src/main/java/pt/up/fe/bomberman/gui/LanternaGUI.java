@@ -141,8 +141,8 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void drawPowerup(Position position) {
-        drawCharacter(position.getX(), position.getY(),'P', "#F7EF8A"); //gold
+    public void drawElement(Position position,char c,String color) {
+        drawCharacter(position.getX(), position.getY(),c, color); //gold
     }
 
     @Override

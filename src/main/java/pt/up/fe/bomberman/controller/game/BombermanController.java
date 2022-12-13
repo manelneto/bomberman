@@ -60,7 +60,8 @@ public class BombermanController extends GameController {
             if (action == GUI.ACTION.RIGHT){ moveBombermanRight(); this.lastMovementTime = time;}
             if (action == GUI.ACTION.DOWN) {moveBombermanDown(); this.lastMovementTime = time;}
             if (action == GUI.ACTION.LEFT) {moveBombermanLeft(); this.lastMovementTime = time;}
-            if (action == GUI.ACTION.SPACE && getModel().getBomberman().getUsableBombs() - getModel().getBombs().size() > 0) {getModel().createBomb(time); this.lastMovementTime = time;}
+
         }
+        if (action == GUI.ACTION.SPACE && getModel().getBomberman().getUsableBombs() - getModel().getBombs().size() > 0) getModel().createBomb(time);
     }
 }

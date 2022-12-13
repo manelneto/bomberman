@@ -89,6 +89,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
                 else if(line.charAt(x) == 'S')obstacles.add(new Obstacle(x, y));
                 else if(line.charAt(x) == 'e')obstacles.add(new Obstacle(x, y));
                 else if(line.charAt(x) == 'm')obstacles.add(new Obstacle(x, y));
+                else if(line.charAt(x) == 'f')obstacles.add(new Obstacle(x, y));
         }
 
         return obstacles;
@@ -105,6 +106,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
                 else if(line.charAt(x) == 'S'){powerup.add(new Speed(x, y));}
                 else if(line.charAt(x) == 'e'){powerup.add(new Wallpass(x, y));}
                 else if(line.charAt(x) == 'm'){powerup.add(new Bombs(x, y));}
+                else if(line.charAt(x) == 'f') {powerup.add(new Flames(x, y));}
 
             }
         }

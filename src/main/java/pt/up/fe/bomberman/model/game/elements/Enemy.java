@@ -31,30 +31,7 @@ public abstract class Enemy extends Element {
 
         }
     }
-    public Position movePaternrandom(){
 
-        int n = (int) (Math.random() * 4);
-
-        switch (n) {
-            case 0:
-                setDirection('U');
-                return getPosition().getUp();
-            case 1:
-                setDirection('D');
-                return getPosition().getDown();
-            case 2:
-                setDirection('R');
-                return getPosition().getRight();
-            default:
-                setDirection('L');
-                return getPosition().getLeft();
-
-
-        }
-    }
-    public  Position getmovePatern(){
-        return movePaternrandom();
-    }
 
     public char getDirection() {
         return direction;

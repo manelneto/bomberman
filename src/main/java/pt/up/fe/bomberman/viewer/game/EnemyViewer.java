@@ -7,9 +7,9 @@ public class EnemyViewer implements ElementViewer<Enemy> {
     @Override
     public void draw(Enemy enemy, GUI gui) {
         switch(enemy.getType()) {
-            case 'B': gui.drawBalloom(enemy.getPosition()); break;
-            case 'O':gui.drawOneal(enemy.getPosition()); break;
-            case 'D':gui.drawDoll(enemy.getPosition()); break;
+            case 'B': gui.drawElement(enemy.getPosition(), ':', "#FA732C"); break;
+            case 'O':gui.drawElement(enemy.getPosition(), 'n', "#0000FF"); break;
+            case 'D':gui.drawElement(enemy.getPosition(), 'o', "#FF0000"); break;
         }
     }
 }

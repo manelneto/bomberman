@@ -8,19 +8,19 @@ public class PowerupViewer implements ElementViewer<Powerup> {
     public void draw(Powerup powerup, GUI gui) {
         switch (powerup.getEffect()){
 
-            case Bombpass:{gui.drawPowerupBombpass(powerup.getPosition());break;}
+            case Bombpass:{gui.drawElement(powerup.getPosition(),'r', "#F7EF8A");break;}
 
-            case Bombs:{gui.drawPowerupBombs(powerup.getPosition());break;}
+            case Bombs:{gui.drawElement(powerup.getPosition(),'e', "#F7EF8A");break;}
 
-            case Detonator:{gui.drawPowerupDetonator(powerup.getPosition());break;}
+            case Detonator:{gui.drawElement(powerup.getPosition(),'g', "#F7EF8A");break;}
 
-            case Flamepass:{gui.drawPowerupFlamepass(powerup.getPosition());break;}
+            case Flamepass:{gui.drawElement(powerup.getPosition(),'q', "#F7EF8A");break;}
 
-            case Flames:{gui.drawPowerupFlames(powerup.getPosition());break;}
+            case Flames:{gui.drawElement(powerup.getPosition(),'d', "#F7EF8A");break;}
 
-            case Speed:{gui.drawPowerupSpeed(powerup.getPosition());break;}
+            case Speed:{gui.drawElement(powerup.getPosition(),'f', "#F7EF8A");break;}
 
-            case Wallpass:{gui.drawPowerupWallpass(powerup.getPosition());break;}
+            case Wallpass:{gui.drawElement(powerup.getPosition(),'p', "#F7EF8A");break;}
 
 
         }

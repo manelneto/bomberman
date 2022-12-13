@@ -23,7 +23,7 @@ public interface GUI {
 
     void drawEnemy(Position position);
 
-    void drawPowerup(Position position);
+    void drawElement(Position position,char c,String color);
 
     void drawPowerupBombpass(Position position);
 
