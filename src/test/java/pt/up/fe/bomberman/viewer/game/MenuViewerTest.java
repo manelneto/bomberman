@@ -29,12 +29,8 @@ public class MenuViewerTest {
 
         int i = 0;
         Mockito.verify(gui, Mockito.times(1)).drawText(new Position(5, 5), "MENU", "#FFFFFF");
-<<<<<<< HEAD
         Mockito.verify(gui, Mockito.times(1)).drawText(new Position(5, 7+i), "START", "#FFD700");
         Mockito.verify(gui, Mockito.times(1)).drawText(new Position(5, 7+i+2),"EXIT", "#FFFFFF");
-=======
-        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(5, 7 + i++), "START", "#FFD700");
-        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(5, 7 + i),"EXIT", "#FFFFFF");
->>>>>>> c057579c697addc6afd47533fcf7f6ac9a3fece5
+
     }
 }

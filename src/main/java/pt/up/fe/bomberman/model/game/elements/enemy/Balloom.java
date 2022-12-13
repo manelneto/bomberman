@@ -13,16 +13,5 @@ public class Balloom extends Enemy {
     }
 
 
-    @Override
-    public Position movePatern(){
-        if(getDirection()=='D')
-            return getPosition().getDown();
-        if(getDirection()=='U')
-            return getPosition().getUp();
-        if(getDirection()=='R')
-            return getPosition().getRight();
-        if(getDirection()=='L')
-            return getPosition().getLeft();
-        return getPosition().getDown();
-    }
+
 }

@@ -52,7 +52,7 @@ public abstract class Enemy extends Element {
 
         }
     }
-    public  Position movePatern(){
+    public  Position getmovePatern(){
         return movePaternrandom();
     }
 
