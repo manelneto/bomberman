@@ -5,7 +5,7 @@ import pt.up.fe.bomberman.Game;
 import pt.up.fe.bomberman.controller.Controller;
 import pt.up.fe.bomberman.gui.GUI;
 
-import pt.up.fe.bomberman.model.arenaLoader.LoaderArenaBuilder;
+import pt.up.fe.bomberman.model.game.arena.LoaderArenaBuilder;
 
 import pt.up.fe.bomberman.model.menu.Menu;
 import pt.up.fe.bomberman.states.GameState;

@@ -1,14 +1,15 @@
-package pt.up.fe.bomberman.model.arenaLoader;
+package pt.up.fe.bomberman.model.game.arena;
 
 
 
 import pt.up.fe.bomberman.model.game.elements.Bomberman;
-import pt.up.fe.bomberman.model.game.elements.Enemy;
 import pt.up.fe.bomberman.model.game.elements.Obstacle;
-import pt.up.fe.bomberman.model.game.elements.Wall;
+import pt.up.fe.bomberman.model.game.elements.Powerup;
+import pt.up.fe.bomberman.model.game.elements.*;
 import pt.up.fe.bomberman.model.game.elements.enemy.Balloom;
 import pt.up.fe.bomberman.model.game.elements.enemy.Doll;
 import pt.up.fe.bomberman.model.game.elements.enemy.Oneal;
+import pt.up.fe.bomberman.model.game.elements.powerup.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -75,6 +76,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         }
         return null;
     }
+    @Override
     protected List<Obstacle> createObstacles() {
         List<Obstacle> obstacles = new ArrayList<>();
 
@@ -82,9 +84,32 @@ public class LoaderArenaBuilder extends ArenaBuilder {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
                 if (line.charAt(x) == 'o') obstacles.add(new Obstacle(x, y));
+                else if (line.charAt(x) == 'P') obstacles.add(new Obstacle(x, y));
+                else if(line.charAt(x) == 'F') obstacles.add(new Obstacle(x, y));
+                else if(line.charAt(x) == 'S')obstacles.add(new Obstacle(x, y));
+                else if(line.charAt(x) == 'e')obstacles.add(new Obstacle(x, y));
+                else if(line.charAt(x) == 'M')obstacles.add(new Obstacle(x, y));
         }
 
         return obstacles;
+    }
+
+    protected List<Powerup> createPower() {
+        List<Powerup> powerup = new ArrayList<>();
+
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++) {
+                if (line.charAt(x) == 'P') {powerup.add(new Bombpass(x, y));}
+                else if(line.charAt(x) == 'F') {powerup.add(new Flamepass(x, y));}
+                else if(line.charAt(x) == 'S'){powerup.add(new Speed(x, y));}
+                else if(line.charAt(x) == 'e'){powerup.add(new Wallpass(x, y));}
+                else if(line.charAt(x) == 'M'){powerup.add(new Bombs(x, y));}
+
+            }
+        }
+
+        return powerup;
     }
 
 

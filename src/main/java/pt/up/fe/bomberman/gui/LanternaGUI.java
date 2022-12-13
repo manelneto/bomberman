@@ -144,6 +144,42 @@ public class LanternaGUI implements GUI {
     public void drawPowerup(Position position) {
         drawCharacter(position.getX(), position.getY(),'P', "#F7EF8A"); //gold
     }
+
+    @Override
+    public void drawPowerupBombpass(Position position) {
+        drawCharacter(position.getX(), position.getY(),'r', "#F7EF8A");
+    }
+
+    @Override
+    public void drawPowerupBombs(Position position) {
+        drawCharacter(position.getX(), position.getY(),'e', "#F7EF8A");
+    }
+
+    @Override
+    public void drawPowerupDetonator(Position position) {
+        drawCharacter(position.getX(), position.getY(),'g', "#F7EF8A");
+    }
+
+    @Override
+    public void drawPowerupFlamepass(Position position) {
+        drawCharacter(position.getX(), position.getY(),'q', "#F7EF8A");
+    }
+
+    @Override
+    public void drawPowerupFlames(Position position) {
+        drawCharacter(position.getX(), position.getY(),'d', "#F7EF8A");
+    }
+
+    @Override
+    public void drawPowerupSpeed(Position position) {
+        drawCharacter(position.getX(), position.getY(),'f', "#F7EF8A");
+    }
+
+    @Override
+    public void drawPowerupWallpass(Position position) {
+        drawCharacter(position.getX(), position.getY(),'p', "#F7EF8A");
+    }
+
     public void drawExplosionVertical(Position position){
         drawCharacter(position.getX(), position.getY(),'b', "#FF4500");//kinda orange
     }

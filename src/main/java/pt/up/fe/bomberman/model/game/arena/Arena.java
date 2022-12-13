@@ -15,6 +15,7 @@ public class Arena {
     private List<Explosion> explosions = new ArrayList<>();
     private List<Enemy> enemies;
     private List<Obstacle> obstacles;
+
     private List<Wall> walls;
 
     private List<Powerup> powerups = new ArrayList<>(); //no powerups for now
@@ -121,6 +122,13 @@ public class Arena {
                 return true;
         return false;
     }
+    public void removePowerup(Position position) {
+        for (Powerup powerup : powerups)
+            if (powerup.getPosition().equals(position)) {
+                powerups.remove(powerup);
+                break;
+                }
+    }
 
     public boolean isWall(Position position) {
         for (Wall wall : walls)
@@ -162,7 +170,7 @@ public class Arena {
         for (Explosion explosion : explosions) {
             destroyObstacle(explosion.getPosition());
             killEnemy(explosion.getPosition());
-            if (explosion.getPosition().equals(bomberman.getPosition()))
+            if (explosion.getPosition().equals(bomberman.getPosition()) && !bomberman. canFlamepass())
                 bomberman.decreaseHp();
         }
     }

@@ -1,12 +1,11 @@
-package pt.up.fe.bomberman.model.arenaLoader;
+package pt.up.fe.bomberman.model.game.arena;
 
 
 import pt.up.fe.bomberman.model.game.arena.Arena;
-import pt.up.fe.bomberman.model.game.elements.Bomberman;
-import pt.up.fe.bomberman.model.game.elements.Enemy;
-import pt.up.fe.bomberman.model.game.elements.Obstacle;
-import pt.up.fe.bomberman.model.game.elements.Wall;
+import pt.up.fe.bomberman.model.game.elements.*;
 import pt.up.fe.bomberman.model.game.elements.enemy.Balloom;
+import pt.up.fe.bomberman.model.game.elements.powerup.Bombpass;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +20,7 @@ public abstract class ArenaBuilder {
         arena.setBomberman(createBomberman());
         arena.setEnemies(createEnemies());
         arena.setObstacles(createObstacles());
+        arena.setPowerups(createPower());
         arena.setWalls(createWalls());
 
         return arena;
@@ -46,6 +46,13 @@ public abstract class ArenaBuilder {
         List<Wall> walls = new ArrayList<>();
         walls.add(new Wall(15, 15));
         return walls;
+    }
+    protected List<Powerup> createPower() {
+        List<Powerup> powerup = new ArrayList<>();
+
+        powerup.add(new Bombpass(20,20));
+
+        return powerup;
     }
 
 }

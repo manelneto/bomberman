@@ -25,6 +25,20 @@ public interface GUI {
 
     void drawPowerup(Position position);
 
+    void drawPowerupBombpass(Position position);
+
+    void drawPowerupBombs(Position position);
+
+    void drawPowerupDetonator(Position position);
+
+    void drawPowerupFlamepass(Position position);
+
+    void drawPowerupFlames(Position position);
+
+    void drawPowerupSpeed(Position position);
+
+    void drawPowerupWallpass(Position position);
+
     void clear();
 
     void refresh() throws IOException;

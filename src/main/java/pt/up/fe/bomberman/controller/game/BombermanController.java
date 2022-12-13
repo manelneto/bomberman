@@ -34,28 +34,28 @@ public class BombermanController extends GameController {
     }
 
     private void moveBomberman(Position position) {
-        if (!getModel().isWall(position) && !getModel().isObstacle(position) && !getModel().isBomb(position)) {
+        if (((!getModel().isWall(position) && !getModel().isObstacle(position)) || getModel().getBomberman().canWallpass() )&& (!getModel().isBomb(position) || getModel().getBomberman().canBombpass())) {
             getModel().getBomberman().setPosition(position);
             if (getModel().isEnemy(position)) getModel().getBomberman().decreaseHp();
-            if (getModel().isPowerup(position)) applyEffect(getModel().findPowerup(position));
+            if (getModel().isPowerup(position)) {applyEffect(getModel().findPowerup(position));getModel().removePowerup(position);}
         }
     }
 
     private void applyEffect(Powerup powerup) {
         switch (powerup.getEffect()) {
-            case Bombpass : getModel().getBomberman().ableBombpass();
-            case Bombs : getModel().getBomberman().increaseUsableBombs();
-            case Detonator: getModel().getBomberman().ableDetonate();
-            case Flamepass :getModel().getBomberman().ableFlamepass();
-            case Flames : getModel().getBomberman().increaseBombRange();
-            case Speed : getModel().getBomberman().increaseSpeed();
-            case Wallpass : getModel().getBomberman().ableWallpass();
+            case Bombpass : {getModel().getBomberman().ableBombpass();break;}
+            case Bombs : {getModel().getBomberman().increaseUsableBombs();break;}
+            case Detonator:{ getModel().getBomberman().ableDetonate();break;}
+            case Flamepass :{getModel().getBomberman().ableFlamepass();break;}
+            case Flames : {getModel().getBomberman().increaseBombRange();break;}
+            case Speed : {getModel().getBomberman().increaseSpeed();break;}
+            case Wallpass :{ getModel().getBomberman().ableWallpass();break;}
         }
     }
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
-        if (time - lastMovementTime > (250/getModel().getBomberman().getSpeed())) {
+        if (time - lastMovementTime > (350/getModel().getBomberman().getSpeed())) {
             if (action == GUI.ACTION.UP) {moveBombermanUp(); this.lastMovementTime = time;}
             if (action == GUI.ACTION.RIGHT){ moveBombermanRight(); this.lastMovementTime = time;}
             if (action == GUI.ACTION.DOWN) {moveBombermanDown(); this.lastMovementTime = time;}
