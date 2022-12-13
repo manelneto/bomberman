@@ -22,7 +22,7 @@ public class ArenaController extends GameController {
         this.explosionController= new ExplosionController(arena);
         this.bombController= new BombController(arena);
         this.bombermanController = new BombermanController(arena);
-        this.enemyController = new EnemyController(arena);
+        this.enemyController = new EnemyController(arena) ;
     }
 
     @Override

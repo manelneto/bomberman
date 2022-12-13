@@ -55,9 +55,7 @@ public class Bomberman extends Element {
     public void faceUp(){
         action = 'U';
     }
-    public void faceRight(){
-        action = 'R';
-    }
+    public void faceRight(){action = 'R';}
     public void faceLeft(){
         action = 'L';
     }

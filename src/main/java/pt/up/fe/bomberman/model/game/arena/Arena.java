@@ -91,7 +91,14 @@ public class Arena {
     }
 
     public void createBomb(long time) {
-        Bomb bomb = new Bomb(bomberman.getPosition().getX(), bomberman.getPosition().getY(), time, getBomberman().getBombRange());
+        for( Bomb bomb:bombs) {
+            if (bomb.getPosition().equals(new Position(bomberman.getPosition().getX(), bomberman.getPosition().getY())))
+                return;
+        }
+        for (Wall wall : walls)
+            if (wall.getPosition().equals(new Position(bomberman.getPosition().getX(), bomberman.getPosition().getY())))
+                return ;
+            Bomb bomb = new Bomb(bomberman.getPosition().getX(), bomberman.getPosition().getY(), time, getBomberman().getBombRange());
         bombs.add(bomb);
     }
 
@@ -189,5 +196,10 @@ public class Arena {
                 enemies.remove(enemy);
                 break;
             }
+    }
+
+    public boolean inArena(Position position) {
+        if(0<=position.getX() && position.getX()<width && 0<=position.getY() && position.getY()<height) return true;
+        return false;
     }
 }

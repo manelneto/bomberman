@@ -34,7 +34,7 @@ public class BombermanController extends GameController {
     }
 
     private void moveBomberman(Position position) {
-        if (((!getModel().isWall(position) && !getModel().isObstacle(position)) || getModel().getBomberman().canWallpass() )&& (!getModel().isBomb(position) || getModel().getBomberman().canBombpass())) {
+        if (getModel().inArena(position)&& !getModel().isObstacle(position) &&(!getModel().isWall(position) || getModel().getBomberman().canWallpass() )&& (!getModel().isBomb(position) || getModel().getBomberman().canBombpass())) {
             getModel().getBomberman().setPosition(position);
             if (getModel().isEnemy(position)) getModel().getBomberman().decreaseHp();
             if (getModel().isPowerup(position)) {applyEffect(getModel().findPowerup(position));getModel().removePowerup(position);}
@@ -55,7 +55,7 @@ public class BombermanController extends GameController {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
-        if (time - lastMovementTime > (350/getModel().getBomberman().getSpeed())) {
+        if (time - lastMovementTime > (250/getModel().getBomberman().getSpeed())) {
             if (action == GUI.ACTION.UP) {moveBombermanUp(); this.lastMovementTime = time;}
             if (action == GUI.ACTION.RIGHT){ moveBombermanRight(); this.lastMovementTime = time;}
             if (action == GUI.ACTION.DOWN) {moveBombermanDown(); this.lastMovementTime = time;}
