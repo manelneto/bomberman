@@ -31,7 +31,7 @@ public abstract class EnemyController extends GameController {
 
     protected void moveEnemy(Enemy monster, Position position) {
         for(int i=0;i<4;i++)
-            if (getModel().inArena(position) && !getModel().isObstacle(position) && (!getModel().isWall(position) || monster.canWallpass()) && !getModel().isEnemy(position) && !getModel().isBomb(position)) {
+            if (getModel().inArena(position) && !getModel().isWall(position) && (!getModel().isObstacle(position)  || monster.canWallpass()) && !getModel().isEnemy(position) && !getModel().isBomb(position)) {
                 monster.setPosition(position);
                 if (getModel().getBomberman().getPosition().equals(position))
                     getModel().getBomberman().decreaseHp();

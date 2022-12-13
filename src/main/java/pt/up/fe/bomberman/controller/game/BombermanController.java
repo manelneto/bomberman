@@ -34,7 +34,7 @@ public class BombermanController extends GameController {
     }
 
     private void moveBomberman(Position position) {
-        if (getModel().inArena(position)&& !getModel().isObstacle(position) &&(!getModel().isWall(position) || getModel().getBomberman().canWallpass() )&& (!getModel().isBomb(position) || getModel().getBomberman().canBombpass())) {
+        if (getModel().inArena(position)&& !getModel().isWall(position)&&(!getModel().isObstacle(position) || getModel().getBomberman().canWallpass() )&& (!getModel().isBomb(position) || getModel().getBomberman().canBombpass())) {
             getModel().getBomberman().setPosition(position);
             if (getModel().isEnemy(position)) getModel().getBomberman().decreaseHp();
             if (getModel().isPowerup(position)) {applyEffect(getModel().findPowerup(position));getModel().removePowerup(position);}
