@@ -1,4 +1,3 @@
-
 package pt.up.fe.bomberman.controller.game;
 
 import pt.up.fe.bomberman.Game;
@@ -13,16 +12,6 @@ public class BombermanController extends GameController {
         super(arena);
     }
 
-    public void moveBombermanLeft() {
-        getModel().getBomberman().setAction('L');
-        moveBomberman(getModel().getBomberman().getPosition().getLeft());
-    }
-
-    public void moveBombermanRight() {
-        getModel().getBomberman().setAction('R');
-        moveBomberman(getModel().getBomberman().getPosition().getRight());
-    }
-
     public void moveBombermanUp() {
         getModel().getBomberman().setAction('U');
         moveBomberman(getModel().getBomberman().getPosition().getUp());
@@ -33,35 +22,68 @@ public class BombermanController extends GameController {
         moveBomberman(getModel().getBomberman().getPosition().getDown());
     }
 
+    public void moveBombermanLeft() {
+        getModel().getBomberman().setAction('L');
+        moveBomberman(getModel().getBomberman().getPosition().getLeft());
+    }
+
+    public void moveBombermanRight() {
+        getModel().getBomberman().setAction('R');
+        moveBomberman(getModel().getBomberman().getPosition().getRight());
+    }
+
     private void moveBomberman(Position position) {
-        if (getModel().inArena(position)&& !getModel().isWall(position)&&(!getModel().isObstacle(position) || getModel().getBomberman().canWallpass() )&& (!getModel().isBomb(position) || getModel().getBomberman().canBombpass())) {
+        if (getModel().inArena(position) && !getModel().isWall(position) && (!getModel().isObstacle(position) || getModel().getBomberman().canWallpass()) && (!getModel().isBomb(position) || getModel().getBomberman().canBombpass())) {
             getModel().getBomberman().setPosition(position);
-            if (getModel().isEnemy(position)) getModel().getBomberman().setHp(getModel().getBomberman().getHp() - 1);
-            if (getModel().isPowerup(position)) {applyEffect(getModel().findPowerup(position));getModel().removePowerup(position);}
+            if (getModel().isEnemy(position))
+                getModel().getBomberman().setHp(getModel().getBomberman().getHp() - 1);
+            if (getModel().isPowerup(position)) {
+                applyEffect(getModel().findPowerup(position));
+                getModel().removePowerup(position);
+            }
         }
     }
 
     private void applyEffect(Powerup powerup) {
         switch (powerup.getEffect()) {
-            case Bombpass : {getModel().getBomberman().setBombpass(true);break;}
-            case Bombs : {getModel().getBomberman().setBombs(getModel().getBomberman().getBombs() + 1);break;}
-            case Detonator:{ getModel().getBomberman().setDetonator(true);break;}
-            case Flamepass :{getModel().getBomberman().setFlamepass(true);break;}
-            case Flames : {getModel().getBomberman().setFlames(getModel().getBomberman().getFlames() + 1);break;}
-            case Speed : {getModel().getBomberman().setSpeed(getModel().getBomberman().getSpeed() + 1);break;}
-            case Wallpass :{ getModel().getBomberman().setWallpass(true);break;}
+            case Bombs:
+                getModel().getBomberman().setBombs(getModel().getBomberman().getBombs() + 1);
+                break;
+            case Flames:
+                getModel().getBomberman().setFlames(getModel().getBomberman().getFlames() + 1);
+                break;
+            case Speed:
+                getModel().getBomberman().setSpeed(getModel().getBomberman().getSpeed() + 1);
+                break;
+            case Wallpass:
+                getModel().getBomberman().setWallpass(true);
+                break;
+            case Detonator:
+                getModel().getBomberman().setDetonator(true);
+                break;
+            case Bombpass:
+                getModel().getBomberman().setBombpass(true);
+                break;
+            case Flamepass:
+                getModel().getBomberman().setFlamepass(true);
+                break;
         }
     }
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
-        if (time - lastMovementTime > (250/getModel().getBomberman().getSpeed())) {
-            if (action == GUI.ACTION.UP) {moveBombermanUp(); this.lastMovementTime = time;}
-            if (action == GUI.ACTION.RIGHT){ moveBombermanRight(); this.lastMovementTime = time;}
-            if (action == GUI.ACTION.DOWN) {moveBombermanDown(); this.lastMovementTime = time;}
-            if (action == GUI.ACTION.LEFT) {moveBombermanLeft(); this.lastMovementTime = time;}
-
+        if (time - lastMovementTime > (10/getModel().getBomberman().getSpeed())) {
+            if (action == GUI.ACTION.UP)
+                moveBombermanUp();
+            if (action == GUI.ACTION.RIGHT)
+                moveBombermanRight();
+            if (action == GUI.ACTION.DOWN)
+                moveBombermanDown();
+            if (action == GUI.ACTION.LEFT)
+                moveBombermanLeft();
+            lastMovementTime = time;
         }
-        if (action == GUI.ACTION.SPACE && getModel().getBomberman().getBombs() - getModel().getBombs().size() > 0) getModel().createBomb(time);
+        if (action == GUI.ACTION.SPACE && getModel().getBomberman().getBombs() - getModel().getBombs().size() > 0)
+            getModel().createBomb(time);
     }
 }
