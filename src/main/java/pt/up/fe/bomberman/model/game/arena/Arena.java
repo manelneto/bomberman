@@ -98,7 +98,7 @@ public class Arena {
         for (Wall wall : walls)
             if (wall.getPosition().equals(new Position(bomberman.getPosition().getX(), bomberman.getPosition().getY())))
                 return ;
-            Bomb bomb = new Bomb(bomberman.getPosition().getX(), bomberman.getPosition().getY(), time, getBomberman().getBombRange());
+            Bomb bomb = new Bomb(bomberman.getPosition().getX(), bomberman.getPosition().getY(), time, getBomberman().getFlames());
         bombs.add(bomb);
     }
 
@@ -178,7 +178,7 @@ public class Arena {
             destroyObstacle(explosion.getPosition());
             killEnemy(explosion.getPosition());
             if (explosion.getPosition().equals(bomberman.getPosition()) && !bomberman. canFlamepass())
-                bomberman.decreaseHp();
+                bomberman.setHp(bomberman.getHp() - 1);
         }
     }
 

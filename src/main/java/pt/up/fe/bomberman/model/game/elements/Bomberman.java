@@ -1,62 +1,99 @@
 package pt.up.fe.bomberman.model.game.elements;
 
 public class Bomberman extends Element {
-    private int hp = 1;
     private char action;
-    private int speed = 1;
-    private int usableBombs = 1;
-    private int bombRange = 1;
-    private boolean bombpass = false;
-    private boolean wallpass = false;
-    private boolean flamepass = false;
-    private boolean detonator = false;
+    private int hp;
+    private int bombs;
+    private int flames;
+    private int speed;
+    private boolean wallpass;
+    private boolean detonator;
+    private boolean bombpass;
+    private boolean flamepass;
 
     public Bomberman(int x, int y) {
         super(x, y);
         action = 'D';
+        hp = 1;
+        bombs = 1;
+        flames = 1;
+        speed = 1;
+        wallpass = false;
+        detonator = false;
+        bombpass = false;
+        flamepass = false;
+    }
+
+    public char getAction() {
+        return action;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public int getBombs() {
+        return bombs;
+    }
+
+    public int getFlames() {
+        return flames;
     }
 
     public int getSpeed() {
         return speed;
     }
-    public int getUsableBombs() {
-        return usableBombs;
-    }
-    public boolean canBombpass() {
-        return bombpass;
-    }
+
     public boolean canWallpass() {
         return wallpass;
     }
+
+    public boolean canDetonate() {
+        return detonator;
+    }
+
+    public boolean canBombpass() {
+        return bombpass;
+    }
+
     public boolean canFlamepass() {
         return flamepass;
     }
-    public boolean canDetonate() { return detonator; }
-    public int getBombRange() { return bombRange; }
 
-    public void increaseSpeed() { speed++; }
-    public void increaseUsableBombs() { usableBombs++; }
-    public void increaseBombRange() { bombRange++; }
-    public void ableBombpass() { bombpass = true; }
-    public void ableWallpass() { wallpass = true; }
-    public void ableDetonate() { detonator = true; }
-    public void ableFlamepass() { flamepass = true; }
+    public void setAction(char action) {
+        this.action = action;
+    }
 
-    public int getHp() { return hp; }
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
 
-    public char getAction() { return action; }
+    public void setBombs(int bombs) {
+        this.bombs = bombs;
+    }
 
-    public void decreaseHp(){
-        hp--;
+    public void setFlames(int flames) {
+        this.flames = flames;
     }
-    public void faceDown(){
-        action = 'D';
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
-    public void faceUp(){
-        action = 'U';
+
+    public void setWallpass(boolean wallpass) {
+        this.wallpass = wallpass;
     }
-    public void faceRight(){action = 'R';}
-    public void faceLeft(){
-        action = 'L';
+
+    public void setDetonator(boolean detonator) {
+        this.detonator = detonator;
     }
+
+    public void setBombpass(boolean bombpass) {
+        this.bombpass = bombpass;
+    }
+
+    public void setFlamepass(boolean flamepass) {
+        this.flamepass = flamepass;
+    }
+
 }
