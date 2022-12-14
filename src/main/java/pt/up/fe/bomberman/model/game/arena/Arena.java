@@ -153,23 +153,23 @@ public class Arena {
 
     public void explodeBomb(Bomb bomb, long time) {
         explosions.add(new Explosion(bomb.getPosition().getX(), bomb.getPosition().getY(), time, 'H'));
-        for (int up = 1; up <= bomb.getExplosionRadius() && !isWall(new Position(bomb.getPosition().getX(), bomb.getPosition().getY() - up)); up++) {
+        for (int up = 1; up <= bomb.getFlames() && !isWall(new Position(bomb.getPosition().getX(), bomb.getPosition().getY() - up)); up++) {
             explosions.add(new Explosion(bomb.getPosition().getX(), bomb.getPosition().getY() - up, time, 'V'));
             if (isObstacle(new Position(bomb.getPosition().getX(), bomb.getPosition().getY() - up))) {
                 break;
             }
         }
-        for (int down = 1; down <= bomb.getExplosionRadius() && !isWall(new Position(bomb.getPosition().getX(), bomb.getPosition().getY() + down)); down++) {
+        for (int down = 1; down <= bomb.getFlames() && !isWall(new Position(bomb.getPosition().getX(), bomb.getPosition().getY() + down)); down++) {
             explosions.add(new Explosion(bomb.getPosition().getX(), bomb.getPosition().getY() + down, time, 'V'));
             if (isObstacle(new Position(bomb.getPosition().getX(), bomb.getPosition().getY() + down)))
                 break;
         }
-        for (int left = 1; left <= bomb.getExplosionRadius() && !isWall(new Position(bomb.getPosition().getX() - left, bomb.getPosition().getY())); left++) {
+        for (int left = 1; left <= bomb.getFlames() && !isWall(new Position(bomb.getPosition().getX() - left, bomb.getPosition().getY())); left++) {
             explosions.add(new Explosion(bomb.getPosition().getX() - left, bomb.getPosition().getY(), time, 'H'));
             if (isObstacle(new Position(bomb.getPosition().getX() - left, bomb.getPosition().getY())))
                 break;
         }
-        for (int right = 1; right <= bomb.getExplosionRadius() && !isWall(new Position(bomb.getPosition().getX() + right, bomb.getPosition().getY())); right++) {
+        for (int right = 1; right <= bomb.getFlames() && !isWall(new Position(bomb.getPosition().getX() + right, bomb.getPosition().getY())); right++) {
             explosions.add(new Explosion(bomb.getPosition().getX() + right, bomb.getPosition().getY(), time, 'H'));
             if (isObstacle(new Position(bomb.getPosition().getX() + right, bomb.getPosition().getY())))
                 break;
