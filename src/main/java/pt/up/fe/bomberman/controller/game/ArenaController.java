@@ -20,12 +20,12 @@ public class ArenaController extends GameController {
     private final EnemyController onealController;
     private final EnemyController dollController;
 
-    private final ExplosionController explosionController;
+    private final FlameController flameController;
 
     public ArenaController(Arena arena) {
         super(arena);
 
-        this.explosionController= new ExplosionController(arena);
+        this.flameController = new FlameController(arena);
         this.bombController= new BombController(arena);
         this.bombermanController = new BombermanController(arena);
         this.balloomController = new BalloomController(arena) ;
@@ -43,7 +43,7 @@ public class ArenaController extends GameController {
             onealController.step(game, action, time);
             dollController.step(game, action, time);
             bombController.step(game,action,time);
-            explosionController.step(game,action,time);
+            flameController.step(game,action,time);
         }
     }
 }

@@ -12,7 +12,7 @@ public class Arena {
 
     private Bomberman bomberman;
     private List<Bomb> bombs = new ArrayList<>();
-    private List<Explosion> explosions = new ArrayList<>();
+    private List<Flame> flames = new ArrayList<>();
     private List<Enemy> enemies;
     private List<Obstacle> obstacles;
 
@@ -42,8 +42,8 @@ public class Arena {
         return bombs;
     }
 
-    public List<Explosion> getExplosions() {
-        return explosions;
+    public List<Flame> getFlames() {
+        return flames;
     }
 
     public List<Enemy> getEnemies() {
@@ -74,8 +74,8 @@ public class Arena {
         this.enemies = enemies;
     }
 
-    public void setExplosions(List<Explosion> explosions) {
-        this.explosions = explosions;
+    public void setFlames(List<Flame> flames) {
+        this.flames = flames;
     }
 
     public void setObstacles(List<Obstacle> obstacles) {
@@ -152,32 +152,32 @@ public class Arena {
     }
 
     public void explodeBomb(Bomb bomb, long time) {
-        explosions.add(new Explosion(bomb.getPosition().getX(), bomb.getPosition().getY(), time, 'H'));
+        flames.add(new Flame(bomb.getPosition().getX(), bomb.getPosition().getY(), time, 'H'));
         for (int up = 1; up <= bomb.getFlames() && !isWall(new Position(bomb.getPosition().getX(), bomb.getPosition().getY() - up)); up++) {
-            explosions.add(new Explosion(bomb.getPosition().getX(), bomb.getPosition().getY() - up, time, 'V'));
+            flames.add(new Flame(bomb.getPosition().getX(), bomb.getPosition().getY() - up, time, 'V'));
             if (isObstacle(new Position(bomb.getPosition().getX(), bomb.getPosition().getY() - up))) {
                 break;
             }
         }
         for (int down = 1; down <= bomb.getFlames() && !isWall(new Position(bomb.getPosition().getX(), bomb.getPosition().getY() + down)); down++) {
-            explosions.add(new Explosion(bomb.getPosition().getX(), bomb.getPosition().getY() + down, time, 'V'));
+            flames.add(new Flame(bomb.getPosition().getX(), bomb.getPosition().getY() + down, time, 'V'));
             if (isObstacle(new Position(bomb.getPosition().getX(), bomb.getPosition().getY() + down)))
                 break;
         }
         for (int left = 1; left <= bomb.getFlames() && !isWall(new Position(bomb.getPosition().getX() - left, bomb.getPosition().getY())); left++) {
-            explosions.add(new Explosion(bomb.getPosition().getX() - left, bomb.getPosition().getY(), time, 'H'));
+            flames.add(new Flame(bomb.getPosition().getX() - left, bomb.getPosition().getY(), time, 'H'));
             if (isObstacle(new Position(bomb.getPosition().getX() - left, bomb.getPosition().getY())))
                 break;
         }
         for (int right = 1; right <= bomb.getFlames() && !isWall(new Position(bomb.getPosition().getX() + right, bomb.getPosition().getY())); right++) {
-            explosions.add(new Explosion(bomb.getPosition().getX() + right, bomb.getPosition().getY(), time, 'H'));
+            flames.add(new Flame(bomb.getPosition().getX() + right, bomb.getPosition().getY(), time, 'H'));
             if (isObstacle(new Position(bomb.getPosition().getX() + right, bomb.getPosition().getY())))
                 break;
         }
-        for (Explosion explosion : explosions) {
-            destroyObstacle(explosion.getPosition());
-            killEnemy(explosion.getPosition());
-            if (explosion.getPosition().equals(bomberman.getPosition()) && !bomberman. canFlamepass())
+        for (Flame flame : this.flames) {
+            destroyObstacle(flame.getPosition());
+            killEnemy(flame.getPosition());
+            if (flame.getPosition().equals(bomberman.getPosition()) && !bomberman. canFlamepass())
                 bomberman.setHp(bomberman.getHp() - 1);
         }
     }
