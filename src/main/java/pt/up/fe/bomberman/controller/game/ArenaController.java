@@ -1,4 +1,3 @@
-
 package pt.up.fe.bomberman.controller.game;
 
 import pt.up.fe.bomberman.Game;
@@ -10,24 +9,17 @@ import pt.up.fe.bomberman.states.MenuState;
 import java.io.IOException;
 
 public class ArenaController extends GameController {
-
     private final BombermanController bombermanController;
     private final BombController bombController;
-    private final EnemyController balloomController;
-    private final EnemyController onealController;
-    private final EnemyController dollController;
-
     private final FlameController flameController;
+    private final EnemyController enemyController;
 
     public ArenaController(Arena arena) {
         super(arena);
-
-        this.flameController = new FlameController(arena);
-        this.bombController= new BombController(arena);
         this.bombermanController = new BombermanController(arena);
-        this.balloomController = new EnemyController(arena);
-        this.onealController = new EnemyController(arena) ;
-        this.dollController = new EnemyController(arena) ;
+        this.bombController= new BombController(arena);
+        this.flameController = new FlameController(arena);
+        this.enemyController = new EnemyController(arena);
     }
 
     @Override
@@ -36,11 +28,9 @@ public class ArenaController extends GameController {
             game.setState(new MenuState(new Menu()));
         else {
             bombermanController.step(game, action, time);
-            balloomController.step(game, action, time);
-            onealController.step(game, action, time);
-            dollController.step(game, action, time);
             bombController.step(game,action,time);
             flameController.step(game,action,time);
+            enemyController.step(game, action, time);
         }
     }
 }
