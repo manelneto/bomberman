@@ -1,7 +1,5 @@
 package pt.up.fe.bomberman.model.game.arena;
 
-
-
 import pt.up.fe.bomberman.model.game.elements.Bomberman;
 import pt.up.fe.bomberman.model.game.elements.Obstacle;
 import pt.up.fe.bomberman.model.game.elements.Powerup;
@@ -95,7 +93,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         return obstacles;
     }
 
-    protected List<Powerup> createPower() {
+    protected List<Powerup> createPowerups() {
         List<Powerup> powerup = new ArrayList<>();
 
         for (int y = 0; y < lines.size(); y++) {
