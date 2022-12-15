@@ -6,8 +6,4 @@ public class Kondria extends Enemy {
     public Kondria(int x, int y) {
         super(x, y, 1, 3, true);
     }
-    @Override
-    public char getType() {
-        return 'K';
-    }
 }

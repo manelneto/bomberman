@@ -22,6 +22,6 @@ public class EnemyViewerTest {
     @Test
     void drawEnemy() {
         viewer.draw(enemy, gui);
-        Mockito.verify(gui, Mockito.times(1)).drawBalloom(enemy.getPosition());
+        Mockito.verify(gui, Mockito.times(1)).drawElement(enemy.getPosition(), ':', "#FA732C");;
     }
 }

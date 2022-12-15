@@ -1,10 +1,6 @@
-
 package pt.up.fe.bomberman.controller.game;
 
 import pt.up.fe.bomberman.Game;
-import pt.up.fe.bomberman.controller.game.EnemyControllers.BalloomController;
-import pt.up.fe.bomberman.controller.game.EnemyControllers.DollController;
-import pt.up.fe.bomberman.controller.game.EnemyControllers.OnealController;
 import pt.up.fe.bomberman.gui.GUI;
 import pt.up.fe.bomberman.model.game.arena.Arena;
 import pt.up.fe.bomberman.model.menu.Menu;
@@ -13,24 +9,17 @@ import pt.up.fe.bomberman.states.MenuState;
 import java.io.IOException;
 
 public class ArenaController extends GameController {
-
     private final BombermanController bombermanController;
     private final BombController bombController;
-    private final EnemyController balloomController;
-    private final EnemyController onealController;
-    private final EnemyController dollController;
-
-    private final ExplosionController explosionController;
+    private final FlameController flameController;
+    private final EnemyController enemyController;
 
     public ArenaController(Arena arena) {
         super(arena);
-
-        this.explosionController= new ExplosionController(arena);
-        this.bombController= new BombController(arena);
         this.bombermanController = new BombermanController(arena);
-        this.balloomController = new BalloomController(arena) ;
-        this.onealController = new OnealController(arena) ;
-        this.dollController = new DollController(arena) ;
+        this.bombController= new BombController(arena);
+        this.flameController = new FlameController(arena);
+        this.enemyController = new EnemyController(arena);
     }
 
     @Override
@@ -39,11 +28,9 @@ public class ArenaController extends GameController {
             game.setState(new MenuState(new Menu()));
         else {
             bombermanController.step(game, action, time);
-            balloomController.step(game, action, time);
-            onealController.step(game, action, time);
-            dollController.step(game, action, time);
             bombController.step(game,action,time);
-            explosionController.step(game,action,time);
+            flameController.step(game,action,time);
+            enemyController.step(game, action, time);
         }
     }
 }

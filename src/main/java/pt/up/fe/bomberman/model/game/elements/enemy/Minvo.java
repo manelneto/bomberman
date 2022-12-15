@@ -6,9 +6,4 @@ public class Minvo extends Enemy {
     public Minvo(int x, int y) {
         super(x, y,4,2,false);
     }
-
-    @Override
-    public char getType() {
-        return 'M';
-    }
 }

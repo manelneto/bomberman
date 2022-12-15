@@ -1,4 +1,3 @@
-
 package pt.up.fe.bomberman.controller;
 
 import pt.up.fe.bomberman.Game;

@@ -23,10 +23,6 @@ public class Position {
         return new Position(x, y - 1);
     }
 
-    public Position getRight() {
-        return new Position(x + 1, y);
-    }
-
     public Position getDown() {
         return new Position(x, y + 1);
     }
@@ -35,20 +31,72 @@ public class Position {
         return new Position(x - 1, y);
     }
 
-    public Position getRandomNeighbour() {
-        int n = (int) (Math.random() * 4);
+    public Position getRight() {
+        return new Position(x + 1, y);
+    }
 
+    public Position getDirectionalNeighbour(char direction) {
+        switch (direction) {
+            case 'U':
+                return getUp();
+            case 'D':
+                return getDown();
+            case 'L':
+                return getLeft();
+            case 'R':
+                return getRight();
+            default:
+                return new Position(x, y);
+        }
+    }
+
+    public Position getRandomNeighbour() {
+        int n = (int) (Math.random() * 5);
         switch (n) {
             case 0:
                 return getUp();
             case 1:
-                return getRight();
+                return getDown();
             case 2:
+                return getLeft();
+            case 3:
+                return getRight();
+            default:
+                return new Position(x, y);
+        }
+    }
+
+    public Position getRandomDirectionalNeighbour(char direction) {
+        if (direction == 'U' || direction == 'D')
+            return getRandomVerticalNeighbour();
+        if (direction == 'L' || direction == 'R')
+            return getRandomHorizontalNeighbour();
+        else
+            return new Position(x, y);
+    }
+
+    public Position getRandomVerticalNeighbour() {
+        int n = (int) (Math.random() * 2);
+        switch (n) {
+            case 0:
+                return getUp();
+            case 1:
                 return getDown();
             default:
-                return getLeft();
+                return new Position(x, y);
         }
+    }
 
+    public Position getRandomHorizontalNeighbour() {
+        int n = (int) (Math.random() * 2);
+        switch (n) {
+            case 0:
+                return getLeft();
+            case 1:
+                return getRight();
+            default:
+                return new Position(x, y);
+        }
     }
 
     @Override

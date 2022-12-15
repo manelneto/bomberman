@@ -72,14 +72,13 @@ public class LanternaGUI implements GUI {
         if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q') return ACTION.QUIT;
 
         if (keyStroke.getKeyType() == KeyType.ArrowUp) return ACTION.UP;
-        if (keyStroke.getKeyType() == KeyType.ArrowRight) return ACTION.RIGHT;
         if (keyStroke.getKeyType() == KeyType.ArrowDown) return ACTION.DOWN;
         if (keyStroke.getKeyType() == KeyType.ArrowLeft) return ACTION.LEFT;
-        if (keyStroke.getKeyType() ==KeyType.Character && keyStroke.getCharacter() == ' ') return ACTION.SPACE;
+        if (keyStroke.getKeyType() == KeyType.ArrowRight) return ACTION.RIGHT;
+        if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == ' ') return ACTION.SPACE;
         if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.ENTER;
 
         return ACTION.NONE;
-
     }
 
     @Override
@@ -94,98 +93,18 @@ public class LanternaGUI implements GUI {
         switch (face) {
             case 'U':
                 drawCharacter(position.getX(), position.getY(), '"', "#64A4FF"); break;
+            case 'D':
+                drawCharacter(position.getX(), position.getY(), '!', "#64A4FF"); break;
             case 'L':
                 drawCharacter(position.getX(), position.getY(), ',', "#64A4FF"); break;
             case 'R':
                 drawCharacter(position.getX(), position.getY(), '.', "#64A4FF"); break;
-            default:
-                drawCharacter(position.getX(), position.getY(), '!', "#64A4FF"); break;
         }
     }
 
-
     @Override
-    public void drawObstacle(Position position) {
-        drawCharacter(position.getX(), position.getY(), '?', "#C9C9C9"); //brown
-    }
-
-    @Override
-    public void drawWall(Position position) {
-        drawCharacter(position.getX(), position.getY(), ';', "#C9C9C9"); //grey
-    }
-
-    @Override
-    public void drawEnemy(Position position) {
-        drawCharacter(position.getX(), position.getY(), ':', "#FA732C"); //red
-    }
-    @Override
-
-    public void drawBalloom(Position position) {
-
-        drawCharacter(position.getX(), position.getY(), ':', "#FA732C"); //redO
-    }
-    @Override
-    public void drawOneal(Position position) {
-
-        drawCharacter(position.getX(), position.getY(), 'n', "#0000FF"); //redO
-    }
-    @Override
-    public void drawDoll(Position position) {
-
-        drawCharacter(position.getX(), position.getY(), 'o', "#FF0000"); //redO
-    }
-    @Override
-    public void drawBomb(Position position){
-        drawCharacter(position.getX(), position.getY(), 'c', "#000000");//Black
-
-    }
-
-    @Override
-    public void drawElement(Position position,char c,String color) {
-        drawCharacter(position.getX(), position.getY(),c, color); //gold
-    }
-
-    @Override
-    public void drawPowerupBombpass(Position position) {
-        drawCharacter(position.getX(), position.getY(),'r', "#F7EF8A");
-    }
-
-    @Override
-    public void drawPowerupBombs(Position position) {
-        drawCharacter(position.getX(), position.getY(),'e', "#F7EF8A");
-    }
-
-    @Override
-    public void drawPowerupDetonator(Position position) {
-        drawCharacter(position.getX(), position.getY(),'g', "#F7EF8A");
-    }
-
-    @Override
-    public void drawPowerupFlamepass(Position position) {
-        drawCharacter(position.getX(), position.getY(),'q', "#F7EF8A");
-    }
-
-    @Override
-    public void drawPowerupFlames(Position position) {
-        drawCharacter(position.getX(), position.getY(),'d', "#F7EF8A");
-    }
-
-    @Override
-    public void drawPowerupSpeed(Position position) {
-        drawCharacter(position.getX(), position.getY(),'f', "#F7EF8A");
-    }
-
-    @Override
-    public void drawPowerupWallpass(Position position) {
-        drawCharacter(position.getX(), position.getY(),'p', "#F7EF8A");
-    }
-
-    public void drawExplosionVertical(Position position){
-        drawCharacter(position.getX(), position.getY(),'b', "#FF4500");//kinda orange
-    }
-
-    public void drawExplosionHorizontal(Position position){
-        drawCharacter(position.getX(), position.getY(),'a', "#FF4500");//kinda orange
+    public void drawElement(Position position, char c, String color) {
+        drawCharacter(position.getX(), position.getY(),c, color);
     }
 
     private void drawCharacter(int x, int y, char c, String color) {

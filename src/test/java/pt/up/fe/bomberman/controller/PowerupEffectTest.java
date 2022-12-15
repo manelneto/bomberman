@@ -47,17 +47,17 @@ public class PowerupEffectTest {
         powerups.add(powerup);
         arena.setPowerups(powerups);
         bcontroller.moveBombermanRight();
-        assertTrue(bomberman.getUsableBombs() == 2);
+        assertTrue(bomberman.getBombs() == 2);
     }
 
     @Test
-    void detonatorTest(){
-        powerup = new Detonator(5,5);
+    void healthTest(){
+        powerup = new Health(5,5);
         List<Powerup> powerups = new ArrayList<Powerup>();
         powerups.add(powerup);
         arena.setPowerups(powerups);
         bcontroller.moveBombermanRight();
-        assertTrue(bomberman.canDetonate());
+        assertTrue(bomberman.getHp() == 2);
     }
 
     @Test
@@ -77,7 +77,7 @@ public class PowerupEffectTest {
         powerups.add(powerup);
         arena.setPowerups(powerups);
         bcontroller.moveBombermanRight();
-        assertTrue(bomberman.getBombRange() == 2);
+        assertTrue(bomberman.getFlames() == 2);
     }
 
     @Test

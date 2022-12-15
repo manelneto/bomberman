@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import pt.up.fe.bomberman.Game;
 import pt.up.fe.bomberman.controller.game.EnemyController;
-import pt.up.fe.bomberman.controller.game.EnemyControllers.BalloomController;
 import pt.up.fe.bomberman.gui.GUI;
 import pt.up.fe.bomberman.model.Position;
 import pt.up.fe.bomberman.model.game.arena.Arena;
@@ -35,7 +34,7 @@ public class EnemyControllerTest {
         arena.setObstacles(Arrays.asList());
         arena.setWalls(Arrays.asList());
 
-        controller = new BalloomController(arena);
+        controller = new EnemyController(arena);
 
         game = Mockito.mock(Game.class);
     }

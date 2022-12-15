@@ -1,4 +1,3 @@
-
 package pt.up.fe.bomberman.states;
 
 import pt.up.fe.bomberman.Game;
