@@ -6,10 +6,4 @@ public class Pontan extends Enemy {
     public Pontan(int x, int y) {
         super(x, y,4,3,true);
     }
-
-    @Override
-    public char getType() {
-        return 'o';
-    }
-
 }

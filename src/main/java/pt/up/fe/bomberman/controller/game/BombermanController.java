@@ -13,22 +13,22 @@ public class BombermanController extends GameController {
     }
 
     public void moveBombermanUp() {
-        getModel().getBomberman().setAction('U');
+        getModel().getBomberman().setDirection('U');
         moveBomberman(getModel().getBomberman().getPosition().getUp());
     }
 
     public void moveBombermanDown() {
-        getModel().getBomberman().setAction('D');
+        getModel().getBomberman().setDirection('D');
         moveBomberman(getModel().getBomberman().getPosition().getDown());
     }
 
     public void moveBombermanLeft() {
-        getModel().getBomberman().setAction('L');
+        getModel().getBomberman().setDirection('L');
         moveBomberman(getModel().getBomberman().getPosition().getLeft());
     }
 
     public void moveBombermanRight() {
-        getModel().getBomberman().setAction('R');
+        getModel().getBomberman().setDirection('R');
         moveBomberman(getModel().getBomberman().getPosition().getRight());
     }
 

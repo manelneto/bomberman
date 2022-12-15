@@ -2,9 +2,6 @@
 package pt.up.fe.bomberman.controller.game;
 
 import pt.up.fe.bomberman.Game;
-import pt.up.fe.bomberman.controller.game.EnemyControllers.BalloomController;
-import pt.up.fe.bomberman.controller.game.EnemyControllers.DollController;
-import pt.up.fe.bomberman.controller.game.EnemyControllers.OnealController;
 import pt.up.fe.bomberman.gui.GUI;
 import pt.up.fe.bomberman.model.game.arena.Arena;
 import pt.up.fe.bomberman.model.menu.Menu;
@@ -28,9 +25,9 @@ public class ArenaController extends GameController {
         this.flameController = new FlameController(arena);
         this.bombController= new BombController(arena);
         this.bombermanController = new BombermanController(arena);
-        this.balloomController = new BalloomController(arena) ;
-        this.onealController = new OnealController(arena) ;
-        this.dollController = new DollController(arena) ;
+        this.balloomController = new EnemyController(arena);
+        this.onealController = new EnemyController(arena) ;
+        this.dollController = new EnemyController(arena) ;
     }
 
     @Override

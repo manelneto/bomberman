@@ -35,9 +35,23 @@ public class Position {
         return new Position(x - 1, y);
     }
 
-    public Position getRandomNeighbour() {
-        int n = (int) (Math.random() * 4);
+    public Position getDirectionalNeighbour(char direction) {
+        switch (direction) {
+            case 'U':
+                return getUp();
+            case 'D':
+                return getDown();
+            case 'L':
+                return getLeft();
+            case 'R':
+                return getRight();
+            default:
+                return new Position(x, y);
+        }
+    }
 
+    public Position getRandomNeighbour() {
+        int n = (int) (Math.random() * 5);
         switch (n) {
             case 0:
                 return getUp();
@@ -45,10 +59,44 @@ public class Position {
                 return getRight();
             case 2:
                 return getDown();
-            default:
+            case 3:
                 return getLeft();
+            default:
+                return new Position(x, y);
         }
+    }
 
+    public Position getRandomDirectionalNeighbour(char direction) {
+        if (direction == 'L' || direction == 'R')
+            return getRandomHorizontalNeighbour();
+        if (direction == 'U' || direction == 'D')
+            return getRandomVerticalNeighbour();
+        else
+            return new Position(x, y);
+    }
+
+    public Position getRandomVerticalNeighbour() {
+        int n = (int) (Math.random() * 2);
+        switch (n) {
+            case 0:
+                return getUp();
+            case 1:
+                return getDown();
+            default:
+                return new Position(x, y);
+        }
+    }
+
+    public Position getRandomHorizontalNeighbour() {
+        int n = (int) (Math.random() * 2);
+        switch (n) {
+            case 0:
+                return getRight();
+            case 1:
+                return getLeft();
+            default:
+                return new Position(x, y);
+        }
     }
 
     @Override

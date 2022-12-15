@@ -1,7 +1,7 @@
 package pt.up.fe.bomberman.model.game.elements;
 
 public class Bomberman extends Element {
-    private char action;
+    private char direction;
     private int hp;
     private int bombs;
     private int flames;
@@ -13,7 +13,7 @@ public class Bomberman extends Element {
 
     public Bomberman(int x, int y) {
         super(x, y);
-        action = 'D';
+        direction = 'D';
         hp = 1;
         bombs = 1;
         flames = 1;
@@ -24,8 +24,8 @@ public class Bomberman extends Element {
         flamepass = false;
     }
 
-    public char getAction() {
-        return action;
+    public char getDirection() {
+        return direction;
     }
 
     public int getHp() {
@@ -60,8 +60,8 @@ public class Bomberman extends Element {
         return flamepass;
     }
 
-    public void setAction(char action) {
-        this.action = action;
+    public void setDirection(char direction) {
+        this.direction = direction;
     }
 
     public void setHp(int hp) {

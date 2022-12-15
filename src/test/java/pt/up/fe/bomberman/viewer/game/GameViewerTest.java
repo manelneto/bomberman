@@ -39,8 +39,8 @@ public class GameViewerTest {
     void drawBomberman() throws IOException {
         viewer.draw(gui);
 
-        Mockito.verify(gui, Mockito.times(1)).drawBomberman(eq(new Position(1, 1)),eq(viewer.getModel().getBomberman().getAction()));
-        Mockito.verify(gui, Mockito.times(1)).drawBomberman(Mockito.any(Position.class),eq(viewer.getModel().getBomberman().getAction()));
+        Mockito.verify(gui, Mockito.times(1)).drawBomberman(eq(new Position(1, 1)),eq(viewer.getModel().getBomberman().getDirection()));
+        Mockito.verify(gui, Mockito.times(1)).drawBomberman(Mockito.any(Position.class),eq(viewer.getModel().getBomberman().getDirection()));
     }
 
     @Test

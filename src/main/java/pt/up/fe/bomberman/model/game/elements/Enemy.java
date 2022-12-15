@@ -3,50 +3,91 @@ package pt.up.fe.bomberman.model.game.elements;
 import pt.up.fe.bomberman.model.Position;
 
 public abstract class Enemy extends Element {
+    private final int speed;
+    private final int smart;
+    private final boolean wallpass;
+    private char direction;
+    private long lastMovementTime;
 
     public Enemy(int x, int y, int speed, int smart, boolean wallpass) {
         super(x, y);
         this.speed = speed;
         this.smart = smart;
         this.wallpass = wallpass;
-    }
-    public char getType() {
-        return 'B';
-    }
-
-    private char getRandomDirection(){
+        this.lastMovementTime = 0;
 
         int n = (int) (Math.random() * 4);
-
         switch (n) {
             case 0:
-                return 'U';
+                this.direction = 'U';
+                break;
             case 1:
-                return 'D';
+                this.direction = 'R';
+                break;
             case 2:
-                return 'L';
-            default:
-                return 'R';
-
-
+                this.direction = 'D';
+                break;
+            case 3:
+                this.direction = 'L';
+                break;
         }
     }
 
+    public int getSpeed() {
+        return speed;
+    }
+
+    public int getSmart() {
+        return smart;
+    }
+
+    public boolean canWallpass() {
+        return wallpass;
+    }
+
+    public long getLastMovementTime() {
+        return lastMovementTime;
+    }
 
     public char getDirection() {
         return direction;
     }
-    public void setDirection(char c) {
-        direction=c;
+
+    public void setLastMovementTime(long time) {
+        this.lastMovementTime = time;
     }
-    public boolean canWallpass() {return wallpass;}
 
-    private final int speed;
-    private final int smart;
-    private final boolean wallpass;
+    public void invertDirection() {
+        switch (direction) {
+            case 'U':
+                direction = 'D';
+                break;
+            case 'D':
+                direction = 'U';
+                break;
+            case 'L':
+                direction = 'R';
+                break;
+            case 'R':
+                direction = 'L';
+                break;
+        }
+    }
 
-    private char direction=getRandomDirection();
-
-    //canMove personalized based on speed, smart and wallpass
-
+    public void rotateDirection() {
+        switch (direction) {
+            case 'U':
+                direction = 'R';
+                break;
+            case 'R':
+                direction = 'D';
+                break;
+            case 'D':
+                direction = 'L';
+                break;
+            case 'L':
+                direction = 'U';
+                break;
+        }
+    }
 }
