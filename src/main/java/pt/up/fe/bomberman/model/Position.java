@@ -23,16 +23,16 @@ public class Position {
         return new Position(x, y - 1);
     }
 
-    public Position getRight() {
-        return new Position(x + 1, y);
-    }
-
     public Position getDown() {
         return new Position(x, y + 1);
     }
 
     public Position getLeft() {
         return new Position(x - 1, y);
+    }
+
+    public Position getRight() {
+        return new Position(x + 1, y);
     }
 
     public Position getDirectionalNeighbour(char direction) {
@@ -56,21 +56,21 @@ public class Position {
             case 0:
                 return getUp();
             case 1:
-                return getRight();
-            case 2:
                 return getDown();
-            case 3:
+            case 2:
                 return getLeft();
+            case 3:
+                return getRight();
             default:
                 return new Position(x, y);
         }
     }
 
     public Position getRandomDirectionalNeighbour(char direction) {
-        if (direction == 'L' || direction == 'R')
-            return getRandomHorizontalNeighbour();
         if (direction == 'U' || direction == 'D')
             return getRandomVerticalNeighbour();
+        if (direction == 'L' || direction == 'R')
+            return getRandomHorizontalNeighbour();
         else
             return new Position(x, y);
     }
@@ -91,9 +91,9 @@ public class Position {
         int n = (int) (Math.random() * 2);
         switch (n) {
             case 0:
-                return getRight();
-            case 1:
                 return getLeft();
+            case 1:
+                return getRight();
             default:
                 return new Position(x, y);
         }
