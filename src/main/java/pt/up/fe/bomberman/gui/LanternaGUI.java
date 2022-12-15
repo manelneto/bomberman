@@ -39,7 +39,7 @@ public class LanternaGUI implements GUI {
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
 
-        Font loadedFont = font.deriveFont(Font.PLAIN, 35);
+        Font loadedFont = font.deriveFont(Font.PLAIN, 32);
         AWTTerminalFontConfiguration fontConfiguration = AWTTerminalFontConfiguration.newInstance(loadedFont);
         return fontConfiguration;
     }
@@ -87,6 +87,7 @@ public class LanternaGUI implements GUI {
         textGraphics.setBackgroundColor(TextColor.Factory.fromString("#397C00"));
         textGraphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
     }
+
 
     @Override
     public void drawBomberman(Position position,char face) {

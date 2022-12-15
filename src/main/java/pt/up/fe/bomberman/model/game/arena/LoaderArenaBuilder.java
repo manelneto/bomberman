@@ -4,9 +4,7 @@ import pt.up.fe.bomberman.model.game.elements.Bomberman;
 import pt.up.fe.bomberman.model.game.elements.Obstacle;
 import pt.up.fe.bomberman.model.game.elements.Powerup;
 import pt.up.fe.bomberman.model.game.elements.*;
-import pt.up.fe.bomberman.model.game.elements.enemy.Balloom;
-import pt.up.fe.bomberman.model.game.elements.enemy.Doll;
-import pt.up.fe.bomberman.model.game.elements.enemy.Oneal;
+import pt.up.fe.bomberman.model.game.elements.enemy.*;
 import pt.up.fe.bomberman.model.game.elements.powerup.*;
 
 import java.io.BufferedReader;
@@ -71,6 +69,11 @@ public class LoaderArenaBuilder extends ArenaBuilder {
                 if (line.charAt(x) == 'M') enemy.add(new Balloom(x, y));
                 if (line.charAt(x) == 'E') enemy.add(new Oneal(x, y));
                 if (line.charAt(x) == 'L') enemy.add(new Doll(x, y));
+                if (line.charAt(x) == 'A') enemy.add(new Kondria(x, y));
+                if (line.charAt(x) == 'N') enemy.add(new Minvo(x, y));
+                if (line.charAt(x) == 'C') enemy.add(new Ovapi(x, y));
+                if (line.charAt(x) == 'I') enemy.add(new Pass(x, y));
+                if (line.charAt(x) == 'a') enemy.add(new Pontan(x, y));
             }
         }
 

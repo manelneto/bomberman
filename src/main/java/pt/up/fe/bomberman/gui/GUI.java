@@ -8,6 +8,7 @@ public interface GUI {
     enum ACTION {UP, DOWN, RIGHT, LEFT, ENTER, NONE, QUIT, SPACE}
     ACTION getNextAction() throws IOException;
     void paintBackground(int width, int height);
+
     void drawBomberman(Position position, char direction);
     void drawElement(Position position, char c, String color);
     void clear();

@@ -63,19 +63,17 @@ public class BombermanController extends GameController {
     }
 
     @Override
+
     public void step(Game game, GUI.ACTION action, long time) {
-        if (time - lastMovementTime > (10/getModel().getBomberman().getSpeed())) {
-            if (action == GUI.ACTION.UP)
-                moveBombermanUp();
-            if (action == GUI.ACTION.RIGHT)
-                moveBombermanRight();
-            if (action == GUI.ACTION.DOWN)
-                moveBombermanDown();
-            if (action == GUI.ACTION.LEFT)
-                moveBombermanLeft();
-            lastMovementTime = time;
+        if (time - lastMovementTime > (150/getModel().getBomberman().getSpeed())) {
+            if (action == GUI.ACTION.UP) {moveBombermanUp(); this.lastMovementTime = time;}
+            if (action == GUI.ACTION.RIGHT){ moveBombermanRight(); this.lastMovementTime = time;}
+            if (action == GUI.ACTION.DOWN) {moveBombermanDown(); this.lastMovementTime = time;}
+            if (action == GUI.ACTION.LEFT) {moveBombermanLeft(); this.lastMovementTime = time;}
         }
         if (action == GUI.ACTION.SPACE && getModel().getBomberman().getBombs() - getModel().getBombs().size() > 0)
             getModel().createBomb(time);
     }
+
+
 }

@@ -52,6 +52,15 @@ public class Arena {
     public List<Powerup> getPowerups() {
         return powerups;
     }
+    public void addflames(List<Flame> flames) {
+        this.flames.addAll(flames);
+    }
+    public void removeobstacles(Obstacle obstacle) {
+        this.obstacles.remove(obstacle);
+    }
+    public void removeEnemies(Enemy enemy) {
+        this.enemies.remove(enemy);
+    }
 
     public void setBomberman(Bomberman bomberman) {
         this.bomberman = bomberman;
@@ -132,52 +141,6 @@ public class Arena {
             }
     }
 
-    public void explodeBomb(Bomb bomb, long time) {
-        flames.add(new Flame(bomb.getPosition().getX(), bomb.getPosition().getY(), time, 'H'));
-        for (int up = 1; up <= bomb.getFlames() && !isWall(new Position(bomb.getPosition().getX(), bomb.getPosition().getY() - up)); up++) {
-            flames.add(new Flame(bomb.getPosition().getX(), bomb.getPosition().getY() - up, time, 'V'));
-            if (isObstacle(new Position(bomb.getPosition().getX(), bomb.getPosition().getY() - up))) {
-                break;
-            }
-        }
-        for (int down = 1; down <= bomb.getFlames() && !isWall(new Position(bomb.getPosition().getX(), bomb.getPosition().getY() + down)); down++) {
-            flames.add(new Flame(bomb.getPosition().getX(), bomb.getPosition().getY() + down, time, 'V'));
-            if (isObstacle(new Position(bomb.getPosition().getX(), bomb.getPosition().getY() + down)))
-                break;
-        }
-        for (int left = 1; left <= bomb.getFlames() && !isWall(new Position(bomb.getPosition().getX() - left, bomb.getPosition().getY())); left++) {
-            flames.add(new Flame(bomb.getPosition().getX() - left, bomb.getPosition().getY(), time, 'H'));
-            if (isObstacle(new Position(bomb.getPosition().getX() - left, bomb.getPosition().getY())))
-                break;
-        }
-        for (int right = 1; right <= bomb.getFlames() && !isWall(new Position(bomb.getPosition().getX() + right, bomb.getPosition().getY())); right++) {
-            flames.add(new Flame(bomb.getPosition().getX() + right, bomb.getPosition().getY(), time, 'H'));
-            if (isObstacle(new Position(bomb.getPosition().getX() + right, bomb.getPosition().getY())))
-                break;
-        }
-        for (Flame flame : flames) {
-            destroyObstacle(flame.getPosition());
-            killEnemy(flame.getPosition());
-            if (flame.getPosition().equals(bomberman.getPosition()) && !bomberman.canFlamepass())
-                bomberman.setHp(bomberman.getHp() - 1);
-        }
-    }
-
-    public void destroyObstacle(Position position) {
-        for (Obstacle obstacle : obstacles)
-            if (obstacle.getPosition().equals(position)) {
-                obstacles.remove(obstacle);
-                break;
-            }
-    }
-
-    public void killEnemy(Position position) {
-        for (Enemy enemy : enemies)
-            if (enemy.getPosition().equals(position)) {
-                enemies.remove(enemy);
-                break;
-            }
-    }
 
     public boolean inArena(Position position) {
         return 0 <= position.getX() && position.getX() < width && 0 <= position.getY() && position.getY() < height;
