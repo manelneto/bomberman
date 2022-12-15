@@ -17,13 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LoaderArenaBuilder extends ArenaBuilder {
-    private final int level;
     private final List<String> lines;
 
-
     public LoaderArenaBuilder(int level) throws IOException {
-        this.level = level;
-
         URL resource = LoaderArenaBuilder.class.getResource("/levels/level" + level + ".lvl");
         BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
 
@@ -36,6 +32,21 @@ public class LoaderArenaBuilder extends ArenaBuilder {
             lines.add(line);
         return lines;
     }
+
+    @Override
+    protected List<Obstacle> createObstacles() {
+        List<Obstacle> obstacles = new ArrayList<>();
+
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == 'o' || line.charAt(x) == 'P' || line.charAt(x) == 'F' || line.charAt(x) == 'S' || line.charAt(x) == 'e' || line.charAt(x) == 'm' || line.charAt(x) == 'f')
+                    obstacles.add(new Obstacle(x, y));
+        }
+
+        return obstacles;
+    }
+
     @Override
     protected List<Wall> createWalls() {
         List<Wall> walls = new ArrayList<>();
@@ -43,7 +54,8 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == '#') walls.add(new Wall(x, y));
+                if (line.charAt(x) == '#')
+                    walls.add(new Wall(x, y));
         }
 
         return walls;
@@ -70,47 +82,27 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'H') return new Bomberman(x, y);
+                if (line.charAt(x) == 'H')
+                    return new Bomberman(x, y);
         }
         return null;
     }
+
     @Override
-    protected List<Obstacle> createObstacles() {
-        List<Obstacle> obstacles = new ArrayList<>();
-
-        for (int y = 0; y < lines.size(); y++) {
-            String line = lines.get(y);
-            for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'o') obstacles.add(new Obstacle(x, y));
-                else if (line.charAt(x) == 'P') obstacles.add(new Obstacle(x, y));
-                else if(line.charAt(x) == 'F') obstacles.add(new Obstacle(x, y));
-                else if(line.charAt(x) == 'S')obstacles.add(new Obstacle(x, y));
-                else if(line.charAt(x) == 'e')obstacles.add(new Obstacle(x, y));
-                else if(line.charAt(x) == 'm')obstacles.add(new Obstacle(x, y));
-                else if(line.charAt(x) == 'f')obstacles.add(new Obstacle(x, y));
-        }
-
-        return obstacles;
-    }
-
     protected List<Powerup> createPowerups() {
         List<Powerup> powerup = new ArrayList<>();
 
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++) {
-                if (line.charAt(x) == 'P') {powerup.add(new Bombpass(x, y));}
-                else if(line.charAt(x) == 'F') {powerup.add(new Flamepass(x, y));}
-                else if(line.charAt(x) == 'S'){powerup.add(new Speed(x, y));}
-                else if(line.charAt(x) == 'e'){powerup.add(new Wallpass(x, y));}
-                else if(line.charAt(x) == 'm'){powerup.add(new Bombs(x, y));}
-                else if(line.charAt(x) == 'f') {powerup.add(new Flames(x, y));}
-
+                if (line.charAt(x) == 'P') powerup.add(new Bombpass(x, y));
+                if (line.charAt(x) == 'F') powerup.add(new Flamepass(x, y));
+                if (line.charAt(x) == 'S') powerup.add(new Speed(x, y));
+                if (line.charAt(x) == 'e') powerup.add(new Wallpass(x, y));
+                if (line.charAt(x) == 'm') powerup.add(new Bombs(x, y));
+                if (line.charAt(x) == 'f') powerup.add(new Flames(x, y));
             }
         }
-
         return powerup;
     }
-
-
 }
