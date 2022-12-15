@@ -51,13 +51,13 @@ public class PowerupEffectTest {
     }
 
     @Test
-    void detonatorTest(){
+    void healthTest(){
         powerup = new Health(5,5);
         List<Powerup> powerups = new ArrayList<Powerup>();
         powerups.add(powerup);
         arena.setPowerups(powerups);
         bcontroller.moveBombermanRight();
-        assertTrue(bomberman.canDetonate());
+        assertTrue(bomberman.getHp() == 2);
     }
 
     @Test

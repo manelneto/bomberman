@@ -16,7 +16,7 @@ public class Arena {
     private List<Obstacle> obstacles;
     private List<Wall> walls;
     private List<Enemy> enemies;
-    private List<Powerup> powerups;
+    private List<Powerup> powerups = new ArrayList<>();
 
     public Arena(int width, int height) {
         this.width = width;
