@@ -89,16 +89,23 @@ public class Arena {
         return false;
     }
 
-    public boolean isEnemy(Position position) {
-        for (Enemy enemy : enemies)
-            if (enemy.getPosition().equals(position))
+    public boolean isObstacle(Position position) {
+        for (Obstacle obstacle : obstacles)
+            if (obstacle.getPosition().equals(position))
                 return true;
         return false;
     }
 
-    public boolean isObstacle(Position position) {
-        for (Obstacle obstacle : obstacles)
-            if (obstacle.getPosition().equals(position))
+    public boolean isWall(Position position) {
+        for (Wall wall : walls)
+            if (wall.getPosition().equals(position))
+                return true;
+        return false;
+    }
+
+    public boolean isEnemy(Position position) {
+        for (Enemy enemy : enemies)
+            if (enemy.getPosition().equals(position))
                 return true;
         return false;
     }
@@ -109,26 +116,20 @@ public class Arena {
                 return true;
         return false;
     }
-    public void removePowerup(Position position) {
-        for (Powerup powerup : powerups)
-            if (powerup.getPosition().equals(position)) {
-                powerups.remove(powerup);
-                break;
-                }
-    }
-
-    public boolean isWall(Position position) {
-        for (Wall wall : walls)
-            if (wall.getPosition().equals(position))
-                return true;
-        return false;
-    }
 
     public Powerup getPowerup(Position position) {
         for (Powerup powerup : powerups)
             if (powerup.getPosition().equals(position))
                 return powerup;
         return null;
+    }
+
+    public void removePowerup(Position position) {
+        for (Powerup powerup : powerups)
+            if (powerup.getPosition().equals(position)) {
+                powerups.remove(powerup);
+                break;
+            }
     }
 
     public void explodeBomb(Bomb bomb, long time) {
@@ -154,10 +155,10 @@ public class Arena {
             if (isObstacle(new Position(bomb.getPosition().getX() + right, bomb.getPosition().getY())))
                 break;
         }
-        for (Flame flame : this.flames) {
+        for (Flame flame : flames) {
             destroyObstacle(flame.getPosition());
             killEnemy(flame.getPosition());
-            if (flame.getPosition().equals(bomberman.getPosition()) && !bomberman. canFlamepass())
+            if (flame.getPosition().equals(bomberman.getPosition()) && !bomberman.canFlamepass())
                 bomberman.setHp(bomberman.getHp() - 1);
         }
     }
@@ -179,7 +180,6 @@ public class Arena {
     }
 
     public boolean inArena(Position position) {
-        if(0<=position.getX() && position.getX()<width && 0<=position.getY() && position.getY()<height) return true;
-        return false;
+        return 0 <= position.getX() && position.getX() < width && 0 <= position.getY() && position.getY() < height;
     }
 }
