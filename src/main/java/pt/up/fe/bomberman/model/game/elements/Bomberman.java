@@ -27,35 +27,27 @@ public class Bomberman extends Element {
     public char getDirection() {
         return direction;
     }
-
     public int getHp() {
         return hp;
     }
-
     public int getBombs() {
         return bombs;
     }
-
     public int getFlames() {
         return flames;
     }
-
     public int getSpeed() {
         return speed;
     }
-
     public boolean canWallpass() {
         return wallpass;
     }
-
     public boolean canDetonate() {
         return detonator;
     }
-
     public boolean canBombpass() {
         return bombpass;
     }
-
     public boolean canFlamepass() {
         return flamepass;
     }
@@ -63,37 +55,28 @@ public class Bomberman extends Element {
     public void setDirection(char direction) {
         this.direction = direction;
     }
-
     public void setHp(int hp) {
         this.hp = hp;
     }
-
     public void setBombs(int bombs) {
         this.bombs = bombs;
     }
-
     public void setFlames(int flames) {
         this.flames = flames;
     }
-
     public void setSpeed(int speed) {
         this.speed = speed;
     }
-
     public void setWallpass(boolean wallpass) {
         this.wallpass = wallpass;
     }
-
     public void setDetonator(boolean detonator) {
         this.detonator = detonator;
     }
-
     public void setBombpass(boolean bombpass) {
         this.bombpass = bombpass;
     }
-
     public void setFlamepass(boolean flamepass) {
         this.flamepass = flamepass;
     }
-
 }

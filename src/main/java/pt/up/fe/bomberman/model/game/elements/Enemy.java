@@ -1,7 +1,5 @@
 package pt.up.fe.bomberman.model.game.elements;
 
-import pt.up.fe.bomberman.model.Position;
-
 public abstract class Enemy extends Element {
     private final int speed;
     private final int smart;
@@ -22,13 +20,13 @@ public abstract class Enemy extends Element {
                 this.direction = 'U';
                 break;
             case 1:
-                this.direction = 'R';
-                break;
-            case 2:
                 this.direction = 'D';
                 break;
-            case 3:
+            case 2:
                 this.direction = 'L';
+                break;
+            case 3:
+                this.direction = 'R';
                 break;
         }
     }
@@ -36,19 +34,15 @@ public abstract class Enemy extends Element {
     public int getSpeed() {
         return speed;
     }
-
     public int getSmart() {
         return smart;
     }
-
     public boolean canWallpass() {
         return wallpass;
     }
-
     public long getLastMovementTime() {
         return lastMovementTime;
     }
-
     public char getDirection() {
         return direction;
     }

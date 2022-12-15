@@ -18,10 +18,10 @@ public class MenuController extends Controller<Menu> {
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         switch (action) {
             case UP:
-                getModel().previousEntry();
+                getModel().previousOption();
                 break;
             case DOWN:
-                getModel().nextEntry();
+                getModel().nextOption();
                 break;
             case LEFT:
                 if (getModel().isSelectedLevel())
