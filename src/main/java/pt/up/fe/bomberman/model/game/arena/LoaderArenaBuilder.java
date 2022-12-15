@@ -40,7 +40,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'o' || line.charAt(x) == 'P' || line.charAt(x) == 'F' || line.charAt(x) == 'S' || line.charAt(x) == 'e' || line.charAt(x) == 'm' || line.charAt(x) == 'f')
+                if (line.charAt(x) == 'o' || line.charAt(x) == 'P' || line.charAt(x) == 'F' || line.charAt(x) == 'S' || line.charAt(x) == 'e' || line.charAt(x) == 'm' || line.charAt(x) == 'f' || line.charAt(x) == 'g')
                     obstacles.add(new Obstacle(x, y));
         }
 
@@ -95,12 +95,13 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++) {
-                if (line.charAt(x) == 'P') powerup.add(new Bombpass(x, y));
-                if (line.charAt(x) == 'F') powerup.add(new Flamepass(x, y));
-                if (line.charAt(x) == 'S') powerup.add(new Speed(x, y));
-                if (line.charAt(x) == 'e') powerup.add(new Wallpass(x, y));
                 if (line.charAt(x) == 'm') powerup.add(new Bombs(x, y));
                 if (line.charAt(x) == 'f') powerup.add(new Flames(x, y));
+                if (line.charAt(x) == 'S') powerup.add(new Speed(x, y));
+                if (line.charAt(x) == 'e') powerup.add(new Wallpass(x, y));
+                if (line.charAt(x) == 'g') powerup.add(new Health(x, y));
+                if (line.charAt(x) == 'P') powerup.add(new Bombpass(x, y));
+                if (line.charAt(x) == 'F') powerup.add(new Flamepass(x, y));
             }
         }
         return powerup;

@@ -54,8 +54,8 @@ public class BombermanController extends GameController {
             getModel().getBomberman().setSpeed(getModel().getBomberman().getSpeed() + 1);
         if (powerup instanceof Wallpass)
             getModel().getBomberman().setWallpass(true);
-        if (powerup instanceof Detonator)
-            getModel().getBomberman().setDetonator(true);
+        if (powerup instanceof Health)
+            getModel().getBomberman().setHp(getModel().getBomberman().getHp() + 1);
         if (powerup instanceof Bombpass)
             getModel().getBomberman().setBombpass(true);
         if (powerup instanceof Flamepass)

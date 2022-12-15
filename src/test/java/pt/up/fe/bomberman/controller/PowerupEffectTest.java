@@ -52,7 +52,7 @@ public class PowerupEffectTest {
 
     @Test
     void detonatorTest(){
-        powerup = new Detonator(5,5);
+        powerup = new Health(5,5);
         List<Powerup> powerups = new ArrayList<Powerup>();
         powerups.add(powerup);
         arena.setPowerups(powerups);

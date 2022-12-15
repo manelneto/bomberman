@@ -15,7 +15,7 @@ public class PowerupViewer implements ElementViewer<Powerup> {
             gui.drawElement(powerup.getPosition(),'f', "#F7EF8A");
         if (powerup instanceof Wallpass)
             gui.drawElement(powerup.getPosition(),'p', "#F7EF8A");
-        if (powerup instanceof Detonator)
+        if (powerup instanceof Health)
             gui.drawElement(powerup.getPosition(),'g', "#F7EF8A");
         if (powerup instanceof Bombpass)
             gui.drawElement(powerup.getPosition(),'r', "#F7EF8A");

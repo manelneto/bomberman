@@ -7,7 +7,6 @@ public class Bomberman extends Element {
     private int flames;
     private int speed;
     private boolean wallpass;
-    private boolean detonator;
     private boolean bombpass;
     private boolean flamepass;
 
@@ -19,7 +18,6 @@ public class Bomberman extends Element {
         flames = 1;
         speed = 1;
         wallpass = false;
-        detonator = false;
         bombpass = false;
         flamepass = false;
     }
@@ -41,9 +39,6 @@ public class Bomberman extends Element {
     }
     public boolean canWallpass() {
         return wallpass;
-    }
-    public boolean canDetonate() {
-        return detonator;
     }
     public boolean canBombpass() {
         return bombpass;
@@ -69,9 +64,6 @@ public class Bomberman extends Element {
     }
     public void setWallpass(boolean wallpass) {
         this.wallpass = wallpass;
-    }
-    public void setDetonator(boolean detonator) {
-        this.detonator = detonator;
     }
     public void setBombpass(boolean bombpass) {
         this.bombpass = bombpass;
