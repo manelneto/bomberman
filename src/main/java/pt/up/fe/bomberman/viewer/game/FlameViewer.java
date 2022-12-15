@@ -4,7 +4,6 @@ import pt.up.fe.bomberman.gui.GUI;
 import pt.up.fe.bomberman.model.game.elements.Flame;
 
 public class FlameViewer implements ElementViewer<Flame> {
-
     @Override
     public void draw(Flame flame, GUI gui) {
         if (flame.getType() == 'H')
