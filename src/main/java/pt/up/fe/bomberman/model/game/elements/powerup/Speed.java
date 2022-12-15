@@ -4,6 +4,6 @@ import pt.up.fe.bomberman.model.game.elements.Powerup;
 
 public class Speed extends Powerup {
     public Speed(int x, int y) {
-        super(x, y, Effect.Speed);
+        super(x, y);
     }
 }

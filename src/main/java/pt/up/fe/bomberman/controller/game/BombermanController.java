@@ -5,6 +5,7 @@ import pt.up.fe.bomberman.gui.GUI;
 import pt.up.fe.bomberman.model.Position;
 import pt.up.fe.bomberman.model.game.arena.Arena;
 import pt.up.fe.bomberman.model.game.elements.Powerup;
+import pt.up.fe.bomberman.model.game.elements.powerup.*;
 
 public class BombermanController extends GameController {
     private long lastMovementTime;
@@ -45,29 +46,18 @@ public class BombermanController extends GameController {
     }
 
     private void applyEffect(Powerup powerup) {
-        switch (powerup.getEffect()) {
-            case Bombs:
-                getModel().getBomberman().setBombs(getModel().getBomberman().getBombs() + 1);
-                break;
-            case Flames:
-                getModel().getBomberman().setFlames(getModel().getBomberman().getFlames() + 1);
-                break;
-            case Speed:
-                getModel().getBomberman().setSpeed(getModel().getBomberman().getSpeed() + 1);
-                break;
-            case Wallpass:
-                getModel().getBomberman().setWallpass(true);
-                break;
-            case Detonator:
-                getModel().getBomberman().setDetonator(true);
-                break;
-            case Bombpass:
-                getModel().getBomberman().setBombpass(true);
-                break;
-            case Flamepass:
-                getModel().getBomberman().setFlamepass(true);
-                break;
-        }
+        if (powerup instanceof Bombs)
+            getModel().getBomberman().setBombs(getModel().getBomberman().getBombs() + 1);
+        if (powerup instanceof Flames)
+            getModel().getBomberman().setFlames(getModel().getBomberman().getFlames() + 1);
+        if (powerup instanceof Speed)
+            getModel().getBomberman().setSpeed(getModel().getBomberman().getSpeed() + 1);
+        if (powerup instanceof Wallpass)
+            getModel().getBomberman().setWallpass(true);
+        if (powerup instanceof Bombpass)
+            getModel().getBomberman().setBombpass(true);
+        if (powerup instanceof Flamepass)
+            getModel().getBomberman().setFlamepass(true);
     }
 
     @Override
