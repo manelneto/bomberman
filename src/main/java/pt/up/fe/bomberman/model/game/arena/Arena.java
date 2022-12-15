@@ -144,7 +144,7 @@ public class Arena {
         return false;
     }
 
-    public Powerup findPowerup(Position position) {
+    public Powerup getPowerup(Position position) {
         for (Powerup powerup : powerups)
             if (powerup.getPosition().equals(position))
                 return powerup;

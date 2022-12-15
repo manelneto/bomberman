@@ -39,7 +39,7 @@ public class BombermanController extends GameController {
             if (getModel().isEnemy(position))
                 getModel().getBomberman().setHp(getModel().getBomberman().getHp() - 1);
             if (getModel().isPowerup(position)) {
-                applyEffect(getModel().findPowerup(position));
+                applyEffect(getModel().getPowerup(position));
                 getModel().removePowerup(position);
             }
         }
@@ -54,6 +54,8 @@ public class BombermanController extends GameController {
             getModel().getBomberman().setSpeed(getModel().getBomberman().getSpeed() + 1);
         if (powerup instanceof Wallpass)
             getModel().getBomberman().setWallpass(true);
+        if (powerup instanceof Detonator)
+            getModel().getBomberman().setDetonator(true);
         if (powerup instanceof Bombpass)
             getModel().getBomberman().setBombpass(true);
         if (powerup instanceof Flamepass)
