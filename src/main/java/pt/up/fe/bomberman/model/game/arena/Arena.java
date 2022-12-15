@@ -11,53 +11,44 @@ public class Arena {
     private final int height;
 
     private Bomberman bomberman;
-    private List<Bomb> bombs = new ArrayList<>();
-    private List<Flame> flames = new ArrayList<>();
-    private List<Enemy> enemies;
+    private List<Bomb> bombs;
+    private List<Flame> flames;
     private List<Obstacle> obstacles;
-
     private List<Wall> walls;
-
-    private List<Powerup> powerups = new ArrayList<>(); //no powerups for now
-
+    private List<Enemy> enemies;
+    private List<Powerup> powerups;
 
     public Arena(int width, int height) {
         this.width = width;
         this.height = height;
+        bombs = new ArrayList<>();
+        flames = new ArrayList<>();
     }
 
     public int getWidth() {
         return width;
     }
-
     public int getHeight() {
         return height;
     }
-
     public Bomberman getBomberman() {
         return bomberman;
     }
-
     public List<Bomb> getBombs() {
         return bombs;
     }
-
     public List<Flame> getFlames() {
         return flames;
     }
-
-    public List<Enemy> getEnemies() {
-        return enemies;
-    }
-
     public List<Obstacle> getObstacles() {
         return obstacles;
     }
-
     public List<Wall> getWalls() {
         return walls;
     }
-
+    public List<Enemy> getEnemies() {
+        return enemies;
+    }
     public List<Powerup> getPowerups() {
         return powerups;
     }
@@ -65,41 +56,30 @@ public class Arena {
     public void setBomberman(Bomberman bomberman) {
         this.bomberman = bomberman;
     }
-
     public void setBombs(List<Bomb> bombs) {
         this.bombs = bombs;
     }
-
-    public void setEnemies(List<Enemy> enemies) {
-        this.enemies = enemies;
-    }
-
     public void setFlames(List<Flame> flames) {
         this.flames = flames;
     }
-
     public void setObstacles(List<Obstacle> obstacles) {
         this.obstacles = obstacles;
     }
-
     public void setWalls(List<Wall> walls) {
         this.walls = walls;
     }
-
+    public void setEnemies(List<Enemy> enemies) {
+        this.enemies = enemies;
+    }
     public void setPowerups(List<Powerup> powerups) {
         this.powerups = powerups;
     }
 
     public void createBomb(long time) {
-        for( Bomb bomb:bombs) {
-            if (bomb.getPosition().equals(new Position(bomberman.getPosition().getX(), bomberman.getPosition().getY())))
-                return;
-        }
-        for (Wall wall : walls)
-            if (wall.getPosition().equals(new Position(bomberman.getPosition().getX(), bomberman.getPosition().getY())))
-                return ;
+        if (!isBomb(bomberman.getPosition()) && !isObstacle(bomberman.getPosition()) && !isWall(bomberman.getPosition()) && !isPowerup(bomberman.getPosition()) && !isPowerup(bomberman.getPosition())) {
             Bomb bomb = new Bomb(bomberman.getPosition().getX(), bomberman.getPosition().getY(), time, getBomberman().getFlames());
-        bombs.add(bomb);
+            bombs.add(bomb);
+        }
     }
 
     public boolean isBomb(Position position) {
