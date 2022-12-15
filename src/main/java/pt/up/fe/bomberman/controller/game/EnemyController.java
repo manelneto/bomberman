@@ -56,11 +56,11 @@ public abstract class EnemyController extends GameController {
     }
 
     protected void moveEnemy(Enemy monster, Position position) {
-            if (canmoveto(monster,position)) {
-                monster.setPosition(position);
-                if (getModel().getBomberman().getPosition().equals(position))
-                    getModel().getBomberman().decreaseHp();
-            }
+        if (canmoveto(monster,position)) {
+            monster.setPosition(position);
+            if (getModel().getBomberman().getPosition().equals(position))
+                getModel().getBomberman().decreaseHp();
+        }
 
     }
 }

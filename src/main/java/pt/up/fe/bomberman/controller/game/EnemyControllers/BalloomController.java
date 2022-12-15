@@ -45,6 +45,7 @@ public class BalloomController extends EnemyController {
                 return monster.getPosition().getUp();
             }
 
+
             case('R'): if(canmoveto(monster,monster.getPosition().getRight())) {
                 monster.setDirection('R');
                 return monster.getPosition().getRight();
