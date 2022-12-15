@@ -18,7 +18,7 @@ public class FlameController extends GameController {
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         List<Flame> flames = new ArrayList<>();
         for (Flame flame : getModel().getFlames())
-            if (time - 500 < flame.getTime())
+            if (time - 250 < flame.getTime())
                 flames.add(flame);
         getModel().setFlames(flames);
     }
