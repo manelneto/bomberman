@@ -1,34 +1,63 @@
 package pt.up.fe.bomberman.model.game.elements;
 
-public abstract class Enemy extends Element {
+public  class Enemy extends Element {
+
+    public enum enemyType {Balloom, Doll, Kondria, Minvo, Oneal, Ovapi, Pass, Pontan}
+    enemyType type;
     private final int speed;
     private final int smart;
     private final boolean wallpass;
     private char direction;
     private long lastMovementTime;
 
-    public Enemy(int x, int y, int speed, int smart, boolean wallpass) {
+    public Enemy(int x, int y, enemyType type) {
         super(x, y);
-        this.speed = speed;
-        this.smart = smart;
-        this.wallpass = wallpass;
+        this.type=type;
         this.lastMovementTime = 0;
-
-        int n = (int) (Math.random() * 4);
-        switch (n) {
-            case 0:
-                this.direction = 'U';
+        switch (type) {
+            case Doll:
+                this.speed = 3;
+                this.smart = 1;
+                this.wallpass = false;
                 break;
-            case 1:
-                this.direction = 'D';
+            case Kondria:
+                this.speed = 1;
+                this.smart = 3;
+                this.wallpass = true;
                 break;
-            case 2:
-                this.direction = 'L';
+            case Minvo:
+                this.speed = 4;
+                this.smart = 2;
+                this.wallpass = false;
                 break;
-            case 3:
-                this.direction = 'R';
+            case Oneal:
+                this.speed = 3;
+                this.smart = 2;
+                this.wallpass = false;
+                break;
+            case Ovapi:
+                this.speed = 2;
+                this.smart = 2;
+                this.wallpass = true;
+                break;
+            case Pass:
+                this.speed = 4;
+                this.smart = 3;
+                this.wallpass = false;
+                break;
+            case Pontan:
+                this.speed = 4;
+                this.smart = 3;
+                this.wallpass = true;
+                break;
+            default:
+                this.speed = 2;
+                this.smart = 1;
+                this.wallpass = false;
                 break;
         }
+
+        randomDirection();
     }
 
     public int getSpeed() {
@@ -40,6 +69,10 @@ public abstract class Enemy extends Element {
     public boolean canWallpass() {
         return wallpass;
     }
+    public enemyType getType() {
+        return type;
+    }
+
     public long getLastMovementTime() {
         return lastMovementTime;
     }
@@ -81,6 +114,23 @@ public abstract class Enemy extends Element {
                 break;
             case 'L':
                 direction = 'U';
+                break;
+        }
+    }
+    public void randomDirection() {
+        int n = (int) (Math.random() * 4);
+        switch (n) {
+            case 0:
+                this.direction = 'U';
+                break;
+            case 1:
+                this.direction = 'D';
+                break;
+            case 2:
+                this.direction = 'L';
+                break;
+            case 3:
+                this.direction = 'R';
                 break;
         }
     }

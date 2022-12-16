@@ -67,11 +67,14 @@ public class Position {
     }
 
     public Position getRandomDirectionalNeighbour(char direction) {
-        if (direction == 'U' || direction == 'D')
-            return getRandomVerticalNeighbour();
-        if (direction == 'L' || direction == 'R')
-            return getRandomHorizontalNeighbour();
-        else
+        if (direction == 'U' || direction == 'D') {
+            Position randomVerticalNeighbour = getRandomVerticalNeighbour();
+            return randomVerticalNeighbour;
+        }
+        if (direction == 'L' || direction == 'R') {
+            Position randomHorizontalNeighbour = getRandomHorizontalNeighbour();
+            return randomHorizontalNeighbour;
+        } else
             return new Position(x, y);
     }
 
