@@ -5,7 +5,7 @@ import pt.up.fe.bomberman.gui.GUI;
 import pt.up.fe.bomberman.model.Position;
 import pt.up.fe.bomberman.model.game.arena.Arena;
 import pt.up.fe.bomberman.model.game.elements.Powerup;
-import pt.up.fe.bomberman.model.game.elements.powerup.*;
+
 
 public class BombermanController extends GameController {
     private long lastMovementTime;
@@ -46,19 +46,19 @@ public class BombermanController extends GameController {
     }
 
     private void applyEffect(Powerup powerup) {
-        if (powerup instanceof Bombs)
+        if (powerup.getType() == Powerup.powerupType.Bombs)
             getModel().getBomberman().setBombs(getModel().getBomberman().getBombs() + 1);
-        if (powerup instanceof Flames)
+        if (powerup.getType() == Powerup.powerupType.Flames)
             getModel().getBomberman().setFlames(getModel().getBomberman().getFlames() + 1);
-        if (powerup instanceof Speed)
+        if (powerup.getType() == Powerup.powerupType.Speed)
             getModel().getBomberman().setSpeed(getModel().getBomberman().getSpeed() + 1);
-        if (powerup instanceof Wallpass)
+        if (powerup.getType() == Powerup.powerupType.Wallpass)
             getModel().getBomberman().setWallpass(true);
-        if (powerup instanceof Health)
+        if (powerup.getType() == Powerup.powerupType.Health)
             getModel().getBomberman().setHp(getModel().getBomberman().getHp() + 1);
-        if (powerup instanceof Bombpass)
+        if (powerup.getType() == Powerup.powerupType.Bombpass)
             getModel().getBomberman().setBombpass(true);
-        if (powerup instanceof Flamepass)
+        if (powerup.getType() == Powerup.powerupType.Flamepass)
             getModel().getBomberman().setFlamepass(true);
     }
 

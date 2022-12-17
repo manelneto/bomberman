@@ -4,7 +4,7 @@ import pt.up.fe.bomberman.model.game.elements.Bomberman;
 import pt.up.fe.bomberman.model.game.elements.Obstacle;
 import pt.up.fe.bomberman.model.game.elements.Powerup;
 import pt.up.fe.bomberman.model.game.elements.*;
-import pt.up.fe.bomberman.model.game.elements.powerup.*;
+import pt.up.fe.bomberman.model.game.elements.Powerup;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -97,13 +97,13 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++) {
-                if (line.charAt(x) == 'm') powerup.add(new Bombs(x, y));
-                if (line.charAt(x) == 'f') powerup.add(new Flames(x, y));
-                if (line.charAt(x) == 'S') powerup.add(new Speed(x, y));
-                if (line.charAt(x) == 'e') powerup.add(new Wallpass(x, y));
-                if (line.charAt(x) == 'g') powerup.add(new Health(x, y));
-                if (line.charAt(x) == 'P') powerup.add(new Bombpass(x, y));
-                if (line.charAt(x) == 'F') powerup.add(new Flamepass(x, y));
+                if (line.charAt(x) == 'm') powerup.add(new Powerup(x, y,Powerup.powerupType.Bombs));
+                if (line.charAt(x) == 'f') powerup.add(new Powerup(x, y,Powerup.powerupType.Flames));
+                if (line.charAt(x) == 'S') powerup.add(new Powerup(x, y,Powerup.powerupType.Speed));
+                if (line.charAt(x) == 'e') powerup.add(new Powerup(x, y,Powerup.powerupType.Wallpass));
+                if (line.charAt(x) == 'g') powerup.add(new Powerup(x, y,Powerup.powerupType.Health));
+                if (line.charAt(x) == 'P') powerup.add(new Powerup(x, y,Powerup.powerupType.Bombpass));
+                if (line.charAt(x) == 'F') powerup.add(new Powerup(x, y,Powerup.powerupType.Flamepass));
             }
         }
         return powerup;
