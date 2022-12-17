@@ -79,59 +79,30 @@ public  class Enemy extends Element {
     public char getDirection() {
         return direction;
     }
-
-    public void setLastMovementTime(long time) {
-        this.lastMovementTime = time;
-    }
-
-    public void invertDirection() {
-        switch (direction) {
-            case 'U':
-                direction = 'D';
-                break;
-            case 'D':
-                direction = 'U';
-                break;
-            case 'L':
-                direction = 'R';
-                break;
-            case 'R':
-                direction = 'L';
-                break;
-        }
-    }
-
-    public void rotateDirection() {
-        switch (direction) {
-            case 'U':
-                direction = 'R';
-                break;
-            case 'R':
-                direction = 'D';
-                break;
-            case 'D':
-                direction = 'L';
-                break;
-            case 'L':
-                direction = 'U';
-                break;
-        }
+    public void setDirection(char dic) {
+         direction=dic;
     }
     public void randomDirection() {
         int n = (int) (Math.random() * 4);
         switch (n) {
             case 0:
-                this.direction = 'U';
+                setDirection('U');
                 break;
             case 1:
-                this.direction = 'D';
+                setDirection('D');
                 break;
             case 2:
-                this.direction = 'L';
+                setDirection('L');
                 break;
             case 3:
-                this.direction = 'R';
+                setDirection('R');
                 break;
         }
     }
+
+    public void setLastMovementTime(long time) {
+        this.lastMovementTime = time;
+    }
+
+
 }

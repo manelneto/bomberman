@@ -19,9 +19,9 @@ public class EnemyController extends GameController {
             if (time - enemy.getLastMovementTime() > 500/enemy.getSpeed()) {
                 if (enemy.getSmart() == 1) {
                     if (!canMove(enemy, enemy.getPosition().getDirectionalNeighbour(enemy.getDirection())))
-                        enemy.invertDirection();
+                        invertDirection(enemy);
                     if (!canMove(enemy, enemy.getPosition().getDirectionalNeighbour(enemy.getDirection())))
-                        enemy.rotateDirection();
+                        rotateDirection(enemy);
                     moveEnemy(enemy, enemy.getPosition().getDirectionalNeighbour(enemy.getDirection()));
                 }
                 if (enemy.getSmart() == 2)
@@ -45,6 +45,39 @@ public class EnemyController extends GameController {
                 getModel().getBomberman().setHp(getModel().getBomberman().getHp() - 1);
         }
 
+    }
+    public void invertDirection(Enemy enemy) {
+        switch (enemy.getDirection()) {
+            case 'U':
+                enemy.setDirection('D');
+                break;
+            case 'D':
+                enemy.setDirection('U');
+                break;
+            case 'L':
+                enemy.setDirection('R');
+                break;
+            case 'R':
+                enemy.setDirection('L');
+                break;
+        }
+    }
+
+    public void rotateDirection(Enemy enemy) {
+        switch (enemy.getDirection()) {
+            case 'U':
+                enemy.setDirection('R');
+                break;
+            case 'R':
+                enemy.setDirection('D');
+                break;
+            case 'D':
+                enemy.setDirection('L');
+                break;
+            case 'L':
+                enemy.setDirection('U');
+                break;
+        }
     }
 }
 
