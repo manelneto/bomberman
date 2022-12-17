@@ -65,14 +65,14 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++){
-                if (line.charAt(x) == 'M') enemy.add(new Enemy(x, y, Enemy.Type.Balloom));
-                if (line.charAt(x) == 'E') enemy.add(new Enemy(x, y,Enemy.Type.Oneal));
-                if (line.charAt(x) == 'L') enemy.add(new Enemy(x, y,Enemy.Type.Doll));
-                if (line.charAt(x) == 'A') enemy.add(new Enemy(x, y,Enemy.Type.Kondria));
-                if (line.charAt(x) == 'N') enemy.add(new Enemy(x, y,Enemy.Type.Minvo));
-                if (line.charAt(x) == 'C') enemy.add(new Enemy(x, y,Enemy.Type.Ovapi));
-                if (line.charAt(x) == 'I') enemy.add(new Enemy(x, y,Enemy.Type.Pass));
-                if (line.charAt(x) == 'a') enemy.add(new Enemy(x, y,Enemy.Type.Pontan));
+                if (line.charAt(x) == 'M') enemy.add(new Enemy(x, y, Enemy.enemyType.Balloom));
+                if (line.charAt(x) == 'E') enemy.add(new Enemy(x, y,Enemy.enemyType.Oneal));
+                if (line.charAt(x) == 'L') enemy.add(new Enemy(x, y,Enemy.enemyType.Doll));
+                if (line.charAt(x) == 'A') enemy.add(new Enemy(x, y,Enemy.enemyType.Kondria));
+                if (line.charAt(x) == 'N') enemy.add(new Enemy(x, y,Enemy.enemyType.Minvo));
+                if (line.charAt(x) == 'C') enemy.add(new Enemy(x, y,Enemy.enemyType.Ovapi));
+                if (line.charAt(x) == 'I') enemy.add(new Enemy(x, y,Enemy.enemyType.Pass));
+                if (line.charAt(x) == 'a') enemy.add(new Enemy(x, y,Enemy.enemyType.Pontan));
             }
         }
 
