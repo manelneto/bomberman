@@ -4,7 +4,6 @@ import pt.up.fe.bomberman.model.game.elements.Bomberman;
 import pt.up.fe.bomberman.model.game.elements.Obstacle;
 import pt.up.fe.bomberman.model.game.elements.Powerup;
 import pt.up.fe.bomberman.model.game.elements.*;
-import pt.up.fe.bomberman.model.game.elements.Powerup;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -65,14 +64,14 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++){
-                if (line.charAt(x) == 'M') enemy.add(new Enemy(x, y, Enemy.enemyType.Balloom));
-                if (line.charAt(x) == 'E') enemy.add(new Enemy(x, y,Enemy.enemyType.Oneal));
-                if (line.charAt(x) == 'L') enemy.add(new Enemy(x, y,Enemy.enemyType.Doll));
-                if (line.charAt(x) == 'A') enemy.add(new Enemy(x, y,Enemy.enemyType.Kondria));
-                if (line.charAt(x) == 'N') enemy.add(new Enemy(x, y,Enemy.enemyType.Minvo));
-                if (line.charAt(x) == 'C') enemy.add(new Enemy(x, y,Enemy.enemyType.Ovapi));
-                if (line.charAt(x) == 'I') enemy.add(new Enemy(x, y,Enemy.enemyType.Pass));
-                if (line.charAt(x) == 'a') enemy.add(new Enemy(x, y,Enemy.enemyType.Pontan));
+                if (line.charAt(x) == 'M') enemy.add(new Enemy(x, y, Enemy.Type.Balloom));
+                if (line.charAt(x) == 'E') enemy.add(new Enemy(x, y, Enemy.Type.Oneal));
+                if (line.charAt(x) == 'L') enemy.add(new Enemy(x, y, Enemy.Type.Doll));
+                if (line.charAt(x) == 'A') enemy.add(new Enemy(x, y, Enemy.Type.Kondria));
+                if (line.charAt(x) == 'N') enemy.add(new Enemy(x, y, Enemy.Type.Minvo));
+                if (line.charAt(x) == 'C') enemy.add(new Enemy(x, y, Enemy.Type.Ovapi));
+                if (line.charAt(x) == 'I') enemy.add(new Enemy(x, y, Enemy.Type.Pass));
+                if (line.charAt(x) == 'a') enemy.add(new Enemy(x, y, Enemy.Type.Pontan));
             }
         }
 
@@ -97,13 +96,13 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++) {
-                if (line.charAt(x) == 'm') powerup.add(new Powerup(x, y,Powerup.powerupType.Bombs));
-                if (line.charAt(x) == 'f') powerup.add(new Powerup(x, y,Powerup.powerupType.Flames));
-                if (line.charAt(x) == 'S') powerup.add(new Powerup(x, y,Powerup.powerupType.Speed));
-                if (line.charAt(x) == 'e') powerup.add(new Powerup(x, y,Powerup.powerupType.Wallpass));
-                if (line.charAt(x) == 'g') powerup.add(new Powerup(x, y,Powerup.powerupType.Health));
-                if (line.charAt(x) == 'P') powerup.add(new Powerup(x, y,Powerup.powerupType.Bombpass));
-                if (line.charAt(x) == 'F') powerup.add(new Powerup(x, y,Powerup.powerupType.Flamepass));
+                if (line.charAt(x) == 'm') powerup.add(new Powerup(x, y, Powerup.Type.Bombs));
+                if (line.charAt(x) == 'f') powerup.add(new Powerup(x, y, Powerup.Type.Flames));
+                if (line.charAt(x) == 'S') powerup.add(new Powerup(x, y, Powerup.Type.Speed));
+                if (line.charAt(x) == 'e') powerup.add(new Powerup(x, y, Powerup.Type.Wallpass));
+                if (line.charAt(x) == 'g') powerup.add(new Powerup(x, y, Powerup.Type.Health));
+                if (line.charAt(x) == 'P') powerup.add(new Powerup(x, y, Powerup.Type.Bombpass));
+                if (line.charAt(x) == 'F') powerup.add(new Powerup(x, y, Powerup.Type.Flamepass));
             }
         }
         return powerup;

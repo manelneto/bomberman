@@ -29,7 +29,7 @@ public class BombController extends GameController {
         getModel().setBombs(bombs);
     }
     public void createFlames(Bomb bomb, long time){
-        List<Flame> flames=flames = new ArrayList<>();;
+        List<Flame> flames = new ArrayList<>();
         flames.add(new Flame(bomb.getPosition().getX(), bomb.getPosition().getY(), time, 'C'));
         for (int up = 1; up <= bomb.getFlames() && !getModel().isWall(new Position(bomb.getPosition().getX(), bomb.getPosition().getY() - up)); up++) {
             flames.add(new Flame(bomb.getPosition().getX(), bomb.getPosition().getY() - up, time, 'V'));

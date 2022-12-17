@@ -2,13 +2,13 @@ package pt.up.fe.bomberman.model.game.elements;
 
 public  class Enemy extends Element {
 
-    public enum enemyType {Balloom, Doll, Kondria, Minvo, Oneal, Ovapi, Pass, Pontan}
-    enemyType type;
+    public enum Type {Balloom, Doll, Kondria, Minvo, Oneal, Ovapi, Pass, Pontan}
+    Type type;
 
     private char direction;
     private long lastMovementTime;
 
-    public Enemy(int x, int y, enemyType type) {
+    public Enemy(int x, int y, Type type) {
         super(x, y);
         this.type=type;
         this.lastMovementTime = 0;
@@ -16,7 +16,7 @@ public  class Enemy extends Element {
         randomDirection();
     }
 
-    public enemyType getType() {
+    public Type getType() {
         return type;
     }
 

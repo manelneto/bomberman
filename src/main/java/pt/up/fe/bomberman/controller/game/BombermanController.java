@@ -45,34 +45,35 @@ public class BombermanController extends GameController {
         }
     }
 
-    private void applyEffect(Powerup powerup) {
-        if (powerup.getType() == Powerup.powerupType.Bombs)
+    public void applyEffect(Powerup powerup) {
+        if (powerup.getType() == Powerup.Type.Bombs)
             getModel().getBomberman().setBombs(getModel().getBomberman().getBombs() + 1);
-        if (powerup.getType() == Powerup.powerupType.Flames)
+        if (powerup.getType() == Powerup.Type.Flames)
             getModel().getBomberman().setFlames(getModel().getBomberman().getFlames() + 1);
-        if (powerup.getType() == Powerup.powerupType.Speed)
+        if (powerup.getType() == Powerup.Type.Speed)
             getModel().getBomberman().setSpeed(getModel().getBomberman().getSpeed() + 1);
-        if (powerup.getType() == Powerup.powerupType.Wallpass)
+        if (powerup.getType() == Powerup.Type.Wallpass)
             getModel().getBomberman().setWallpass(true);
-        if (powerup.getType() == Powerup.powerupType.Health)
+        if (powerup.getType() == Powerup.Type.Health)
             getModel().getBomberman().setHp(getModel().getBomberman().getHp() + 1);
-        if (powerup.getType() == Powerup.powerupType.Bombpass)
+        if (powerup.getType() == Powerup.Type.Bombpass)
             getModel().getBomberman().setBombpass(true);
-        if (powerup.getType() == Powerup.powerupType.Flamepass)
+        if (powerup.getType() == Powerup.Type.Flamepass)
             getModel().getBomberman().setFlamepass(true);
     }
 
     @Override
 
     public void step(Game game, GUI.ACTION action, long time) {
-        if (time - lastMovementTime > (150/getModel().getBomberman().getSpeed())) {
-            if (action == GUI.ACTION.UP) {moveBombermanUp(); this.lastMovementTime = time;}
-            if (action == GUI.ACTION.RIGHT){ moveBombermanRight(); this.lastMovementTime = time;}
-            if (action == GUI.ACTION.DOWN) {moveBombermanDown(); this.lastMovementTime = time;}
-            if (action == GUI.ACTION.LEFT) {moveBombermanLeft(); this.lastMovementTime = time;}
-        }
         if (action == GUI.ACTION.SPACE && getModel().getBomberman().getBombs() - getModel().getBombs().size() > 0)
             getModel().createBomb(time);
+        if (time - lastMovementTime < (150/getModel().getBomberman().getSpeed())) return;
+        if (action == GUI.ACTION.UP) {moveBombermanUp(); this.lastMovementTime = time;}
+        if (action == GUI.ACTION.RIGHT){moveBombermanRight(); this.lastMovementTime = time;}
+        if (action == GUI.ACTION.DOWN) {moveBombermanDown(); this.lastMovementTime = time;}
+        if (action == GUI.ACTION.LEFT) {moveBombermanLeft(); this.lastMovementTime = time;}
+
+
     }
 
 

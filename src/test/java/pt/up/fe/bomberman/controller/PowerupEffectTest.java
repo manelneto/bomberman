@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import pt.up.fe.bomberman.controller.game.BombermanController;
 import pt.up.fe.bomberman.model.game.arena.Arena;
 import pt.up.fe.bomberman.model.game.elements.*;
-import pt.up.fe.bomberman.model.game.elements.powerup.*;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +32,7 @@ public class PowerupEffectTest {
 
     @Test
     void bombpassTest(){
-        powerup = new Bombpass(5,5);
+        powerup = new Powerup(5,5, Powerup.Type.Bombpass);
         List<Powerup> powerups = new ArrayList<Powerup>();
         powerups.add(powerup);
         arena.setPowerups(powerups);
@@ -42,7 +42,7 @@ public class PowerupEffectTest {
 
     @Test
     void bombsTest(){
-        powerup = new Bombs(5,5);
+        powerup = new Powerup(5,5, Powerup.Type.Bombs);
         List<Powerup> powerups = new ArrayList<Powerup>();
         powerups.add(powerup);
         arena.setPowerups(powerups);
@@ -52,7 +52,7 @@ public class PowerupEffectTest {
 
     @Test
     void healthTest(){
-        powerup = new Health(5,5);
+        powerup = new Powerup(5,5, Powerup.Type.Health);
         List<Powerup> powerups = new ArrayList<Powerup>();
         powerups.add(powerup);
         arena.setPowerups(powerups);
@@ -62,7 +62,7 @@ public class PowerupEffectTest {
 
     @Test
     void flamepassTest(){
-        powerup = new Flamepass(5,5);
+        powerup = new Powerup(5,5, Powerup.Type.Flamepass);
         List<Powerup> powerups = new ArrayList<Powerup>();
         powerups.add(powerup);
         arena.setPowerups(powerups);
@@ -72,7 +72,7 @@ public class PowerupEffectTest {
 
     @Test
     void flamesTest(){
-        powerup = new Flames(5,5);
+        powerup = new Powerup(5,5, Powerup.Type.Flames);
         List<Powerup> powerups = new ArrayList<Powerup>();
         powerups.add(powerup);
         arena.setPowerups(powerups);
@@ -82,7 +82,7 @@ public class PowerupEffectTest {
 
     @Test
     void speedTest(){
-        powerup = new Speed(5,5);
+        powerup = new Powerup(5,5, Powerup.Type.Speed);
         List<Powerup> powerups = new ArrayList<Powerup>();
         powerups.add(powerup);
         arena.setPowerups(powerups);
@@ -92,7 +92,7 @@ public class PowerupEffectTest {
 
     @Test
     void wallpassTest(){
-        powerup = new Wallpass(5,5);
+        powerup = new Powerup(5,5, Powerup.Type.Wallpass);
         List<Powerup> powerups = new ArrayList<Powerup>();
         powerups.add(powerup);
         arena.setPowerups(powerups);
