@@ -11,8 +11,8 @@ public class Arena {
     private final int height;
 
     private Bomberman bomberman;
-    private List<Bomb> bombs;
-    private List<Flame> flames;
+    private List<Bomb> bombs= new ArrayList<>();
+    private List<Flame> flames= new ArrayList<>();
     private List<Obstacle> obstacles;
     private List<Wall> walls;
     private List<Enemy> enemies;
@@ -21,8 +21,6 @@ public class Arena {
     public Arena(int width, int height) {
         this.width = width;
         this.height = height;
-        bombs = new ArrayList<>();
-        flames = new ArrayList<>();
     }
 
     public int getWidth() {
@@ -139,6 +137,9 @@ public class Arena {
                 powerups.remove(powerup);
                 break;
             }
+    }
+    public void addBomb(Bomb bomb){
+        bombs.add(bomb);
     }
 
 

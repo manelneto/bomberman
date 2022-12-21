@@ -32,6 +32,21 @@ class LaternaGUITest {
         Mockito.verify(textGraphics, Mockito.times(1)).setBackgroundColor(new TextColor.RGB(57, 124, 0)); //#397C00
         Mockito.verify(textGraphics, Mockito.times(1)).putString(1, 1, "!");
 
+        gui.drawBomberman(new Position(1, 2),'U');
+        Mockito.verify(textGraphics, Mockito.times(2)).setForegroundColor(new TextColor.RGB(100, 164, 255)); //#64A4FF
+        Mockito.verify(textGraphics, Mockito.times(2)).setBackgroundColor(new TextColor.RGB(57, 124, 0)); //#397C00
+        Mockito.verify(textGraphics, Mockito.times(1)).putString(1, 2, ""+'"');
+
+        gui.drawBomberman(new Position(1, 3),'R');
+        Mockito.verify(textGraphics, Mockito.times(3)).setForegroundColor(new TextColor.RGB(100, 164, 255)); //#64A4FF
+        Mockito.verify(textGraphics, Mockito.times(3)).setBackgroundColor(new TextColor.RGB(57, 124, 0)); //#397C00
+        Mockito.verify(textGraphics, Mockito.times(1)).putString(1, 3,"." );
+
+        gui.drawBomberman(new Position(1, 4),'L');
+        Mockito.verify(textGraphics, Mockito.times(4)).setForegroundColor(new TextColor.RGB(100, 164, 255)); //#64A4FF
+        Mockito.verify(textGraphics, Mockito.times(4)).setBackgroundColor(new TextColor.RGB(57, 124, 0)); //#397C00
+        Mockito.verify(textGraphics, Mockito.times(1)).putString(1, 4, ",");
+
     }
 
     @Test
@@ -65,6 +80,16 @@ class LaternaGUITest {
 
         Mockito.verify(textGraphics, Mockito.times(1)).putString(7, 13, ":");
     }
+    @Test
+    void drawElementTest() {
+        gui.drawElement(new Position(7, 13), ':', "#FA732C");
+
+        Mockito.verify(textGraphics, Mockito.times(1)).setForegroundColor(new TextColor.RGB(250, 115, 44)); //FA732C
+        Mockito.verify(textGraphics, Mockito.times(1)).setBackgroundColor(new TextColor.RGB(57, 124, 0)); //#397C00
+
+        Mockito.verify(textGraphics, Mockito.times(1)).putString(7, 13, ":");
+    }
+
     @Test
     void drawText() {
         gui.drawText(new Position(1, 1), "Hello World", "#336699");

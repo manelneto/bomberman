@@ -57,7 +57,6 @@ public class BombController extends GameController {
 
     public void explodeBomb(Bomb bomb, long time) {
         createFlames(bomb,time);
-
         for (Flame flame : getModel().getFlames()) {
             destroyObstacle(flame.getPosition());
             killEnemy(flame.getPosition());

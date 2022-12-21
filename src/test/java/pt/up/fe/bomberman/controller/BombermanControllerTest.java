@@ -161,4 +161,5 @@ public class BombermanControllerTest {
         controller.applyEffect(new Powerup(10, 10, Powerup.Type.Bombpass));
         assertTrue( bomberman.canBombpass());
     }
+
 }
