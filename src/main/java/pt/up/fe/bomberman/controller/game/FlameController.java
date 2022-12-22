@@ -20,6 +20,14 @@ public class FlameController extends GameController {
         for (Flame flame : getModel().getFlames())
             if (time - 250 < flame.getTime())
                 flames.add(flame);
+            else {
+                if (flame.getPosition().equals(getModel().getBomberman().getPosition()))
+                    getModel().getBomberman().setHp(getModel().getBomberman().getHp() - 1);
+                getModel().removeObstacle(flame.getPosition());
+                getModel().removeEnemy(flame.getPosition());
+                if (getModel().isPowerup(flame.getPosition()) && !getModel().isObstacle(flame.getPosition()))
+                    getModel().removePowerup(flame.getPosition());
+            }
         getModel().setFlames(flames);
     }
 }
