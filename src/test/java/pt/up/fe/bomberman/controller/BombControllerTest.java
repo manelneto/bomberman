@@ -10,6 +10,8 @@ import pt.up.fe.bomberman.gui.GUI;
 import pt.up.fe.bomberman.model.Position;
 import pt.up.fe.bomberman.model.game.arena.Arena;
 import pt.up.fe.bomberman.model.game.elements.*;
+import pt.up.fe.bomberman.model.game.elements.enemy.Balloom;
+import pt.up.fe.bomberman.model.game.elements.enemy.Oneal;
 
 
 import java.awt.*;
@@ -73,9 +75,9 @@ public class BombControllerTest {
     @Test
     void KillEnemyTest(){
         List<Enemy> enemies = new ArrayList<>();
-        Enemy enemy=new Enemy(9, 10, Enemy.Type.Balloom);
+        Enemy enemy=new Balloom(9, 10);
         enemies.add(enemy);
-        enemies.add(new Enemy(8, 10, Enemy.Type.Oneal));
+        enemies.add(new Oneal(8, 10));
         arena.setEnemies(enemies);
         Arena spyarena=spy(arena);
         controller = new BombController(spyarena);

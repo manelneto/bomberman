@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import pt.up.fe.bomberman.gui.GUI;
 import pt.up.fe.bomberman.model.game.elements.Enemy;
+import pt.up.fe.bomberman.model.game.elements.enemy.*;
 
 public class EnemyViewerTest {
     private Enemy enemy;
@@ -13,7 +14,7 @@ public class EnemyViewerTest {
 
     @BeforeEach
     void setUp() {
-        enemy = new Enemy(13, 17, Enemy.Type.Balloom);
+        enemy = new Balloom(13, 17);
         viewer = new EnemyViewer();
         gui = Mockito.mock(GUI.class);
     }
@@ -22,25 +23,25 @@ public class EnemyViewerTest {
     void drawEnemy() {
         viewer.draw(enemy, gui);
         Mockito.verify(gui, Mockito.times(1)).drawElement(enemy.getPosition(), ':', "#FA732C");
-        enemy = new Enemy(13, 17, Enemy.Type.Oneal);
+        enemy = new Oneal(13, 17);
         viewer.draw(enemy, gui);
         Mockito.verify(gui, Mockito.times(1)).drawElement(enemy.getPosition(), 'n', "#0000FF");
-        enemy = new Enemy(13, 17, Enemy.Type.Doll);
+        enemy = new Doll(13, 17);
         viewer.draw(enemy, gui);
         Mockito.verify(gui, Mockito.times(1)).drawElement(enemy.getPosition(), 'o', "#FF0000");
-        enemy = new Enemy(13, 17, Enemy.Type.Kondria);
+        enemy = new Kondria(13, 17);
         viewer.draw(enemy, gui);
         Mockito.verify(gui, Mockito.times(1)).drawElement(enemy.getPosition(), 'u', "#0000FF");
-        enemy = new Enemy(13, 17, Enemy.Type.Minvo);
+        enemy = new Minvo(13, 17);
         viewer.draw(enemy, gui);
         Mockito.verify(gui, Mockito.times(1)).drawElement(enemy.getPosition(), 't', "#FA732C");
-        enemy = new Enemy(13, 17, Enemy.Type.Ovapi);
+        enemy = new Ovapi(13, 17);
         viewer.draw(enemy, gui);
         Mockito.verify(gui, Mockito.times(1)).drawElement(enemy.getPosition(), 'v', "#FF0000");
-        enemy = new Enemy(13, 17, Enemy.Type.Pass);
+        enemy = new Pass(13, 17);
         viewer.draw(enemy, gui);
         Mockito.verify(gui, Mockito.times(1)).drawElement(enemy.getPosition(), 'w', "#FA732C");
-        enemy = new Enemy(13, 17, Enemy.Type.Pontan);
+        enemy = new Pontan(13, 17);
         viewer.draw(enemy, gui);
         Mockito.verify(gui, Mockito.times(1)).drawElement(enemy.getPosition(), 'x', "#FF0000");
     }

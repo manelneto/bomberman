@@ -1,55 +1,48 @@
 package pt.up.fe.bomberman.model.game.elements;
 
-public  class Enemy extends Element {
+import java.util.List;
 
-    public enum Type {Balloom, Doll, Kondria, Minvo, Oneal, Ovapi, Pass, Pontan}
-    Type type;
+public abstract class Enemy extends Element {
 
-    private char direction;
+
+    private List<Character> patern;
+    private int paternindex;
     private long lastMovementTime;
+    private boolean wallpass;
 
-    public Enemy(int x, int y, Type type) {
+    private int speed;
+
+    public Enemy(int x, int y, int speed,List<Character> patern,boolean wallpass) {
         super(x, y);
-        this.type=type;
+
         this.lastMovementTime = 0;
+        this.speed=speed;
+        this.wallpass=wallpass;
+        this.patern=patern;
+        paternindex=0;
 
-        randomDirection();
-    }
-
-    public Type getType() {
-        return type;
     }
 
     public long getLastMovementTime() {
         return lastMovementTime;
     }
-    public char getDirection() {
-        return direction;
-    }
-    public void setDirection(char dic) {
-         direction=dic;
-    }
-    public void randomDirection() {
-        int n = (int) (Math.random() * 4);
-        switch (n) {
-            case 0:
-                setDirection('U');
-                break;
-            case 1:
-                setDirection('D');
-                break;
-            case 2:
-                setDirection('L');
-                break;
-            case 3:
-                setDirection('R');
-                break;
+
+    public Character getNextmovement(){
+        paternindex++;
+        if(paternindex>=patern.size()){
+            paternindex=0;
         }
+        return patern.get(paternindex);
     }
 
     public void setLastMovementTime(long time) {
         this.lastMovementTime = time;
     }
 
-
+    public int getSpeed() {
+        return speed;
+    }
+    public boolean canWallpass(){
+        return wallpass;
+    }
 }

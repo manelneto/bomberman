@@ -4,6 +4,7 @@ import pt.up.fe.bomberman.model.game.elements.Bomberman;
 import pt.up.fe.bomberman.model.game.elements.Obstacle;
 import pt.up.fe.bomberman.model.game.elements.Powerup;
 import pt.up.fe.bomberman.model.game.elements.*;
+import pt.up.fe.bomberman.model.game.elements.enemy.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -64,14 +65,14 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++){
-                if (line.charAt(x) == 'M') enemy.add(new Enemy(x, y, Enemy.Type.Balloom));
-                if (line.charAt(x) == 'E') enemy.add(new Enemy(x, y, Enemy.Type.Oneal));
-                if (line.charAt(x) == 'L') enemy.add(new Enemy(x, y, Enemy.Type.Doll));
-                if (line.charAt(x) == 'A') enemy.add(new Enemy(x, y, Enemy.Type.Kondria));
-                if (line.charAt(x) == 'N') enemy.add(new Enemy(x, y, Enemy.Type.Minvo));
-                if (line.charAt(x) == 'C') enemy.add(new Enemy(x, y, Enemy.Type.Ovapi));
-                if (line.charAt(x) == 'I') enemy.add(new Enemy(x, y, Enemy.Type.Pass));
-                if (line.charAt(x) == 'a') enemy.add(new Enemy(x, y, Enemy.Type.Pontan));
+                if (line.charAt(x) == 'M') enemy.add(new Balloom(x, y));
+                if (line.charAt(x) == 'E') enemy.add(new Oneal(x, y));
+                if (line.charAt(x) == 'L') enemy.add(new Doll(x, y));
+                if (line.charAt(x) == 'A') enemy.add(new Kondria(x, y));
+                if (line.charAt(x) == 'N') enemy.add(new Minvo(x, y));
+                if (line.charAt(x) == 'C') enemy.add(new Ovapi(x, y));
+                if (line.charAt(x) == 'I') enemy.add(new Pass(x, y));
+                if (line.charAt(x) == 'a') enemy.add(new Pontan(x, y ));
             }
         }
 

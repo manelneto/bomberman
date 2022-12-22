@@ -9,6 +9,7 @@ import pt.up.fe.bomberman.gui.GUI;
 import pt.up.fe.bomberman.model.Position;
 import pt.up.fe.bomberman.model.game.arena.Arena;
 import pt.up.fe.bomberman.model.game.elements.*;
+import pt.up.fe.bomberman.model.game.elements.enemy.Balloom;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -40,7 +41,7 @@ public class EnemyControllerTest {
 
     @Test
     void moveEnemies() throws IOException {
-        Enemy enemy = new Enemy(10, 10, Enemy.Type.Balloom);
+        Enemy enemy = new Balloom(10, 10);
         arena.setEnemies(Arrays.asList(enemy));
 
         controller.step(game, GUI.ACTION.NONE, 1000);
@@ -50,7 +51,7 @@ public class EnemyControllerTest {
 
     @Test
     void moveEnemyObstacle() throws IOException {
-        Enemy enemy = new Enemy(10, 10, Enemy.Type.Balloom);
+        Enemy enemy = new Balloom(10, 10);
         arena.setEnemies(Arrays.asList(enemy));
         arena.setObstacles(Arrays.asList(new Obstacle(11, 10), new Obstacle(9, 10), new Obstacle(10, 9), new Obstacle(10, 11)));
 
@@ -62,7 +63,7 @@ public class EnemyControllerTest {
 
     @Test
     void moveEnemyWall() throws IOException {
-        Enemy enemy = new Enemy(10, 10, Enemy.Type.Balloom);
+        Enemy enemy = new Balloom(10, 10);
         arena.setEnemies(Arrays.asList(enemy));
         arena.setWalls(Arrays.asList(new Wall(11, 10), new Wall(9, 10), new Wall(10, 9), new Wall(10, 11)));
 
@@ -71,10 +72,5 @@ public class EnemyControllerTest {
 
         assertEquals(new Position(10, 10), enemy.getPosition());
     }
-    @Test
-    void rotateDirection(){
-        Enemy enemy = new Enemy(10, 10, Enemy.Type.Balloom);
-        enemy.setDirection('D');
 
-    }
 }
