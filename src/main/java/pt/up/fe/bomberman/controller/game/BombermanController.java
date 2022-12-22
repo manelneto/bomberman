@@ -64,6 +64,8 @@ public class BombermanController extends GameController {
 
     @Override
 
+    //if (!isBomb(bomberman.getPosition()) && !isObstacle(bomberman.getPosition()) && !isWall(bomberman.getPosition()) && !isPowerup(bomberman.getPosition()) && !isPowerup(bomberman.getPosition()))
+
     public void step(Game game, GUI.ACTION action, long time) {
         if (action == GUI.ACTION.SPACE && getModel().getBomberman().getBombs() - getModel().getBombs().size() > 0)
             getModel().createBomb(time);
