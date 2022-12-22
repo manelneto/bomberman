@@ -1,48 +1,101 @@
 package pt.up.fe.bomberman.model.game.elements;
 
-import java.util.List;
+public class Enemy extends Element {
+    public enum TYPE {BALLOOM, ONEAL, DOLL, MINVO, KONDORIA, OVAPI, PASS, PONTAM}
 
-public abstract class Enemy extends Element {
-
-
-    private List<Character> patern;
-    private int paternindex;
+    private final TYPE type;
+    private final int speed;
+    private final int smart;
+    private final boolean wallpass;
+    private char direction;
     private long lastMovementTime;
-    private boolean wallpass;
 
-    private int speed;
-
-    public Enemy(int x, int y, int speed,List<Character> patern,boolean wallpass) {
+    public Enemy(int x, int y, TYPE type) {
         super(x, y);
+        this.type = type;
 
+        if (type == TYPE.BALLOOM) {speed = 2; smart = 1; wallpass = false;}
+        else if (type == TYPE.ONEAL) {speed = 3; smart = 2; wallpass = false;}
+        else if (type == TYPE.DOLL) {speed = 3; smart = 1; wallpass = false;}
+        else if (type == TYPE.MINVO) {speed = 4; smart = 2; wallpass = false;}
+        else if (type == TYPE.KONDORIA) {speed = 1; smart = 3; wallpass = true;}
+        else if (type == TYPE.OVAPI) {speed = 2; smart = 2; wallpass = true;}
+        else if (type == TYPE.PASS) {speed = 4; smart = 3; wallpass = false;}
+        else if (type == TYPE.PONTAM) {speed = 4; smart = 3; wallpass = true;}
+        else {speed = 1; smart = 1; wallpass = false;}
+
+        this.direction = generateRandomDirection();
         this.lastMovementTime = 0;
-        this.speed=speed;
-        this.wallpass=wallpass;
-        this.patern=patern;
-        paternindex=0;
-
     }
 
+    private char generateRandomDirection() {
+        int n = (int) (Math.random() * 4);
+        switch (n) {
+            case 0:
+                return 'U';
+            case 1:
+                return 'D';
+            case 2:
+                return 'L';
+            default:
+                return 'R';
+        }
+    }
+
+    public TYPE getType() {
+        return type;
+    }
+    public int getSpeed() {
+        return speed;
+    }
+    public int getSmart() {
+        return smart;
+    }
+    public boolean canWallpass() {
+        return wallpass;
+    }
+    public char getDirection() {
+        return direction;
+    }
     public long getLastMovementTime() {
         return lastMovementTime;
-    }
-
-    public Character getNextmovement(){
-        paternindex++;
-        if(paternindex>=patern.size()){
-            paternindex=0;
-        }
-        return patern.get(paternindex);
     }
 
     public void setLastMovementTime(long time) {
         this.lastMovementTime = time;
     }
 
-    public int getSpeed() {
-        return speed;
+    public void invertDirection() {
+        switch (direction) {
+            case 'U':
+                direction = 'D';
+                break;
+            case 'D':
+                direction = 'U';
+                break;
+            case 'L':
+                direction = 'R';
+                break;
+            case 'R':
+                direction = 'L';
+                break;
+        }
     }
-    public boolean canWallpass(){
-        return wallpass;
+
+    public void rotateDirection() {
+        switch (direction) {
+            case 'U':
+                direction = 'R';
+                break;
+            case 'R':
+                direction = 'D';
+                break;
+            case 'D':
+                direction = 'L';
+                break;
+            case 'L':
+                direction = 'U';
+                break;
+        }
     }
 }
