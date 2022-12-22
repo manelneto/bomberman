@@ -34,6 +34,6 @@ public class MenuController extends Controller<Menu> {
             case ENTER:
                 if (getModel().isSelectedExit()) game.setState(null);
                 if (getModel().isSelectedStart()) game.setState(new GameState(new LoaderArenaBuilder(getModel().getLevel()).createArena()));
+            }
         }
     }
-}

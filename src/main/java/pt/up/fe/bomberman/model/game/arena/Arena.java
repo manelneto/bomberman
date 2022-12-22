@@ -13,9 +13,9 @@ public class Arena {
     private Bomberman bomberman;
     private List<Bomb> bombs= new ArrayList<>();
     private List<Flame> flames= new ArrayList<>();
-    private List<Obstacle> obstacles;
-    private List<Wall> walls;
-    private List<Enemy> enemies;
+    private List<Obstacle> obstacles= new ArrayList<>();
+    private List<Wall> walls= new ArrayList<>();
+    private List<Enemy> enemies= new ArrayList<>();
     private List<Powerup> powerups = new ArrayList<>();
 
     public Arena(int width, int height) {

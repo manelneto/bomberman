@@ -42,17 +42,17 @@ public class BombControllerTest {
     @Test
     void StepTest() throws IOException, URISyntaxException, FontFormatException {
         Game game=new Game();
-        Arena spyarena=spy(arena);
-        controller = new BombController(spyarena);
+
         BombController spycontroller=spy(controller);
-        doNothing().when(spyarena).setBombs(anyListOf(Bomb.class));
         doNothing().when(spycontroller).explodeBomb(bomb,2001);
 
         spycontroller.step(game, GUI.ACTION.NONE,0);
         verify(spycontroller,times(0)).explodeBomb(bomb,0);
+        Assertions.assertEquals(arena.getBombs(),Arrays.asList(bomb));
 
         spycontroller.step(game, GUI.ACTION.NONE,2001);
         verify(spycontroller,times(1)).explodeBomb(bomb,2001);
+        Assertions.assertEquals(arena.getBombs(),Arrays.asList());
 
     }
 
@@ -84,7 +84,7 @@ public class BombControllerTest {
 
     }
     @Test
-    void ExpodeBombTest(){
+    void ExplodeBombTest(){
         Bomberman spybomberman=spy(new Bomberman(11,10));
         arena.setBomberman(spybomberman);
         Arena spyarena=spy(arena);
@@ -103,7 +103,6 @@ public class BombControllerTest {
     }
     @Test
     void createFlamesTest(){
-        Bomb spybomb=spy(bomb);
         Arena spyarena=spy(arena);
         doNothing().when(spyarena).addflames(anyList());
         BombController spycontroller = spy(new BombController(spyarena));

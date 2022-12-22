@@ -49,7 +49,7 @@ public class EnemyController extends GameController {
 
     }
 
-    public void invertDirection(Enemy enemy) {
+    private void invertDirection(Enemy enemy) {
         char direction = enemy.getDirection();
         switch (direction) {
             case 'U':
@@ -67,7 +67,7 @@ public class EnemyController extends GameController {
         }
     }
 
-    public void rotateDirection(Enemy enemy) {
+    private void rotateDirection(Enemy enemy) {
         char direction = enemy.getDirection();
         switch (direction) {
             case 'U':
