@@ -8,9 +8,9 @@ public class FlameViewer implements ElementViewer<Flame> {
     public void draw(Flame flame, GUI gui) {
         if (flame.getType() == 'H')
             gui.drawElement(flame.getPosition(),'a', "#FF4500");
-        if (flame.getType() == 'V')
+        else if (flame.getType() == 'V')
             gui.drawElement(flame.getPosition(),'b', "#FF4500");
-        if (flame.getType() == 'C')
+        else if (flame.getType() == 'C')
             gui.drawElement(flame.getPosition(),'s', "#FF4500");
     }
 }
