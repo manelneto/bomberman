@@ -9,10 +9,9 @@ public interface GUI {
     ACTION getNextAction() throws IOException;
     void paintBackground(int width, int height);
 
-    void drawBomberman(Position position, char direction);
     void drawElement(Position position, char c, String color);
+    void drawText(Position position, String text, String color);
     void clear();
     void refresh() throws IOException;
     void close() throws IOException;
-    void drawText(Position position, String text, String color);
 }

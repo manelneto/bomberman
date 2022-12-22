@@ -62,7 +62,6 @@ public class LanternaGUI implements GUI {
         return screen;
     }
 
-
     @Override
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
@@ -88,31 +87,19 @@ public class LanternaGUI implements GUI {
         textGraphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
     }
 
-
-    @Override
-    public void drawBomberman(Position position,char face) {
-        switch (face) {
-            case 'U':
-                drawCharacter(position.getX(), position.getY(), '"', "#64A4FF"); break;
-            case 'D':
-                drawCharacter(position.getX(), position.getY(), '!', "#64A4FF"); break;
-            case 'L':
-                drawCharacter(position.getX(), position.getY(), ',', "#64A4FF"); break;
-            case 'R':
-                drawCharacter(position.getX(), position.getY(), '.', "#64A4FF"); break;
-        }
-    }
-
     @Override
     public void drawElement(Position position, char c, String color) {
-        drawCharacter(position.getX(), position.getY(),c, color);
-    }
-
-    private void drawCharacter(int x, int y, char c, String color) {
         TextGraphics textGraphics = screen.newTextGraphics();
         textGraphics.setForegroundColor(TextColor.Factory.fromString(color));
         textGraphics.setBackgroundColor(TextColor.Factory.fromString("#397C00"));
-        textGraphics.putString(x, y, "" + c);
+        textGraphics.putString(position.getX(), position.getY(), "" + c);
+    }
+
+    @Override
+    public void drawText(Position position, String text, String color) {
+        TextGraphics textGraphics = screen.newTextGraphics();
+        textGraphics.setForegroundColor(TextColor.Factory.fromString(color));
+        textGraphics.putString(position.getX(), position.getY(), text);
     }
 
     @Override
@@ -128,12 +115,5 @@ public class LanternaGUI implements GUI {
     @Override
     public void close() throws IOException {
         screen.close();
-    }
-
-    @Override
-    public void drawText(Position position, String text, String color) {
-        TextGraphics textGraphics = screen.newTextGraphics();
-        textGraphics.setForegroundColor(TextColor.Factory.fromString(color));
-        textGraphics.putString(position.getX(), position.getY(), text);
     }
 }
