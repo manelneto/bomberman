@@ -16,7 +16,5 @@ public class MenuViewer extends Viewer<Menu> {
 
         for (int i = 0; i < getModel().getNumberOptions(); i++)
             gui.drawText(new Position(5, 7 + i), getModel().getOption(i), getModel().isSelected(i) ? "#FFD700" : "#FFFFFF");
-        }
     }
-
-
+}
