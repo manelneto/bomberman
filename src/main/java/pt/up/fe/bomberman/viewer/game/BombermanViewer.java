@@ -8,16 +8,16 @@ public class BombermanViewer implements ElementViewer<Bomberman> {
     public void draw(Bomberman bomberman, GUI gui) {
         switch (bomberman.getDirection()) {
             case 'U':
-                gui.drawElement(bomberman.getPosition(), 'd', "#64A4FF");
+                gui.drawElement(bomberman.getPosition(), '"', "#64A4FF");
                 break;
             case 'D':
-                gui.drawElement(bomberman.getPosition(), 'x', "#64A4FF");
+                gui.drawElement(bomberman.getPosition(), '!', "#64A4FF");
                 break;
             case 'L':
-                gui.drawElement(bomberman.getPosition(), 'z', "#64A4FF");
+                gui.drawElement(bomberman.getPosition(), ',', "#64A4FF");
                 break;
             case 'R':
-                gui.drawElement(bomberman.getPosition(), 'c', "#64A4FF");
+                gui.drawElement(bomberman.getPosition(), '.', "#64A4FF");
                 break;
         }
     }

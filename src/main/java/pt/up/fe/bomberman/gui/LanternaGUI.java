@@ -31,6 +31,7 @@ public class LanternaGUI implements GUI {
         Terminal terminal = createTerminal(width, height, font);
         screen = createScreen(terminal);
     }
+
     private AWTTerminalFontConfiguration loadFont() throws URISyntaxException, IOException, FontFormatException {
         URL resource = getClass().getClassLoader().getResource("fonts/Bomber-Regular.ttf");
         File fontFile = new File(resource.toURI());
