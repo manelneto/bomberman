@@ -22,7 +22,7 @@ public class Game {
         new Game().start();
     }
 
-    private void start() throws IOException{
+    private void start() throws IOException {
         int FPS = 60;
         int frameTime = 1000 / FPS;
 
