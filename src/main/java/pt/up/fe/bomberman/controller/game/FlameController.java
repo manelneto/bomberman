@@ -18,15 +18,12 @@ public class FlameController extends GameController {
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         List<Flame> flames = new ArrayList<>();
         for (Flame flame : getModel().getFlames())
-            if (time - 250 < flame.getTime())
+            if (time - flame.getTime() < 250) {
                 flames.add(flame);
-            else {
                 if (flame.getPosition().equals(getModel().getBomberman().getPosition()))
                     getModel().getBomberman().setHp(getModel().getBomberman().getHp() - 1);
                 getModel().removeObstacle(flame.getPosition());
                 getModel().removeEnemy(flame.getPosition());
-                if (getModel().isPowerup(flame.getPosition()) && !getModel().isObstacle(flame.getPosition()))
-                    getModel().removePowerup(flame.getPosition());
             }
         getModel().setFlames(flames);
     }

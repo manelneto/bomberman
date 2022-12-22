@@ -100,9 +100,9 @@ public class LoaderArenaBuilder extends ArenaBuilder {
                 if (line.charAt(x) == 'm') powerup.add(new Powerup(x, y, Powerup.EFFECT.BOMBS));
                 else if (line.charAt(x) == 'f') powerup.add(new Powerup(x, y, Powerup.EFFECT.FLAMES));
                 else if (line.charAt(x) == 'S') powerup.add(new Powerup(x, y, Powerup.EFFECT.SPEED));
-                else if (line.charAt(x) == 'E') powerup.add(new Powerup(x, y, Powerup.EFFECT.WALLPASS));
+                else if (line.charAt(x) == 'e') powerup.add(new Powerup(x, y, Powerup.EFFECT.WALLPASS));
                 else if (line.charAt(x) == 'g') powerup.add(new Powerup(x, y, Powerup.EFFECT.HEALTH));
-                else if (line.charAt(x) == 'p') powerup.add(new Powerup(x, y, Powerup.EFFECT.BOMBPASS));
+                else if (line.charAt(x) == 'P') powerup.add(new Powerup(x, y, Powerup.EFFECT.BOMBPASS));
                 else if (line.charAt(x) == 'F') powerup.add(new Powerup(x, y, Powerup.EFFECT.FLAMEPASS));
             }
         }
