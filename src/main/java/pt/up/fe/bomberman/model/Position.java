@@ -67,39 +67,28 @@ public class Position {
     }
 
     public Position getRandomDirectionalNeighbour(char direction) {
-        if (direction == 'U' || direction == 'D') {
-            Position randomVerticalNeighbour = getRandomVerticalNeighbour();
-            return randomVerticalNeighbour;
-        }
-        if (direction == 'L' || direction == 'R') {
-            Position randomHorizontalNeighbour = getRandomHorizontalNeighbour();
-            return randomHorizontalNeighbour;
-        } else
+        if (direction == 'U' || direction == 'D')
+            return getRandomVerticalNeighbour();
+        else if (direction == 'L' || direction == 'R')
+            return getRandomHorizontalNeighbour();
+        else
             return new Position(x, y);
     }
 
     public Position getRandomVerticalNeighbour() {
         int n = (int) (Math.random() * 2);
-        switch (n) {
-            case 0:
-                return getUp();
-            case 1:
-                return getDown();
-            default:
-                return new Position(x, y);
-        }
+        if (n == 0)
+            return getUp();
+        else
+            return getDown();
     }
 
     public Position getRandomHorizontalNeighbour() {
         int n = (int) (Math.random() * 2);
-        switch (n) {
-            case 0:
-                return getLeft();
-            case 1:
-                return getRight();
-            default:
-                return new Position(x, y);
-        }
+        if (n == 0)
+            return getLeft();
+        else
+            return getRight();
     }
 
     @Override
@@ -115,4 +104,3 @@ public class Position {
         return Objects.hash(x, y);
     }
 }
-
