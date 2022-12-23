@@ -41,9 +41,13 @@ public class Menu {
             currentOption = this.options.size() - 1;
     }
 
-    public int getLevel(){
+    public int getCurrentLevel(){
         return currentLevel;
     }
+    public int getCurrentOption() {
+        return currentOption;
+    }
+
     public String getOption(int i) {
         return options.get(i);
     }
@@ -62,6 +66,9 @@ public class Menu {
         return isSelected(2);
     }
 
+    public int getNumberLevels() {
+        return this.levels.size();
+    }
     public int getNumberOptions() {
         return this.options.size();
     }
