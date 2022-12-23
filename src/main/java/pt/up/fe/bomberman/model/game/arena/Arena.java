@@ -132,7 +132,7 @@ public class Arena {
 
     public boolean isPowerup(Position position) {
         for (Powerup powerup : powerups)
-            if (powerup.getPosition().equals(position) && !isObstacle(position))
+            if (powerup.getPosition().equals(position))
                 return true;
         return false;
     }

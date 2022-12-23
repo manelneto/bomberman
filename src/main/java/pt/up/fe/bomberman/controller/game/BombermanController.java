@@ -46,7 +46,7 @@ public class BombermanController extends GameController {
             getModel().getBomberman().setPosition(position);
             if (getModel().isEnemy(position) || (getModel().isFlame(position) && !getModel().getBomberman().canFlamepass()))
                 getModel().getBomberman().setHp(getModel().getBomberman().getHp() - 1);
-            if (getModel().isPowerup(position)) {
+            if (getModel().isPowerup(position) && !getModel().isObstacle(position)) {
                 applyEffect(getModel().getPowerup(position));
                 getModel().removePowerup(position);
             }

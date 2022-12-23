@@ -3,10 +3,7 @@ package pt.up.fe.bomberman.model.game.arena;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pt.up.fe.bomberman.model.Position;
-import pt.up.fe.bomberman.model.game.elements.Bomb;
-import pt.up.fe.bomberman.model.game.elements.Flame;
-import pt.up.fe.bomberman.model.game.elements.Obstacle;
-import pt.up.fe.bomberman.model.game.elements.Wall;
+import pt.up.fe.bomberman.model.game.elements.*;
 
 import java.util.Arrays;
 
@@ -78,6 +75,30 @@ public class ArenaTest {
     void isWallFalse() {
         arena.setWalls(Arrays.asList(new Wall(2, 2)));
         assertFalse(arena.isWall(new Position(1, 1)));
+    }
+
+    @Test
+    void isPowerupTrue() {
+        arena.setPowerups(Arrays.asList(new Powerup(1, 7, Powerup.EFFECT.BOMBS), new Powerup(2, 7, Powerup.EFFECT.FLAMES), new Powerup(3, 7, Powerup.EFFECT.SPEED), new Powerup(4, 7, Powerup.EFFECT.WALLPASS), new Powerup(5, 7, Powerup.EFFECT.HEALTH), new Powerup(6, 7, Powerup.EFFECT.BOMBPASS), new Powerup(7, 7, Powerup.EFFECT.FLAMEPASS)));
+        assertTrue(arena.isPowerup(new Position(1, 7)));
+        assertTrue(arena.isPowerup(new Position(2, 7)));
+        assertTrue(arena.isPowerup(new Position(3, 7)));
+        assertTrue(arena.isPowerup(new Position(4, 7)));
+        assertTrue(arena.isPowerup(new Position(5, 7)));
+        assertTrue(arena.isPowerup(new Position(6, 7)));
+        assertTrue(arena.isPowerup(new Position(7, 7)));
+    }
+
+    @Test
+    void isPowerupFalse() {
+        arena.setPowerups(Arrays.asList(new Powerup(1, 7, Powerup.EFFECT.BOMBS), new Powerup(2, 7, Powerup.EFFECT.FLAMES), new Powerup(3, 7, Powerup.EFFECT.SPEED), new Powerup(4, 7, Powerup.EFFECT.WALLPASS), new Powerup(5, 7, Powerup.EFFECT.HEALTH), new Powerup(6, 7, Powerup.EFFECT.BOMBPASS), new Powerup(7, 7, Powerup.EFFECT.FLAMEPASS)));
+        assertFalse(arena.isPowerup(new Position(1, 8)));
+        assertFalse(arena.isPowerup(new Position(2, 8)));
+        assertFalse(arena.isPowerup(new Position(3, 8)));
+        assertFalse(arena.isPowerup(new Position(4, 8)));
+        assertFalse(arena.isPowerup(new Position(5, 8)));
+        assertFalse(arena.isPowerup(new Position(6, 8)));
+        assertFalse(arena.isPowerup(new Position(7, 8)));
     }
 
 }
