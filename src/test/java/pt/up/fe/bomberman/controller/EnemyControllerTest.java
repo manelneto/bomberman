@@ -40,7 +40,7 @@ public class EnemyControllerTest {/*
 
     @Test
     void moveEnemies() throws IOException {
-        Enemy enemy = new Balloom(10, 10);
+        Enemy enemy = new Enemy(2, 2, Enemy.TYPE.BALLOOM);
         arena.setEnemies(Arrays.asList(enemy));
 
         controller.step(game, GUI.ACTION.NONE, 1000);
@@ -69,7 +69,5 @@ public class EnemyControllerTest {/*
         for (int i = 0; i < 10; i++)
             controller.step(game, GUI.ACTION.NONE, 1000);
 
-        assertEquals(new Position(10, 10), enemy.getPosition());
-    }
-*/
+        assertEquals(new Position(10, 10), enemy.getPosition());*/
 }
