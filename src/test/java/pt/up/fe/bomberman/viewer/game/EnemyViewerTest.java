@@ -5,9 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import pt.up.fe.bomberman.gui.GUI;
 import pt.up.fe.bomberman.model.game.elements.Enemy;
-import pt.up.fe.bomberman.model.game.elements.enemy.*;
-
-public class EnemyViewerTest {
+/*
+impublic class EnemyViewerTest {
     private Enemy enemy;
     private EnemyViewer viewer;
     private GUI gui;
@@ -46,3 +45,4 @@ public class EnemyViewerTest {
         Mockito.verify(gui, Mockito.times(1)).drawElement(enemy.getPosition(), 'x', "#FF0000");
     }
 }
+*/

@@ -10,8 +10,6 @@ import pt.up.fe.bomberman.gui.GUI;
 import pt.up.fe.bomberman.model.Position;
 import pt.up.fe.bomberman.model.game.arena.Arena;
 import pt.up.fe.bomberman.model.game.elements.*;
-import pt.up.fe.bomberman.model.game.elements.enemy.Balloom;
-import pt.up.fe.bomberman.model.game.elements.enemy.Oneal;
 
 
 import java.awt.*;
@@ -28,7 +26,7 @@ public class BombControllerTest {
     private BombController controller;
     private Bomb bomb;
     private Arena arena;
-
+/*
     @BeforeEach
     void setUp() {
         arena = new Arena(20, 20);
@@ -118,7 +116,7 @@ public class BombControllerTest {
         verify(spyarena,times(1)).addflames(anyListOf(Flame.class));
 
 
-    }
+    }*/
 
 
 

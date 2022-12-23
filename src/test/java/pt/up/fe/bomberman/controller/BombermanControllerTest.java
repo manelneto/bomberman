@@ -143,7 +143,7 @@ public class BombermanControllerTest {
         arena.setWalls(Arrays.asList(new Wall(9, 10)));
         controller.moveBombermanLeft();
         assertEquals(new Position(10, 10), bomberman.getPosition());
-    }
+    }/*
     @Test
     void ApplyEffectTest(){
 
@@ -161,5 +161,5 @@ public class BombermanControllerTest {
         controller.applyEffect(new Powerup(10, 10, Powerup.Type.Bombpass));
         assertTrue( bomberman.canBombpass());
     }
-
+*/
 }

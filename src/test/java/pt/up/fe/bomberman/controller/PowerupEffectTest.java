@@ -29,7 +29,7 @@ public class PowerupEffectTest {
         bcontroller = new BombermanController(arena);
     }
 
-
+/*
     @Test
     void bombpassTest(){
         powerup = new Powerup(5,5, Powerup.Type.Bombpass);
@@ -98,6 +98,6 @@ public class PowerupEffectTest {
         arena.setPowerups(powerups);
         bcontroller.moveBombermanRight();
         assertTrue(bomberman.canWallpass());
-    }
+    }*/
 }
 

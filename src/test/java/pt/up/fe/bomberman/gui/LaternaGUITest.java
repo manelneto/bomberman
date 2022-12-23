@@ -22,7 +22,7 @@ class LaternaGUITest {
 
         gui = new LanternaGUI(screen);
     }
-
+/*
     @Test
     void drawBomberman() {
         gui.drawBomberman(new Position(1, 1),'D');
@@ -96,5 +96,5 @@ class LaternaGUITest {
 
         Mockito.verify(textGraphics, Mockito.times(1)).setForegroundColor(new TextColor.RGB(51, 102, 153));
         Mockito.verify(textGraphics, Mockito.times(1)).putString(1, 1, "Hello World");
-    }
+    }*/
 }
