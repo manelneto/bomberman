@@ -13,7 +13,7 @@ public class ObstacleViewerTest {
 
     @BeforeEach
     void setUp() {
-        obstacle = new Obstacle(5, 5);
+        obstacle = new Obstacle(10, 10);
         viewer = new ObstacleViewer();
         gui = Mockito.mock(GUI.class);
     }

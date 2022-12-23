@@ -13,7 +13,7 @@ public class WallViewerTest {
 
     @BeforeEach
     void setUp() {
-        wall = new Wall(12, 8);
+        wall = new Wall(10, 10);
         viewer = new WallViewer();
         gui = Mockito.mock(GUI.class);
     }
