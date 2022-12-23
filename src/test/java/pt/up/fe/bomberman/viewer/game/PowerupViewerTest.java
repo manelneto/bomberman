@@ -4,7 +4,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import pt.up.fe.bomberman.gui.GUI;
-import pt.up.fe.bomberman.model.Position;
 import pt.up.fe.bomberman.model.game.elements.Powerup;
 
 
@@ -18,32 +17,53 @@ public class PowerupViewerTest {
         viewer = new PowerupViewer();
         gui = Mockito.mock(GUI.class);
     }
-/*
+
     @Test
-    void drawPowerup() {
+    void drawElementBombs() {
+        powerup = new Powerup(10,10, Powerup.EFFECT.BOMBS);
+        viewer.draw(powerup, gui);
+        Mockito.verify(gui, Mockito.times(1)).drawElement(powerup.getPosition(), 'e', "#F7EF8A");
+    }
 
-        powerup = new Powerup(10,10, Powerup.Type.Bombpass);
+    @Test
+    void drawElementFlames() {
+        powerup = new Powerup(10,10, Powerup.EFFECT.FLAMES);
         viewer.draw(powerup, gui);
-        powerup = new Powerup(10,11, Powerup.Type.Wallpass);
-        viewer.draw(powerup, gui);
-        powerup = new Powerup(10,12, Powerup.Type.Flamepass);
-        viewer.draw(powerup, gui);
-        powerup = new Powerup(10,13, Powerup.Type.Bombs);
-        viewer.draw(powerup, gui);
-        powerup = new Powerup(10,14, Powerup.Type.Flames);
-        viewer.draw(powerup, gui);
-        powerup = new Powerup(10,15, Powerup.Type.Health);
-        viewer.draw(powerup, gui);
-        powerup = new Powerup(10,16, Powerup.Type.Speed);
-        viewer.draw(powerup, gui);
-        Mockito.verify(gui, Mockito.times(1)).drawElement(new Position(10,10), 'r', "#F7EF8A");
-        Mockito.verify(gui, Mockito.times(1)).drawElement(new Position(10,11), 'p', "#F7EF8A");
-        Mockito.verify(gui, Mockito.times(1)).drawElement(new Position(10,12), 'q', "#F7EF8A");
-        Mockito.verify(gui, Mockito.times(1)).drawElement(new Position(10,13), 'e', "#F7EF8A");
-        Mockito.verify(gui, Mockito.times(1)).drawElement(new Position(10,14), 'd', "#F7EF8A");
-        Mockito.verify(gui, Mockito.times(1)).drawElement(new Position(10,15), 'g', "#F7EF8A");
-        Mockito.verify(gui, Mockito.times(1)).drawElement(new Position(10,16), 'f', "#F7EF8A");
+        Mockito.verify(gui, Mockito.times(1)).drawElement(powerup.getPosition(), 'd', "#F7EF8A");
+    }
 
-    }*/
+    @Test
+    void drawElementSpeed() {
+        powerup = new Powerup(10,10, Powerup.EFFECT.SPEED);
+        viewer.draw(powerup, gui);
+        Mockito.verify(gui, Mockito.times(1)).drawElement(powerup.getPosition(), 'f', "#F7EF8A");
+    }
+
+    @Test
+    void drawElementWallpass() {
+        powerup = new Powerup(10,10, Powerup.EFFECT.WALLPASS);
+        viewer.draw(powerup, gui);
+        Mockito.verify(gui, Mockito.times(1)).drawElement(powerup.getPosition(), 'p', "#F7EF8A");
+    }
+
+    @Test
+    void drawElementHealth() {
+        powerup = new Powerup(10,10, Powerup.EFFECT.HEALTH);
+        viewer.draw(powerup, gui);
+        Mockito.verify(gui, Mockito.times(1)).drawElement(powerup.getPosition(), 'g', "#F7EF8A");
+    }
+
+    @Test
+    void drawElementBombpass() {
+        powerup = new Powerup(10,10, Powerup.EFFECT.BOMBPASS);
+        viewer.draw(powerup, gui);
+        Mockito.verify(gui, Mockito.times(1)).drawElement(powerup.getPosition(), 'r', "#F7EF8A");
+    }
+
+    @Test
+    void drawElementFlamepass() {
+        powerup = new Powerup(10,10, Powerup.EFFECT.FLAMEPASS);
+        viewer.draw(powerup, gui);
+        Mockito.verify(gui, Mockito.times(1)).drawElement(powerup.getPosition(), 'q', "#F7EF8A");
+    }
 }
-

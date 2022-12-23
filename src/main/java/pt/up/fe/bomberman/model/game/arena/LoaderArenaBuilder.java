@@ -92,13 +92,13 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++) {
-                if (line.charAt(x) == 'b') powerup.add(new Powerup(x, y, Powerup.EFFECT.BOMBPASS));
-                else if (line.charAt(x) == 'B') powerup.add(new Powerup(x, y, Powerup.EFFECT.BOMBS));
-                else if (line.charAt(x) == 'f') powerup.add(new Powerup(x, y, Powerup.EFFECT.FLAMEPASS));
+                if (line.charAt(x) == 'B') powerup.add(new Powerup(x, y, Powerup.EFFECT.BOMBS));
                 else if (line.charAt(x) == 'F') powerup.add(new Powerup(x, y, Powerup.EFFECT.FLAMES));
-                else if (line.charAt(x) == 'H') powerup.add(new Powerup(x, y, Powerup.EFFECT.HEALTH));
                 else if (line.charAt(x) == 'S') powerup.add(new Powerup(x, y, Powerup.EFFECT.SPEED));
                 else if (line.charAt(x) == 'w') powerup.add(new Powerup(x, y, Powerup.EFFECT.WALLPASS));
+                else if (line.charAt(x) == 'H') powerup.add(new Powerup(x, y, Powerup.EFFECT.HEALTH));
+                else if (line.charAt(x) == 'b') powerup.add(new Powerup(x, y, Powerup.EFFECT.BOMBPASS));
+                else if (line.charAt(x) == 'f') powerup.add(new Powerup(x, y, Powerup.EFFECT.FLAMEPASS));
             }
         }
         return powerup;
