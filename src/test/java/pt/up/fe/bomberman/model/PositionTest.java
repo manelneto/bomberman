@@ -7,70 +7,70 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class PositionTest {
     @Property
-    void getUpTest(@ForAll int x, @ForAll int y) {
+    void getUp(@ForAll int x, @ForAll int y) {
         Position position = new Position(x, y);
         assertEquals(x, position.getUp().getX());
         assertEquals(y - 1, position.getUp().getY());
     }
 
     @Property
-    void getDownTest(@ForAll int x, @ForAll int y) {
+    void getDown(@ForAll int x, @ForAll int y) {
         Position position = new Position(x, y);
         assertEquals(x, position.getDown().getX());
         assertEquals(y + 1, position.getDown().getY());
     }
 
     @Property
-    void getLeftTest(@ForAll int x, @ForAll int y) {
+    void getLeft(@ForAll int x, @ForAll int y) {
         Position position = new Position(x, y);
         assertEquals(x - 1, position.getLeft().getX());
         assertEquals(y, position.getLeft().getY());
     }
 
     @Property
-    void getRightTest(@ForAll int x, @ForAll int y) {
+    void getRight(@ForAll int x, @ForAll int y) {
         Position position = new Position(x, y);
         assertEquals(x + 1, position.getRight().getX());
         assertEquals(y, position.getRight().getY());
     }
 
     @Property
-    void getDirectionalNeighbourUpTest(@ForAll int x, @ForAll int y) {
+    void getDirectionalNeighbourUp(@ForAll int x, @ForAll int y) {
         Position position = new Position(x, y);
         assertEquals(x, position.getDirectionalNeighbour('U').getX());
         assertEquals(y - 1, position.getDirectionalNeighbour('U').getY());
     }
 
     @Property
-    void getDirectionalNeighbourDownTest(@ForAll int x, @ForAll int y) {
+    void getDirectionalNeighbourDown(@ForAll int x, @ForAll int y) {
         Position position = new Position(x, y);
         assertEquals(x, position.getDirectionalNeighbour('D').getX());
         assertEquals(y + 1, position.getDirectionalNeighbour('D').getY());
     }
 
     @Property
-    void getDirectionalNeighbourLeftTest(@ForAll int x, @ForAll int y) {
+    void getDirectionalNeighbourLeft(@ForAll int x, @ForAll int y) {
         Position position = new Position(x, y);
         assertEquals(x - 1, position.getDirectionalNeighbour('L').getX());
         assertEquals(y, position.getDirectionalNeighbour('L').getY());
     }
 
     @Property
-    void getDirectionalNeighbourRightTest(@ForAll int x, @ForAll int y) {
+    void getDirectionalNeighbourRight(@ForAll int x, @ForAll int y) {
         Position position = new Position(x, y);
         assertEquals(x + 1, position.getDirectionalNeighbour('R').getX());
         assertEquals(y, position.getDirectionalNeighbour('R').getY());
     }
 
     @Property
-    void getDirectionalNeighbourNoneTest(@ForAll int x, @ForAll int y) {
+    void getDirectionalNeighbourNone(@ForAll int x, @ForAll int y) {
         Position position = new Position(x, y);
         assertEquals(x, position.getDirectionalNeighbour('X').getX());
         assertEquals(y, position.getDirectionalNeighbour('X').getY());
     }
 
     @Property
-    void getRandomDirectionalNeighbourUpTest(@ForAll int x, @ForAll int y) {
+    void getRandomDirectionalNeighbourUp(@ForAll int x, @ForAll int y) {
         Position position = new Position(x, y);
         Position destination = position.getRandomDirectionalNeighbour('U');
         assertEquals(x, destination.getX());
@@ -78,7 +78,7 @@ class PositionTest {
     }
 
     @Property
-    void getRandomDirectionalNeighbourDownTest(@ForAll int x, @ForAll int y) {
+    void getRandomDirectionalNeighbourDown(@ForAll int x, @ForAll int y) {
         Position position = new Position(x, y);
         Position destination = position.getRandomDirectionalNeighbour('D');
         assertEquals(x, destination.getX());
@@ -86,7 +86,7 @@ class PositionTest {
     }
 
     @Property
-    void getRandomDirectionalNeighbourLeftTest(@ForAll int x, @ForAll int y) {
+    void getRandomDirectionalNeighbourLeft(@ForAll int x, @ForAll int y) {
         Position position = new Position(x, y);
         Position destination = position.getRandomDirectionalNeighbour('L');
         assertTrue(x - 1 == destination.getX() || x + 1 == destination.getX());
@@ -94,7 +94,7 @@ class PositionTest {
     }
 
     @Property
-    void getRandomDirectionalNeighbourRightTest(@ForAll int x, @ForAll int y) {
+    void getRandomDirectionalNeighbourRight(@ForAll int x, @ForAll int y) {
         Position position = new Position(x, y);
         Position destination = position.getRandomDirectionalNeighbour('R');
         assertTrue(x - 1 == destination.getX() || x + 1 == destination.getX());
@@ -102,7 +102,7 @@ class PositionTest {
     }
 
     @Property
-    void getRandomDirectionalNeighbourNoneTest(@ForAll int x, @ForAll int y) {
+    void getRandomDirectionalNeighbourNone(@ForAll int x, @ForAll int y) {
         Position position = new Position(x, y);
         assertEquals(x, position.getDirectionalNeighbour('X').getX());
         assertEquals(y, position.getDirectionalNeighbour('X').getY());

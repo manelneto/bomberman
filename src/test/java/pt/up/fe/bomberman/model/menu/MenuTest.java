@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MenuTest {
     @Property
-    public void nextLevelTest(@ForAll @IntRange(max = 100) int n) {
+    public void nextLevel(@ForAll @IntRange(max = 100) int n) {
         Menu menu = new Menu();
         for (int i = 0; i < n; i++)
             menu.nextLevel();
@@ -16,7 +16,7 @@ public class MenuTest {
     }
 
     @Property
-    public void previousLevelTest(@ForAll @IntRange(max = 100) int n) {
+    public void previousLevel(@ForAll @IntRange(max = 100) int n) {
         Menu menu = new Menu();
         for (int i = 0; i < n; i++)
             menu.previousLevel();
@@ -24,7 +24,7 @@ public class MenuTest {
     }
 
     @Property
-    public void nextOptionTest(@ForAll @IntRange(max = 100) int n) {
+    public void nextOption(@ForAll @IntRange(max = 100) int n) {
         Menu menu = new Menu();
         for (int i = 0; i < n; i++)
             menu.nextOption();
@@ -32,7 +32,7 @@ public class MenuTest {
     }
 
     @Property
-    public void previousOptionTest(@ForAll @IntRange(max = 100) int n) {
+    public void previousOption(@ForAll @IntRange(max = 100) int n) {
         Menu menu = new Menu();
         for (int i = 0; i < n; i++)
             menu.previousOption();
