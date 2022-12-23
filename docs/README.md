@@ -71,8 +71,7 @@ A way to improve the code would be to create seperate classes for each type of E
 
 
 #### **Large Class**
-
-Some classes (e.g. Game, Battlefield, Player) contain many fields and others (e.g. GUI interface) contain many methods. In both cases, we find it justifiable as the classes require these fields, in one hand the Game class is the main class of the program and it needs to store a considerable amount of data, on the other hand various methods are needed for the interface and it wouldn't make sense to split it into two separate ones (extract method).
+**inserir texto**
 
 
 #### **Data Class**
