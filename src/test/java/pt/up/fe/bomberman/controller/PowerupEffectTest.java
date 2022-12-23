@@ -6,98 +6,93 @@ import pt.up.fe.bomberman.controller.game.BombermanController;
 import pt.up.fe.bomberman.model.game.arena.Arena;
 import pt.up.fe.bomberman.model.game.elements.*;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PowerupEffectTest {
-    private Powerup powerup;
+    private BombermanController controller;
     private Bomberman bomberman;
-    private BombermanController bcontroller;
+    private Powerup powerup;
     private Arena arena;
 
     @BeforeEach
-    void setUP(){
-        bomberman = new Bomberman(4,5);
-        arena = new Arena(40,20);
+    void setUp() {
+        arena = new Arena(10, 10);
+        bomberman = new Bomberman(4, 5);
         arena.setBomberman(bomberman);
-        arena.setObstacles(new ArrayList<Obstacle>());
-        arena.setWalls(new ArrayList<Wall>());
-        arena.setEnemies(new ArrayList<Enemy>());
-        bcontroller = new BombermanController(arena);
+        controller = new BombermanController(arena);
     }
 
-/*
     @Test
-    void bombpassTest(){
-        powerup = new Powerup(5,5, Powerup.Type.Bombpass);
-        List<Powerup> powerups = new ArrayList<Powerup>();
+    void bombs() {
+        powerup = new Powerup(5, 5, Powerup.EFFECT.BOMBS);
+        List<Powerup> powerups = new ArrayList<>();
         powerups.add(powerup);
         arena.setPowerups(powerups);
-        bcontroller.moveBombermanRight();
+        controller.moveBombermanRight();
+        assertEquals(2, bomberman.getBombs());
+    }
+
+    @Test
+    void flames() {
+        powerup = new Powerup(5, 5, Powerup.EFFECT.FLAMES);
+        List<Powerup> powerups = new ArrayList<>();
+        powerups.add(powerup);
+        arena.setPowerups(powerups);
+        controller.moveBombermanRight();
+        assertEquals(2, bomberman.getFlames());
+    }
+
+    @Test
+    void speed() {
+        powerup = new Powerup(5, 5, Powerup.EFFECT.SPEED);
+        List<Powerup> powerups = new ArrayList<>();
+        powerups.add(powerup);
+        arena.setPowerups(powerups);
+        controller.moveBombermanRight();
+        assertEquals(2, bomberman.getSpeed());
+    }
+
+    @Test
+    void wallpass() {
+        powerup = new Powerup(5, 5, Powerup.EFFECT.WALLPASS);
+        List<Powerup> powerups = new ArrayList<>();
+        powerups.add(powerup);
+        arena.setPowerups(powerups);
+        controller.moveBombermanRight();
+        assertTrue(bomberman.canWallpass());
+    }
+
+    @Test
+    void health() {
+        powerup = new Powerup(5, 5, Powerup.EFFECT.HEALTH);
+        List<Powerup> powerups = new ArrayList<>();
+        powerups.add(powerup);
+        arena.setPowerups(powerups);
+        controller.moveBombermanRight();
+        assertEquals(2, bomberman.getHp());
+    }
+
+    @Test
+    void bombpass() {
+        powerup = new Powerup(5, 5, Powerup.EFFECT.BOMBPASS);
+        List<Powerup> powerups = new ArrayList<>();
+        powerups.add(powerup);
+        arena.setPowerups(powerups);
+        controller.moveBombermanRight();
         assertTrue(bomberman.canBombpass());
     }
 
     @Test
-    void bombsTest(){
-        powerup = new Powerup(5,5, Powerup.Type.Bombs);
-        List<Powerup> powerups = new ArrayList<Powerup>();
+    void flamepass() {
+        powerup = new Powerup(5, 5, Powerup.EFFECT.FLAMEPASS);
+        List<Powerup> powerups = new ArrayList<>();
         powerups.add(powerup);
         arena.setPowerups(powerups);
-        bcontroller.moveBombermanRight();
-        assertTrue(bomberman.getBombs() == 2);
-    }
-
-    @Test
-    void healthTest(){
-        powerup = new Powerup(5,5, Powerup.Type.Health);
-        List<Powerup> powerups = new ArrayList<Powerup>();
-        powerups.add(powerup);
-        arena.setPowerups(powerups);
-        bcontroller.moveBombermanRight();
-        assertTrue(bomberman.getHp() == 2);
-    }
-
-    @Test
-    void flamepassTest(){
-        powerup = new Powerup(5,5, Powerup.Type.Flamepass);
-        List<Powerup> powerups = new ArrayList<Powerup>();
-        powerups.add(powerup);
-        arena.setPowerups(powerups);
-        bcontroller.moveBombermanRight();
+        controller.moveBombermanRight();
         assertTrue(bomberman.canFlamepass());
     }
-
-    @Test
-    void flamesTest(){
-        powerup = new Powerup(5,5, Powerup.Type.Flames);
-        List<Powerup> powerups = new ArrayList<Powerup>();
-        powerups.add(powerup);
-        arena.setPowerups(powerups);
-        bcontroller.moveBombermanRight();
-        assertTrue(bomberman.getFlames() == 2);
-    }
-
-    @Test
-    void speedTest(){
-        powerup = new Powerup(5,5, Powerup.Type.Speed);
-        List<Powerup> powerups = new ArrayList<Powerup>();
-        powerups.add(powerup);
-        arena.setPowerups(powerups);
-        bcontroller.moveBombermanRight();
-        assertTrue(bomberman.getSpeed() == 2);
-    }
-
-    @Test
-    void wallpassTest(){
-        powerup = new Powerup(5,5, Powerup.Type.Wallpass);
-        List<Powerup> powerups = new ArrayList<Powerup>();
-        powerups.add(powerup);
-        arena.setPowerups(powerups);
-        bcontroller.moveBombermanRight();
-        assertTrue(bomberman.canWallpass());
-    }*/
 }
-

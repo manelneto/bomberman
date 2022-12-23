@@ -52,10 +52,26 @@ public class BombermanControllerTest {
     }
 
     @Test
+    void moveBombermanUpFlame() {
+        arena.setFlames(Arrays.asList(new Flame(10, 9, 0, 'C')));
+        controller.moveBombermanUp();
+        assertEquals(new Position(10, 9), bomberman.getPosition());
+        assertEquals(0, bomberman.getHp());
+    }
+
+    @Test
     void moveBombermanUpWall() {
         arena.setWalls(Arrays.asList(new Wall(10, 9)));
         controller.moveBombermanUp();
         assertEquals(new Position(10, 10), bomberman.getPosition());
+    }
+
+    @Test
+    void moveBombermanUpEnemy() {
+        arena.setEnemies(Arrays.asList(new Enemy(10, 9, Enemy.TYPE.BALLOOM)));
+        controller.moveBombermanUp();
+        assertEquals(new Position(10, 9), bomberman.getPosition());
+        assertEquals(0, bomberman.getHp());
     }
 
     @Test
@@ -69,6 +85,14 @@ public class BombermanControllerTest {
         arena.setBombs(Arrays.asList(new Bomb(10, 11, 0, 0)));
         controller.moveBombermanDown();
         assertEquals(new Position(10, 10), bomberman.getPosition());
+    }
+
+    @Test
+    void moveBombermanDownFlame() {
+        arena.setFlames(Arrays.asList(new Flame(10, 11, 0, 'C')));
+        controller.moveBombermanDown();
+        assertEquals(new Position(10, 11), bomberman.getPosition());
+        assertEquals(0, bomberman.getHp());
     }
 
     @Test
@@ -86,6 +110,57 @@ public class BombermanControllerTest {
     }
 
     @Test
+    void moveBombermanDownEnemy() {
+        arena.setEnemies(Arrays.asList(new Enemy(10, 11, Enemy.TYPE.ONEAL)));
+        controller.moveBombermanDown();
+        assertEquals(new Position(10, 11), bomberman.getPosition());
+        assertEquals(0, bomberman.getHp());
+    }
+
+    @Test
+    void moveBombermanLeftEmpty() {
+        controller.moveBombermanLeft();
+        assertEquals(new Position(9, 10), bomberman.getPosition());
+    }
+
+    @Test
+    void moveBombermanLeftBomb() {
+        arena.setBombs(Arrays.asList(new Bomb(9, 10, 0, 0)));
+        controller.moveBombermanLeft();
+        assertEquals(new Position(10, 10), bomberman.getPosition());
+    }
+
+    @Test
+    void moveBombermanLeftFlame() {
+        arena.setFlames(Arrays.asList(new Flame(9, 10, 0, 'C')));
+        controller.moveBombermanLeft();
+        assertEquals(new Position(9, 10), bomberman.getPosition());
+        assertEquals(0, bomberman.getHp());
+    }
+
+    @Test
+    void moveBombermanLeftObstacle() {
+        arena.setObstacles(Arrays.asList(new Obstacle(9, 10)));
+        controller.moveBombermanLeft();
+        assertEquals(new Position(10, 10), bomberman.getPosition());
+    }
+
+    @Test
+    void moveBombermanLeftWall() {
+        arena.setWalls(Arrays.asList(new Wall(9, 10)));
+        controller.moveBombermanLeft();
+        assertEquals(new Position(10, 10), bomberman.getPosition());
+    }
+
+    @Test
+    void moveBombermanLeftEnemy() {
+        arena.setEnemies(Arrays.asList(new Enemy(9, 10, Enemy.TYPE.MINVO)));
+        controller.moveBombermanLeft();
+        assertEquals(new Position(9, 10), bomberman.getPosition());
+        assertEquals(0, bomberman.getHp());
+    }
+
+    @Test
     void moveBombermanRightEmpty() {
         controller.moveBombermanRight();
         assertEquals(new Position(11, 10), bomberman.getPosition());
@@ -96,6 +171,14 @@ public class BombermanControllerTest {
         arena.setBombs(Arrays.asList(new Bomb(11, 10, 0, 0)));
         controller.moveBombermanRight();
         assertEquals(new Position(10, 10), bomberman.getPosition());
+    }
+
+    @Test
+    void moveBombermanRightFlame() {
+        arena.setFlames(Arrays.asList(new Flame(11, 10, 0, 'C')));
+        controller.moveBombermanRight();
+        assertEquals(new Position(11, 10), bomberman.getPosition());
+        assertEquals(0, bomberman.getHp());
     }
 
     @Test
@@ -113,29 +196,10 @@ public class BombermanControllerTest {
     }
 
     @Test
-    void moveBombermanLeftEmpty() {
-        controller.moveBombermanLeft();
-        assertEquals(new Position(9, 10), bomberman.getPosition());
-    }
-
-    @Test
-    void moveBombermanLeftBomb() {
-        arena.setBombs(Arrays.asList(new Bomb(9, 10, 0, 0)));
-        controller.moveBombermanLeft();
-        assertEquals(new Position(10, 10), bomberman.getPosition());
-    }
-
-    @Test
-    void moveBombermanLeftObstacle() {
-        arena.setObstacles(Arrays.asList(new Obstacle(9, 10)));
-        controller.moveBombermanLeft();
-        assertEquals(new Position(10, 10), bomberman.getPosition());
-    }
-
-    @Test
-    void moveBombermanLeftWall() {
-        arena.setWalls(Arrays.asList(new Wall(9, 10)));
-        controller.moveBombermanLeft();
-        assertEquals(new Position(10, 10), bomberman.getPosition());
+    void moveBombermanRightEnemy() {
+        arena.setEnemies(Arrays.asList(new Enemy(11, 10, Enemy.TYPE.DOLL)));
+        controller.moveBombermanRight();
+        assertEquals(new Position(11, 10), bomberman.getPosition());
+        assertEquals(0, bomberman.getHp());
     }
 }
