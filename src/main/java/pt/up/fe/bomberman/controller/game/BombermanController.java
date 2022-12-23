@@ -36,7 +36,7 @@ public class BombermanController extends GameController {
 
     private boolean canMove(Position position) {
         return getModel().inArena(position)
-                && (!getModel().isBomb(position))
+                && (!getModel().isBomb(position) || getModel().getBomberman().canBombpass())
                 && (!getModel().isObstacle(position) || getModel().getBomberman().canWallpass())
                 && !getModel().isWall(position);
     }
@@ -44,7 +44,7 @@ public class BombermanController extends GameController {
     private void moveBomberman(Position position) {
         if (canMove(position)) {
             getModel().getBomberman().setPosition(position);
-            if (getModel().isEnemy(position) || getModel().isFlame(position))
+            if (getModel().isEnemy(position) || (getModel().isFlame(position) && !getModel().getBomberman().canFlamepass()))
                 getModel().getBomberman().setHp(getModel().getBomberman().getHp() - 1);
             if (getModel().isPowerup(position)) {
                 applyEffect(getModel().getPowerup(position));
@@ -54,20 +54,20 @@ public class BombermanController extends GameController {
     }
 
     public void applyEffect(Powerup powerup) {
+        if (powerup.getEffect() == Powerup.EFFECT.BOMBPASS)
+            getModel().getBomberman().setBombpass(true);
         if (powerup.getEffect() == Powerup.EFFECT.BOMBS)
             getModel().getBomberman().setBombs(getModel().getBomberman().getBombs() + 1);
+        else if (powerup.getEffect() == Powerup.EFFECT.FLAMEPASS)
+            getModel().getBomberman().setFlamepass(true);
         else if (powerup.getEffect() == Powerup.EFFECT.FLAMES)
             getModel().getBomberman().setFlames(getModel().getBomberman().getFlames() + 1);
+        else if (powerup.getEffect() == Powerup.EFFECT.HEALTH)
+            getModel().getBomberman().setHp(getModel().getBomberman().getHp() + 1);
         else if (powerup.getEffect() == Powerup.EFFECT.SPEED)
             getModel().getBomberman().setSpeed(getModel().getBomberman().getSpeed() + 1);
         else if (powerup.getEffect() == Powerup.EFFECT.WALLPASS)
             getModel().getBomberman().setWallpass(true);
-        else if (powerup.getEffect() == Powerup.EFFECT.HEALTH)
-            getModel().getBomberman().setHp(getModel().getBomberman().getHp() + 1);
-        else if (powerup.getEffect() == Powerup.EFFECT.BOMBPASS)
-            getModel().getBomberman().setBombpass(true);
-        else if (powerup.getEffect() == Powerup.EFFECT.FLAMEPASS)
-            getModel().getBomberman().setFlamepass(true);
     }
 
     private boolean canCreateBomb() {

@@ -10,13 +10,11 @@ public abstract class ArenaBuilder {
 
     public Arena createArena() {
         Arena arena = new Arena(width, height);
-
         arena.setBomberman(createBomberman());
         arena.setObstacles(createObstacles());
         arena.setWalls(createWalls());
         arena.setEnemies(createEnemies());
         arena.setPowerups(createPowerups());
-
         return arena;
     }
 
