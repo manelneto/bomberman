@@ -3,6 +3,7 @@ package pt.up.fe.bomberman.model;
 import net.jqwik.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class PositionTest {
     @Property
@@ -63,6 +64,45 @@ class PositionTest {
 
     @Property
     void getDirectionalNeighbourNoneTest(@ForAll int x, @ForAll int y) {
+        Position position = new Position(x, y);
+        assertEquals(x, position.getDirectionalNeighbour('X').getX());
+        assertEquals(y, position.getDirectionalNeighbour('X').getY());
+    }
+
+    @Property
+    void getRandomDirectionalNeighbourUpTest(@ForAll int x, @ForAll int y) {
+        Position position = new Position(x, y);
+        Position destination = position.getRandomDirectionalNeighbour('U');
+        assertEquals(x, destination.getX());
+        assertTrue(y - 1 == destination.getY() || y + 1 == destination.getY());
+    }
+
+    @Property
+    void getRandomDirectionalNeighbourDownTest(@ForAll int x, @ForAll int y) {
+        Position position = new Position(x, y);
+        Position destination = position.getRandomDirectionalNeighbour('D');
+        assertEquals(x, destination.getX());
+        assertTrue(y - 1 == destination.getY() || y + 1 == destination.getY());
+    }
+
+    @Property
+    void getRandomDirectionalNeighbourLeftTest(@ForAll int x, @ForAll int y) {
+        Position position = new Position(x, y);
+        Position destination = position.getRandomDirectionalNeighbour('L');
+        assertTrue(x - 1 == destination.getX() || x + 1 == destination.getX());
+        assertEquals(y, destination.getY());
+    }
+
+    @Property
+    void getRandomDirectionalNeighbourRightTest(@ForAll int x, @ForAll int y) {
+        Position position = new Position(x, y);
+        Position destination = position.getRandomDirectionalNeighbour('R');
+        assertTrue(x - 1 == destination.getX() || x + 1 == destination.getX());
+        assertEquals(y, destination.getY());
+    }
+
+    @Property
+    void getRandomDirectionalNeighbourNoneTest(@ForAll int x, @ForAll int y) {
         Position position = new Position(x, y);
         assertEquals(x, position.getDirectionalNeighbour('X').getX());
         assertEquals(y, position.getDirectionalNeighbour('X').getY());

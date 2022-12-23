@@ -75,7 +75,7 @@ public class Position {
             return new Position(x, y);
     }
 
-    public Position getRandomVerticalNeighbour() {
+    private Position getRandomVerticalNeighbour() {
         int n = (int) (Math.random() * 2);
         if (n == 0)
             return getUp();
@@ -83,7 +83,7 @@ public class Position {
             return getDown();
     }
 
-    public Position getRandomHorizontalNeighbour() {
+    private Position getRandomHorizontalNeighbour() {
         int n = (int) (Math.random() * 2);
         if (n == 0)
             return getLeft();
