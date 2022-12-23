@@ -40,4 +40,16 @@ public class ArenaTest {
         assertFalse(arena.isBomb(new Position(1, 1)));
     }
 
+    @Test
+    void isFlameTrue() {
+        arena.addFlame(new Flame(1, 1, 0, 'C'));
+        assertTrue(arena.isFlame(new Position(1, 1)));
+    }
+
+    @Test
+    void isFlameFalse() {
+        arena.addFlame(new Flame(2, 2, 0, 'C'));
+        assertFalse(arena.isFlame(new Position(1, 1)));
+    }
+
 }
