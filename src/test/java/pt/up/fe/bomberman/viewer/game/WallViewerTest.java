@@ -19,7 +19,7 @@ public class WallViewerTest {
     }
 
     @Test
-    void drawWall() {
+    void drawElement() {
         viewer.draw(wall, gui);
         Mockito.verify(gui, Mockito.times(1)).drawElement(wall.getPosition(), ';', "#C9C9C9");
     }

@@ -19,7 +19,7 @@ public class ObstacleViewerTest {
     }
 
     @Test
-    void drawObstacle() {
+    void drawElement() {
         viewer.draw(obstacle, gui);
         Mockito.verify(gui, Mockito.times(1)).drawElement(obstacle.getPosition(), '?', "#C9C9C9");
     }
