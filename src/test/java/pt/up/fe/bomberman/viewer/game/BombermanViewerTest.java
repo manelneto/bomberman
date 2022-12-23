@@ -4,7 +4,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import pt.up.fe.bomberman.gui.GUI;
-import pt.up.fe.bomberman.model.Position;
 import pt.up.fe.bomberman.model.game.elements.Bomberman;
 
 public class BombermanViewerTest {
@@ -18,18 +17,32 @@ public class BombermanViewerTest {
         viewer = new BombermanViewer();
         gui = Mockito.mock(GUI.class);
     }
-/*
+
     @Test
-    void drawBomberman() {
-        viewer.draw(bomberman, gui);
-        Mockito.verify(gui, Mockito.times(1)).drawBomberman(new Position(10,10),'D');
+    void drawElementUp() {
         bomberman.setDirection('U');
         viewer.draw(bomberman, gui);
-        Mockito.verify(gui, Mockito.times(1)).drawBomberman(new Position(10,10),'U');
-        bomberman.setDirection('R');
+        Mockito.verify(gui, Mockito.times(1)).drawElement(bomberman.getPosition(), '"', "#64A4FF");
+    }
+
+    @Test
+    void drawElementDown() {
+        bomberman.setDirection('D');
         viewer.draw(bomberman, gui);
-        Mockito.verify(gui, Mockito.times(1)).drawBomberman(new Position(10,10),'R');
+        Mockito.verify(gui, Mockito.times(1)).drawElement(bomberman.getPosition(), '!', "#64A4FF");
+    }
+
+    @Test
+    void drawElementLeft() {
         bomberman.setDirection('L');
         viewer.draw(bomberman, gui);
-        Mockito.verify(gui, Mockito.times(1)).drawBomberman(new Position(10,10),'L');}*/
+        Mockito.verify(gui, Mockito.times(1)).drawElement(bomberman.getPosition(), ',', "#64A4FF");
+    }
+
+    @Test
+    void drawElementRight() {
+        bomberman.setDirection('R');
+        viewer.draw(bomberman, gui);
+        Mockito.verify(gui, Mockito.times(1)).drawElement(bomberman.getPosition(), '.', "#64A4FF");
+    }
 }
