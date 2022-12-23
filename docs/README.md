@@ -8,18 +8,24 @@ This project was developed by *Diogo Sarmento* (*up202109663*@fe.up.pt), *Manuel
 ### IMPLEMENTED FEATURES
 
 - **Loading level from a file** - The level to be played is loaded from a file that contains the "map" of that level.
-
-### PLANNED FEATURES
-
 - **Place bombs** - Bomberman will place a bomb when the X key is pressed.
 - **Explode rocks** - When the bomb's flame reaches a rock, it will dissapear and there is a chance of it dropping an upgrade.
 - **Upgrading your character** - After collecting your upgrade, your character will be upgraded, either itself (higher speed, ability to pass through bombs or walls, ...) or the bombs it drops (higher flame area, one bomb's flame triggering another ones, ...).
 - **Kill enemies** - When the bomb's flame reaches an enemy, it will kill it.
-- **Die** - The player can lose the game if they die, either if they explode themselves with a bomb or an enemy gets to them.
+- **Die** - The player can lose the game if they lose all their lives, either by exploding themselves with a bomb or by getting caught by an enemy.
+
+### PLANNED FEATURES
+
+- **Detonator powerup** - Bomberman would be able to detonate his oldest bomb with a press of a button
+
 
 In the future, the game should look like this mockup:
 
 ![img](mockup.png)
+
+And it does!
+
+![img](final_print.png)
 
 ### DESIGN
 
@@ -55,6 +61,33 @@ The interface and the classes can be found in the following files:
 The use of the Factory Method Pattern in the current design eliminates the need to bind application-specific classes into the code.
 The code only need to deal with the ElementViewer interface; therefore it can work it with any of the concrete classes.
 
+#### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
+
+#### Large Switch Statements
+
+The Enemy and Powerup have an extensive enum and following switch statements related to it. This is problematic because it isn't just suboptimal, but also turns readability worse.
+
+A way to improve the code would be to create seperate classes for each type of Enemy and Powerup. However, it would create another code smell (Lazy Class), as the code doesn't change much for each particular subclass. So we decided to leave it as it is, as a way to not harm the code's structure and readability.
+
+
+#### **Large Class**
+**inserir texto**
+
+
+#### **Data Class**
+
+When using the Model-View-Controller pattern, the model classes fall into the Data Classes smell, as they only contain data about the model and close to little methods. This doesn't need to be corrected, as it only happens because we chose to use this design pattern.
+
+
+#### **Feature envy**
+
+By using the Model-View-Controller pattern on our game, we end up falling in some code smells that we can't avoid, if we want to use this pattern. Therefore the Controller classes end up envying their respective model. 
+
+
+#### **Message chains**
+
+Additionally, the methods to get data from the models get chained one after another with methods that alter the model's behaviour, which get hard to read after a certain length. This could be avoided by extracting those chains to an auxilary method, however it would create a middleman method smell and the lazy method smell, as those chains aren't used as often.
+
 ### TESTING
 
 - Screenshot of coverage report.
@@ -65,6 +98,6 @@ The code only need to deal with the ElementViewer interface; therefore it can wo
 
 ### SELF-EVALUATION
 
-- Diogo Sarmento: 33%
-- Manuel Neto: 33%
-- Tomás Vicente: 33%
+- Diogo Sarmento: 35%
+- Manuel Neto: 35%
+- Tomás Vicente: 30%
