@@ -1,5 +1,6 @@
 package pt.up.fe.bomberman.controller;
 
+import net.jqwik.api.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -8,10 +9,7 @@ import pt.up.fe.bomberman.controller.game.BombermanController;
 import pt.up.fe.bomberman.gui.GUI;
 import pt.up.fe.bomberman.model.Position;
 import pt.up.fe.bomberman.model.game.arena.Arena;
-import pt.up.fe.bomberman.model.game.elements.Bomberman;
-import pt.up.fe.bomberman.model.game.elements.Obstacle;
-import pt.up.fe.bomberman.model.game.elements.Powerup;
-import pt.up.fe.bomberman.model.game.elements.Wall;
+import pt.up.fe.bomberman.model.game.elements.*;
 
 import java.awt.*;
 import java.io.IOException;
@@ -41,34 +39,16 @@ public class BombermanControllerTest {
     }
 
     @Test
-    void Steptest() throws IOException, URISyntaxException, FontFormatException {
-        Game game=new Game();
-        controller.step(game, GUI.ACTION.UP,0);
-
-        assertEquals(new Position(10, 10),bomberman.getPosition());
-        controller.step(game, GUI.ACTION.UP,1000);
-
-        assertEquals(new Position(10, 9),bomberman.getPosition());
-
-        controller.step(game, GUI.ACTION.DOWN,2000);
-
-        assertEquals(new Position(10, 10),bomberman.getPosition());
-
-        controller.step(game, GUI.ACTION.RIGHT,4000);
-
-        assertEquals(new Position(11, 10),bomberman.getPosition());
-
-        controller.step(game, GUI.ACTION.LEFT,5000);
-
-        assertEquals(new Position(10, 10),controller.getModel().getBomberman().getPosition());
-
-
-    }
-
-    @Test
     void moveBombermanUpEmpty() {
         controller.moveBombermanUp();
         assertEquals(new Position(10, 9), bomberman.getPosition());
+    }
+
+    @Test
+    void moveBombermanUpBomb() {
+        arena.setBombs(Arrays.asList(new Bomb(10, 9, 0, 0)));
+        controller.moveBombermanUp();
+        assertEquals(new Position(10, 10), bomberman.getPosition());
     }
 
     @Test
@@ -92,6 +72,13 @@ public class BombermanControllerTest {
     }
 
     @Test
+    void moveBombermanDownBomb() {
+        arena.setBombs(Arrays.asList(new Bomb(10, 11, 0, 0)));
+        controller.moveBombermanDown();
+        assertEquals(new Position(10, 10), bomberman.getPosition());
+    }
+
+    @Test
     void moveBombermanDownObstacle() {
         arena.setObstacles(Arrays.asList(new Obstacle(10, 11)));
         controller.moveBombermanDown();
@@ -112,6 +99,13 @@ public class BombermanControllerTest {
     }
 
     @Test
+    void moveBombermanRightBomb() {
+        arena.setBombs(Arrays.asList(new Bomb(11, 10, 0, 0)));
+        controller.moveBombermanRight();
+        assertEquals(new Position(10, 10), bomberman.getPosition());
+    }
+
+    @Test
     void moveBombermanRightObstacle() {
         arena.setObstacles(Arrays.asList(new Obstacle(11, 10)));
         controller.moveBombermanRight();
@@ -129,6 +123,13 @@ public class BombermanControllerTest {
     void moveBombermanLeftEmpty() {
         controller.moveBombermanLeft();
         assertEquals(new Position(9, 10), bomberman.getPosition());
+    }
+
+    @Test
+    void moveBombermanLeftBomb() {
+        arena.setBombs(Arrays.asList(new Bomb(9, 10, 0, 0)));
+        controller.moveBombermanLeft();
+        assertEquals(new Position(10, 10), bomberman.getPosition());
     }
 
     @Test
@@ -163,3 +164,28 @@ public class BombermanControllerTest {
     }
 */
 }
+/*
+    @Test
+    void Steptest() throws IOException, URISyntaxException, FontFormatException {
+        Game game=new Game();
+        controller.step(game, GUI.ACTION.UP,0);
+
+        assertEquals(new Position(10, 10),bomberman.getPosition());
+        controller.step(game, GUI.ACTION.UP,1000);
+
+        assertEquals(new Position(10, 9),bomberman.getPosition());
+
+        controller.step(game, GUI.ACTION.DOWN,2000);
+
+        assertEquals(new Position(10, 10),bomberman.getPosition());
+
+        controller.step(game, GUI.ACTION.RIGHT,4000);
+
+        assertEquals(new Position(11, 10),bomberman.getPosition());
+
+        controller.step(game, GUI.ACTION.LEFT,5000);
+
+        assertEquals(new Position(10, 10),controller.getModel().getBomberman().getPosition());
+
+
+    }*/
