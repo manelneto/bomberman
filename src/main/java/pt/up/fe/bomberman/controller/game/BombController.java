@@ -35,10 +35,18 @@ public class BombController extends GameController {
         explodeBombRight(bomb, time);
     }
 
+    private boolean stopExplosion(Position position) {
+        return getModel().isWall(position)
+                || !getModel().inArena(position)
+                || getModel().isBomb(position)
+                || (getModel().isPowerup(position) && !getModel().isObstacle(position));
+
+    }
+
     private void explodeBombUp(Bomb bomb, long time) {
         for (int up = 1; up <= bomb.getFlames(); up++) {
             Position position = new Position(bomb.getPosition().getX(), bomb.getPosition().getY() - up);
-            if (getModel().isWall(position) || !getModel().inArena(position) || getModel().isPowerup(position))
+            if (stopExplosion(position))
                 break;
             getModel().addFlame(new Flame(position.getX(), position.getY(), time, 'V'));
             if (getModel().isObstacle(position))
@@ -49,7 +57,7 @@ public class BombController extends GameController {
     private void explodeBombDown(Bomb bomb, long time) {
         for (int down = 1; down <= bomb.getFlames(); down++) {
             Position position = new Position(bomb.getPosition().getX(), bomb.getPosition().getY() + down);
-            if (getModel().isWall(position) || !getModel().inArena(position) || getModel().isPowerup(position))
+            if (stopExplosion(position))
                 break;
             getModel().addFlame(new Flame(position.getX(), position.getY(), time, 'V'));
             if (getModel().isObstacle(position))
@@ -60,7 +68,7 @@ public class BombController extends GameController {
     private void explodeBombLeft(Bomb bomb, long time) {
         for (int left = 1; left <= bomb.getFlames(); left++) {
             Position position = new Position(bomb.getPosition().getX() - left, bomb.getPosition().getY());
-            if (getModel().isWall(position) || !getModel().inArena(position) || getModel().isPowerup(position))
+            if (stopExplosion(position))
                 break;
             getModel().addFlame(new Flame(position.getX(), position.getY(), time, 'H'));
             if (getModel().isObstacle(position))
@@ -71,7 +79,7 @@ public class BombController extends GameController {
     private void explodeBombRight(Bomb bomb, long time) {
         for (int right = 1; right <= bomb.getFlames(); right++) {
             Position position = new Position(bomb.getPosition().getX() + right, bomb.getPosition().getY());
-            if (getModel().isWall(position) || !getModel().inArena(position) || getModel().isPowerup(position))
+            if (stopExplosion(position))
                 break;
             getModel().addFlame(new Flame(position.getX(), position.getY(), time, 'H'));
             if (getModel().isObstacle(position))

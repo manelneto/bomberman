@@ -71,11 +71,11 @@ public class BombermanController extends GameController {
     }
 
     private boolean canCreateBomb() {
-        return getModel().getBomberman().getBombs() - getModel().getBombs().size() > 0 &&
-                !getModel().isBomb(getModel().getBomberman().getPosition()) &&
-                !getModel().isObstacle(getModel().getBomberman().getPosition()) &&
-                !getModel().isWall(getModel().getBomberman().getPosition()) &&
-                !getModel().isPowerup(getModel().getBomberman().getPosition());
+        return getModel().getBomberman().getBombs() - getModel().getBombs().size() > 0
+                && !getModel().isBomb(getModel().getBomberman().getPosition())
+                && !getModel().isObstacle(getModel().getBomberman().getPosition())
+                && !getModel().isWall(getModel().getBomberman().getPosition())
+                && !getModel().isPowerup(getModel().getBomberman().getPosition());
     }
 
     @Override
