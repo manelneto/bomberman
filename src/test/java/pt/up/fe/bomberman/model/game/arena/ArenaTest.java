@@ -6,6 +6,7 @@ import pt.up.fe.bomberman.model.Position;
 import pt.up.fe.bomberman.model.game.elements.Bomb;
 import pt.up.fe.bomberman.model.game.elements.Flame;
 import pt.up.fe.bomberman.model.game.elements.Obstacle;
+import pt.up.fe.bomberman.model.game.elements.Wall;
 
 import java.util.Arrays;
 
@@ -65,6 +66,18 @@ public class ArenaTest {
     void isObstacleFalse() {
         arena.setObstacles(Arrays.asList(new Obstacle(2, 2)));
         assertFalse(arena.isObstacle(new Position(1, 1)));
+    }
+
+    @Test
+    void isWallTrue() {
+        arena.setWalls(Arrays.asList(new Wall(1, 1)));
+        assertTrue(arena.isWall(new Position(1, 1)));
+    }
+
+    @Test
+    void isWallFalse() {
+        arena.setWalls(Arrays.asList(new Wall(2, 2)));
+        assertFalse(arena.isWall(new Position(1, 1)));
     }
 
 }
