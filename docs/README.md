@@ -98,6 +98,6 @@ Additionally, the methods to get data from the models get chained one after anot
 
 ### SELF-EVALUATION
 
-- Diogo Sarmento: 35%
-- Manuel Neto: 35%
-- Tomás Vicente: 30%
+- Diogo Sarmento: 33%
+- Manuel Neto: 33%
+- Tomás Vicente: 33%
