@@ -18,20 +18,15 @@ public class BombermanControllerTest {
     private BombermanController controller;
     private Bomberman bomberman;
     private Arena arena;
-    private Game game = Mockito.mock(Game.class);
+    private Game game;
 
     @BeforeEach
     void setUp() {
         arena = new Arena(20, 20);
-
         bomberman = new Bomberman(10, 10);
         arena.setBomberman(bomberman);
-
-        arena.setEnemies(Arrays.asList());
-        arena.setObstacles(Arrays.asList());
-        arena.setWalls(Arrays.asList());
-
         controller = new BombermanController(arena);
+        game = Mockito.mock(Game.class);
     }
 
     @Test

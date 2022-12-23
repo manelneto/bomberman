@@ -22,7 +22,7 @@ public class PowerupEffectTest {
     private Bomberman bomberman;
     private Powerup powerup;
     private Arena arena;
-    private Game game = Mockito.mock(Game.class);
+    private Game game;
 
     @BeforeEach
     void setUp() {
@@ -30,6 +30,7 @@ public class PowerupEffectTest {
         bomberman = new Bomberman(4, 5);
         arena.setBomberman(bomberman);
         controller = new BombermanController(arena);
+        game = Mockito.mock(Game.class);
     }
 
     @Test
