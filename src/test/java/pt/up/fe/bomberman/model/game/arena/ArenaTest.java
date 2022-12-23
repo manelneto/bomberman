@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import pt.up.fe.bomberman.model.Position;
 import pt.up.fe.bomberman.model.game.elements.Bomb;
 import pt.up.fe.bomberman.model.game.elements.Flame;
+import pt.up.fe.bomberman.model.game.elements.Obstacle;
+
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -50,6 +53,18 @@ public class ArenaTest {
     void isFlameFalse() {
         arena.addFlame(new Flame(2, 2, 0, 'C'));
         assertFalse(arena.isFlame(new Position(1, 1)));
+    }
+
+    @Test
+    void isObstacleTrue() {
+        arena.setObstacles(Arrays.asList(new Obstacle(1, 1)));
+        assertTrue(arena.isObstacle(new Position(1, 1)));
+    }
+
+    @Test
+    void isObstacleFalse() {
+        arena.setObstacles(Arrays.asList(new Obstacle(2, 2)));
+        assertFalse(arena.isObstacle(new Position(1, 1)));
     }
 
 }
