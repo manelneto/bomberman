@@ -31,21 +31,55 @@ public class EnemyController extends GameController {
         }
     }
 
+    private void invertDirection(Enemy enemy) {
+        switch (enemy.getDirection()) {
+            case 'U':
+                enemy.setDirection('D');
+                break;
+            case 'D':
+                enemy.setDirection('U');
+                break;
+            case 'L':
+                enemy.setDirection('R');
+                break;
+            case 'R':
+                enemy.setDirection('L');
+                break;
+        }
+    }
+
+    private void rotateDirection(Enemy enemy) {
+        switch (enemy.getDirection()) {
+            case 'U':
+                enemy.setDirection('R');
+                break;
+            case 'R':
+                enemy.setDirection('D');
+                break;
+            case 'D':
+                enemy.setDirection('L');
+                break;
+            case 'L':
+                enemy.setDirection('U');
+                break;
+        }
+    }
+
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         for (Enemy enemy : getModel().getEnemies()) {
             if (time - enemy.getLastMovementTime() > 500/enemy.getSpeed()) {
                 if (enemy.getSmart() == 1) {
                     if (!canMove(enemy, enemy.getPosition().getDirectionalNeighbour(enemy.getDirection())))
-                        enemy.invertDirection();
+                        invertDirection(enemy);
                     if (!canMove(enemy, enemy.getPosition().getDirectionalNeighbour(enemy.getDirection())))
-                        enemy.rotateDirection();
+                        rotateDirection(enemy);
                     moveEnemy(enemy, enemy.getPosition().getDirectionalNeighbour(enemy.getDirection()));
                 }
                 if (enemy.getSmart() == 2) {
                     Position position = enemy.getPosition().getRandomDirectionalNeighbour(enemy.getDirection());
                     if (!canMove(enemy, position))
-                        enemy.rotateDirection();
+                        rotateDirection(enemy);
                     moveEnemy(enemy, enemy.getPosition().getRandomDirectionalNeighbour(enemy.getDirection()));
                 }
                 if (enemy.getSmart() == 3)

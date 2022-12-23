@@ -61,41 +61,10 @@ public class Enemy extends Element {
         return lastMovementTime;
     }
 
+    public void setDirection(char direction) {
+        this.direction = direction;
+    }
     public void setLastMovementTime(long time) {
         this.lastMovementTime = time;
-    }
-
-    public void invertDirection() {
-        switch (direction) {
-            case 'U':
-                direction = 'D';
-                break;
-            case 'D':
-                direction = 'U';
-                break;
-            case 'L':
-                direction = 'R';
-                break;
-            case 'R':
-                direction = 'L';
-                break;
-        }
-    }
-
-    public void rotateDirection() {
-        switch (direction) {
-            case 'U':
-                direction = 'R';
-                break;
-            case 'R':
-                direction = 'D';
-                break;
-            case 'D':
-                direction = 'L';
-                break;
-            case 'L':
-                direction = 'U';
-                break;
-        }
     }
 }
