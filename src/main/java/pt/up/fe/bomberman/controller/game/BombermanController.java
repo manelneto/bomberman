@@ -53,7 +53,7 @@ public class BombermanController extends GameController {
         }
     }
 
-    public void applyEffect(Powerup powerup) {
+    private void applyEffect(Powerup powerup) {
         if (powerup.getEffect() == Powerup.EFFECT.BOMBPASS)
             getModel().getBomberman().setBombpass(true);
         if (powerup.getEffect() == Powerup.EFFECT.BOMBS)
