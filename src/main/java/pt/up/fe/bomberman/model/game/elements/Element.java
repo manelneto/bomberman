@@ -2,7 +2,7 @@ package pt.up.fe.bomberman.model.game.elements;
 
 import pt.up.fe.bomberman.model.Position;
 
-public class Element {
+public abstract class Element {
     private Position position;
 
     public Element(int x, int y) {
