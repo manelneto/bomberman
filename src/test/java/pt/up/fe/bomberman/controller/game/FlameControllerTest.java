@@ -1,15 +1,19 @@
 package pt.up.fe.bomberman.controller.game;
 
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import pt.up.fe.bomberman.Game;
 import pt.up.fe.bomberman.controller.game.FlameController;
 import pt.up.fe.bomberman.gui.GUI;
+import pt.up.fe.bomberman.model.Position;
 import pt.up.fe.bomberman.model.game.arena.Arena;
 
+import pt.up.fe.bomberman.model.game.elements.Bomberman;
+import pt.up.fe.bomberman.model.game.elements.Enemy;
 import pt.up.fe.bomberman.model.game.elements.Flame;
+import pt.up.fe.bomberman.model.game.elements.Obstacle;
 
 import java.awt.*;
 import java.io.IOException;
@@ -18,39 +22,54 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-public class FlameControllerTest {/*
+public class FlameControllerTest {
     private FlameController controller;
+    private Bomberman bomberman;
     private List<Flame> flames;
     private Arena arena;
+    private Game game;
 
     @BeforeEach
     void setUp() {
         arena = new Arena(20, 20);
-        flames = new ArrayList<>();
-        flames.add(new Flame(10, 10,1,'C'));
-        flames.add(new Flame(11, 10,1,'H'));
-        flames.add(new Flame(9, 10,1,'H'));
-        flames.add(new Flame(10, 9,1,'V'));
-        flames.add(new Flame(10, 11,1,'V'));
-        arena.setFlames(flames);
-        arena.setEnemies(Arrays.asList());
-        arena.setObstacles(Arrays.asList());
-        arena.setWalls(Arrays.asList());
-
-
+        bomberman = new Bomberman(10, 10);
+        arena.setBomberman(bomberman);
         controller = new FlameController(arena);
+        game = Mockito.mock(Game.class);
     }
+
     @Test
-    void Teststep() throws IOException, URISyntaxException, FontFormatException {
-        controller=new FlameController(arena);
-        FlameController spycontroller=spy(controller);
+    void decreaseBombermanHp() throws IOException {
+        flames = Arrays.asList(new Flame(10, 10, 0, 'C'));
+        arena.setFlames(flames);
+        controller.step(game, GUI.ACTION.NONE, 0);
+        assertEquals(0, bomberman.getHp());
+    }
 
-        Game game=new Game();
-        spycontroller.step(game, GUI.ACTION.NONE,0);
-        Assertions.assertEquals(arena.getFlames(),flames);
+    @Test
+    void removeObstacle() throws IOException {
+        List<Obstacle> obstacles = new ArrayList<>();
+        obstacles.add(new Obstacle(5, 5));
+        arena.setObstacles(obstacles);
+        assertEquals(1, arena.getObstacles().size());
+        flames = Arrays.asList(new Flame(5, 5, 0, 'C'));
+        arena.setFlames(flames);
+        controller.step(game, GUI.ACTION.NONE, 0);
+        assertEquals(0, arena.getObstacles().size());
+    }
 
-        spycontroller.step(game, GUI.ACTION.NONE,20000);
-        Assertions.assertEquals(arena.getFlames(),new ArrayList<>());*/
+    @Test
+    void removeEnemy() throws IOException {
+        List<Enemy> enemies = new ArrayList<>();
+        enemies.add(new Enemy(5, 5, Enemy.TYPE.BALLOOM));
+        arena.setEnemies(enemies);
+        assertEquals(1, arena.getEnemies().size());
+        flames = Arrays.asList(new Flame(5, 5, 0, 'C'));
+        arena.setFlames(flames);
+        controller.step(game, GUI.ACTION.NONE, 0);
+        assertEquals(0, arena.getEnemies().size());
+    }
 }
