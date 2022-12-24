@@ -52,7 +52,7 @@ The following UML class diagram shows how the pattern roles, operations and asso
 These classes can be found in the following files:
 
 - [ArenaBuilder](../src/main/java/pt/up/fe/bomberman/model/game/arena/ArenaBuilder.java)
-- [LoaderArenaBuilder](src/main/java/pt/up/fe/bomberman/model/game/arena/LoaderArenaBuilder.java)
+- [LoaderArenaBuilder](../src/main/java/pt/up/fe/bomberman/model/game/arena/LoaderArenaBuilder.java)
 
 **Consequences**
 
