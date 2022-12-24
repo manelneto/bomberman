@@ -18,7 +18,7 @@ This project was developed by *Diogo Sarmento* (*up202109663*@fe.up.pt), *Manuel
 ![alt text](docs/images/powerups.png "Powerups")
 
 ## CHALLENGE
-![alt text](docs/images/challenge.png "Challenge")
+![alt text](docs/images/level.png "Level")
 
 ## GIF
 ![alt text](docs/bomberman.gif "GIF")

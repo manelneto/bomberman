@@ -7,15 +7,21 @@ This project was developed by *Diogo Sarmento* (*up202109663*@fe.up.pt), *Manuel
 
 ### IMPLEMENTED FEATURES
 
-- **Loading level from a file** - The level to be played is loaded from a file that contains the "map" of that level.
+- **Load level from a file** - The level to be played is loaded from a file that contains the "map" of that level.
 - **Place bombs** - Bomberman will place a bomb when the SPACE key is pressed.
 - **Explode obstacles** - When the bomb's flame reaches an obstacle, it will disappear and there is a chance that it was hiding a powerup.
-- **Upgrading your character** - After collecting a powerup, your character will be upgraded, either itself (higher speed, ability to pass through bombs or walls, ...) or the bombs it drops (higher flame area, more bombs to drop, ...).
+- **Upgrade your character** - After collecting a powerup, your character will be upgraded, either itself (higher speed, ability to pass through bombs or walls, ...) or the bombs it drops (higher flame area, more bombs to drop, ...).
 - **Kill enemies** - When the bomb's flame reaches an enemy, it will kill it.
 - **Die** - The player can lose the game if they lose all their health, either by exploding themselves with a bomb or by getting caught by an enemy.
 
+
+##### PLACE BOMBS #####
 ![Alt text](images/bomb.png?raw=true "Place bombs")
+
+##### EXPLODE OBSTACLES #####
 ![Alt text](images/flames.png?raw=true "Explode obstacles")
+
+##### UPGRADE YOUR CHARACTER #####
 ![Alt text](images/powerups.png?raw=true "Upgrading your character")
 
 ### PLANNED FEATURES
