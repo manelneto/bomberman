@@ -5,14 +5,20 @@ The maze is composed of several levels with variable difficulty that you can com
 
 This project was developed by *Diogo Sarmento* (*up202109663*@fe.up.pt), *Manuel Neto* (*up202108744*@fe.up.pt) and *Tomás Vicente* (*up202108717*@fe.up.pt) for LDTS 2022⁄23.
 
+## MENU
 ![alt text](docs/images/menu.png "Menu")
 
+## BOMB
 ![alt text](docs/images/bomb.png "Bomb")
 
+## FLAMES
 ![alt text](docs/images/flames.png "Flames")
 
+## POWERUPS
 ![alt text](docs/images/powerups.png "Powerups")
 
+## CHALLENGE
 ![alt text](docs/images/challenge.png "Challenge")
 
+## GIF
 ![alt text](docs/bomberman.gif "GIF")
