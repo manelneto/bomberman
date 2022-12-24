@@ -15,3 +15,4 @@ This project was developed by *Diogo Sarmento* (*up202109663*@fe.up.pt), *Manuel
 
 ![alt text](docs/images/challenge.png "Challenge")
 
+![alt text](docs/bomberman.gif "GIF")
