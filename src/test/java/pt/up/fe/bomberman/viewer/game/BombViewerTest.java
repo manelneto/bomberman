@@ -23,4 +23,5 @@ public class BombViewerTest {
         viewer.draw(bomb, gui);
         Mockito.verify(gui, Mockito.times(1)).drawElement(bomb.getPosition(), 'c', "#000000");
     }
+
 }

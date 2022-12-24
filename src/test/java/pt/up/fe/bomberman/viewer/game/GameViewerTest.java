@@ -8,18 +8,16 @@ import pt.up.fe.bomberman.model.Position;
 import pt.up.fe.bomberman.model.game.arena.Arena;
 import pt.up.fe.bomberman.model.game.elements.*;
 
-
 import java.io.IOException;
 import java.util.Arrays;
 
 public class GameViewerTest {
-    private Arena arena;
     private GameViewer viewer;
     private GUI gui;
 
     @BeforeEach
     void setUp() {
-        arena = new Arena(10, 10);
+        Arena arena = new Arena(10, 10);
         gui = Mockito.mock(GUI.class);
         viewer = new GameViewer(arena);
 

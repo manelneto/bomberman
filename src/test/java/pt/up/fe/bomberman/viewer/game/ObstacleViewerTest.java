@@ -23,4 +23,5 @@ public class ObstacleViewerTest {
         viewer.draw(obstacle, gui);
         Mockito.verify(gui, Mockito.times(1)).drawElement(obstacle.getPosition(), '?', "#C9C9C9");
     }
+
 }

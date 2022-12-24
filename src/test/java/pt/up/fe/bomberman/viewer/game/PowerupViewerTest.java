@@ -6,7 +6,6 @@ import org.mockito.Mockito;
 import pt.up.fe.bomberman.gui.GUI;
 import pt.up.fe.bomberman.model.game.elements.Powerup;
 
-
 public class PowerupViewerTest {
     private Powerup powerup;
     private PowerupViewer viewer;

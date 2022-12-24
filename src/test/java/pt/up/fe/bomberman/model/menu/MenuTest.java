@@ -38,4 +38,5 @@ public class MenuTest {
             menu.previousOption();
         assertEquals((menu.getNumberOptions() - n % menu.getNumberOptions()) % menu.getNumberOptions(), menu.getCurrentOption());
     }
+
 }

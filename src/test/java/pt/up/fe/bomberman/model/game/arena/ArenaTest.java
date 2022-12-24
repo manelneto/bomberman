@@ -57,25 +57,25 @@ public class ArenaTest {
 
     @Test
     void isObstacleTrue() {
-        arena.setObstacles(Arrays.asList(new Obstacle(1, 1)));
+        arena.setObstacles(List.of(new Obstacle(1, 1)));
         assertTrue(arena.isObstacle(new Position(1, 1)));
     }
 
     @Test
     void isObstacleFalse() {
-        arena.setObstacles(Arrays.asList(new Obstacle(2, 2)));
+        arena.setObstacles(List.of(new Obstacle(2, 2)));
         assertFalse(arena.isObstacle(new Position(1, 1)));
     }
 
     @Test
     void isWallTrue() {
-        arena.setWalls(Arrays.asList(new Wall(1, 1)));
+        arena.setWalls(List.of(new Wall(1, 1)));
         assertTrue(arena.isWall(new Position(1, 1)));
     }
 
     @Test
     void isWallFalse() {
-        arena.setWalls(Arrays.asList(new Wall(2, 2)));
+        arena.setWalls(List.of(new Wall(2, 2)));
         assertFalse(arena.isWall(new Position(1, 1)));
     }
 

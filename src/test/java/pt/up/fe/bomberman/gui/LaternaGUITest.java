@@ -11,13 +11,12 @@ import org.mockito.Mockito;
 import pt.up.fe.bomberman.model.Position;
 
 class LaternaGUITest {
-    private Screen screen;
     private LanternaGUI gui;
     private TextGraphics textGraphics;
 
     @BeforeEach
     void setUp() {
-        screen = Mockito.mock(Screen.class);
+        Screen screen = Mockito.mock(Screen.class);
         textGraphics = Mockito.mock(TextGraphics.class);
 
         Mockito.when(screen.newTextGraphics()).thenReturn(textGraphics);

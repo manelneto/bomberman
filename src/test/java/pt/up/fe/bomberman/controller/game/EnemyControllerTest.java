@@ -11,6 +11,7 @@ import pt.up.fe.bomberman.model.game.elements.*;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -32,7 +33,7 @@ public class EnemyControllerTest {
     @Test
     void moveEnemyEmpty() throws IOException {
         Enemy enemy = new Enemy(10, 10, Enemy.TYPE.BALLOOM);
-        arena.setEnemies(Arrays.asList(enemy));
+        arena.setEnemies(List.of(enemy));
         controller.step(game, GUI.ACTION.NONE, 1000);
         Position position = enemy.getPosition();
         assertTrue(position.equals(new Position(10, 10)) || position.equals(new Position(10, 9)) || position.equals(new Position(10, 11)) || position.equals(new Position(9, 10)) || position.equals(new Position(11, 10)));
@@ -42,7 +43,7 @@ public class EnemyControllerTest {
     void moveEnemyBomberman() throws IOException {
         Enemy enemy = new Enemy(10, 10, Enemy.TYPE.BALLOOM);
         enemy.setDirection('R');
-        arena.setEnemies(Arrays.asList(enemy));
+        arena.setEnemies(List.of(enemy));
         arena.setWalls(Arrays.asList(new Wall(9, 10), new Wall(10, 9), new Wall(10, 11)));
         bomberman.setPosition(new Position(11, 10));
         for (int i = 0; i < 1000; i++)
@@ -53,7 +54,7 @@ public class EnemyControllerTest {
     @Test
     void moveEnemyBomb() throws IOException {
         Enemy enemy = new Enemy(10, 10, Enemy.TYPE.BALLOOM);
-        arena.setEnemies(Arrays.asList(enemy));
+        arena.setEnemies(List.of(enemy));
         arena.setBombs(Arrays.asList(new Bomb(11, 10, 0, 0), new Bomb(9, 10, 0, 0), new Bomb(10, 9, 0, 0), new Bomb(10, 11, 0, 0)));
         for (int i = 0; i < 1000; i++)
             controller.step(game, GUI.ACTION.NONE, i);
@@ -63,7 +64,7 @@ public class EnemyControllerTest {
     @Test
     void moveEnemyObstacle() throws IOException {
         Enemy enemy = new Enemy(10, 10, Enemy.TYPE.BALLOOM);
-        arena.setEnemies(Arrays.asList(enemy));
+        arena.setEnemies(List.of(enemy));
         arena.setObstacles(Arrays.asList(new Obstacle(11, 10), new Obstacle(9, 10), new Obstacle(10, 9), new Obstacle(10, 11)));
         for (int i = 0; i < 1000; i++)
             controller.step(game, GUI.ACTION.NONE, i);
@@ -73,7 +74,7 @@ public class EnemyControllerTest {
     @Test
     void moveEnemyWall() throws IOException {
         Enemy enemy = new Enemy(10, 10, Enemy.TYPE.BALLOOM);
-        arena.setEnemies(Arrays.asList(enemy));
+        arena.setEnemies(List.of(enemy));
         arena.setWalls(Arrays.asList(new Wall(11, 10), new Wall(9, 10), new Wall(10, 9), new Wall(10, 11)));
         for (int i = 0; i < 1000; i++)
             controller.step(game, GUI.ACTION.NONE, i);

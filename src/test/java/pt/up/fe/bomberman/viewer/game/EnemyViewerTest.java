@@ -72,4 +72,5 @@ public class EnemyViewerTest {
         viewer.draw(enemy, gui);
         Mockito.verify(gui, Mockito.times(1)).drawElement(enemy.getPosition(), 'x', "#FF0000");
     }
+
 }

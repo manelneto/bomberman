@@ -107,4 +107,5 @@ class PositionTest {
         assertEquals(x, position.getDirectionalNeighbour('X').getX());
         assertEquals(y, position.getDirectionalNeighbour('X').getY());
     }
+
 }

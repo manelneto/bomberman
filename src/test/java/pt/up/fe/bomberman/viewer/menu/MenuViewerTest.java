@@ -10,13 +10,12 @@ import pt.up.fe.bomberman.model.menu.Menu;
 import java.io.IOException;
 
 public class MenuViewerTest {
-    private Menu menu;
     private MenuViewer viewer;
     private GUI gui;
 
     @BeforeEach
     void setUp(){
-        menu = new Menu();
+        Menu menu = new Menu();
         gui = Mockito.mock(GUI.class);
         viewer = new MenuViewer(menu);
     }

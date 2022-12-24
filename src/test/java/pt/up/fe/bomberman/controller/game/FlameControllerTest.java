@@ -1,13 +1,10 @@
 package pt.up.fe.bomberman.controller.game;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import pt.up.fe.bomberman.Game;
-import pt.up.fe.bomberman.controller.game.FlameController;
 import pt.up.fe.bomberman.gui.GUI;
-import pt.up.fe.bomberman.model.Position;
 import pt.up.fe.bomberman.model.game.arena.Arena;
 
 import pt.up.fe.bomberman.model.game.elements.Bomberman;
@@ -15,15 +12,12 @@ import pt.up.fe.bomberman.model.game.elements.Enemy;
 import pt.up.fe.bomberman.model.game.elements.Flame;
 import pt.up.fe.bomberman.model.game.elements.Obstacle;
 
-import java.awt.*;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.*;
 
 public class FlameControllerTest {
     private FlameController controller;
@@ -43,7 +37,7 @@ public class FlameControllerTest {
 
     @Test
     void decreaseBombermanHp() throws IOException {
-        flames = Arrays.asList(new Flame(10, 10, 0, 'C'));
+        flames = List.of(new Flame(10, 10, 0, 'C'));
         arena.setFlames(flames);
         controller.step(game, GUI.ACTION.NONE, 0);
         assertEquals(0, bomberman.getHp());
@@ -55,7 +49,7 @@ public class FlameControllerTest {
         obstacles.add(new Obstacle(5, 5));
         arena.setObstacles(obstacles);
         assertEquals(1, arena.getObstacles().size());
-        flames = Arrays.asList(new Flame(5, 5, 0, 'C'));
+        flames = List.of(new Flame(5, 5, 0, 'C'));
         arena.setFlames(flames);
         controller.step(game, GUI.ACTION.NONE, 0);
         assertEquals(0, arena.getObstacles().size());
@@ -67,7 +61,7 @@ public class FlameControllerTest {
         enemies.add(new Enemy(5, 5, Enemy.TYPE.BALLOOM));
         arena.setEnemies(enemies);
         assertEquals(1, arena.getEnemies().size());
-        flames = Arrays.asList(new Flame(5, 5, 0, 'C'));
+        flames = List.of(new Flame(5, 5, 0, 'C'));
         arena.setFlames(flames);
         controller.step(game, GUI.ACTION.NONE, 0);
         assertEquals(0, arena.getEnemies().size());

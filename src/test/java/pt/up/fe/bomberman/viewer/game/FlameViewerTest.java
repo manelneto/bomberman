@@ -37,4 +37,5 @@ public class FlameViewerTest {
         viewer.draw(flame, gui);
         Mockito.verify(gui, Mockito.times(1)).drawElement(flame.getPosition(), 's', "#FF4500");
     }
+
 }

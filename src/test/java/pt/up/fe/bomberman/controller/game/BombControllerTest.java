@@ -4,7 +4,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import pt.up.fe.bomberman.Game;
-import pt.up.fe.bomberman.controller.game.BombController;
 import pt.up.fe.bomberman.gui.GUI;
 import pt.up.fe.bomberman.model.game.arena.Arena;
 import pt.up.fe.bomberman.model.game.elements.*;

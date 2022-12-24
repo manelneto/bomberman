@@ -45,4 +45,5 @@ public class BombermanViewerTest {
         viewer.draw(bomberman, gui);
         Mockito.verify(gui, Mockito.times(1)).drawElement(bomberman.getPosition(), '.', "#64A4FF");
     }
+
 }

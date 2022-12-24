@@ -12,6 +12,7 @@ import java.io.IOException;
 public class MenuControllerTest {
     private MenuController controller;
     private Menu menu;
+
     private Game game;
 
     @BeforeEach

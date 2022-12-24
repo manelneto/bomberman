@@ -4,14 +4,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import pt.up.fe.bomberman.Game;
-import pt.up.fe.bomberman.controller.game.BombermanController;
 import pt.up.fe.bomberman.gui.GUI;
 import pt.up.fe.bomberman.model.Position;
 import pt.up.fe.bomberman.model.game.arena.Arena;
 import pt.up.fe.bomberman.model.game.elements.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -98,7 +96,7 @@ public class PowerupEffectTest {
 
     @Test
     void useWallpass() {
-        arena.setObstacles(Arrays.asList(new Obstacle(5, 5)));
+        arena.setObstacles(List.of(new Obstacle(5, 5)));
         controller.step(game, GUI.ACTION.RIGHT, 500);
         assertEquals(new Position(4, 5), bomberman.getPosition());
         bomberman.setWallpass(true);
@@ -118,7 +116,7 @@ public class PowerupEffectTest {
 
     @Test
     void useHealth() {
-        arena.setEnemies(Arrays.asList(new Enemy(5, 5, Enemy.TYPE.BALLOOM)));
+        arena.setEnemies(List.of(new Enemy(5, 5, Enemy.TYPE.BALLOOM)));
         controller.step(game, GUI.ACTION.RIGHT, 500);
         assertEquals(0, bomberman.getHp());
         controller.step(game, GUI.ACTION.LEFT, 1000);
@@ -139,7 +137,7 @@ public class PowerupEffectTest {
 
     @Test
     void useBombpass() {
-        arena.setBombs(Arrays.asList(new Bomb(5, 5, 0, 0)));
+        arena.setBombs(List.of(new Bomb(5, 5, 0, 0)));
         controller.step(game, GUI.ACTION.RIGHT, 500);
         assertEquals(new Position(4, 5), bomberman.getPosition());
         bomberman.setBombpass(true);
@@ -159,7 +157,7 @@ public class PowerupEffectTest {
 
     @Test
     void useFlamepass() {
-        arena.setFlames(Arrays.asList(new Flame(5, 5, 100, 'C')));
+        arena.setFlames(List.of(new Flame(5, 5, 100, 'C')));
         controller.step(game, GUI.ACTION.RIGHT, 150);
         controller.step(game, GUI.ACTION.LEFT, 200);
         assertEquals(0, bomberman.getHp());
