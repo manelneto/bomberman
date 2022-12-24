@@ -230,9 +230,9 @@ So, we decided to leave the code as it is, because we think we get more good tha
 
 - Screenshot of coverage report.
 
-![Alt text](coverage_tests.png?raw=true "Coverage Report")
+![Alt text](/images/coverage.png?raw=true "Coverage Report")
 
-- [Link to mutation testing report](report/index.html)
+- [Link to mutation testing report](reports/pitest/202212240426/index.html)
 
 ### SELF-EVALUATION
 
