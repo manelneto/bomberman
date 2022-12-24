@@ -14,9 +14,9 @@ This project was developed by *Diogo Sarmento* (*up202109663*@fe.up.pt), *Manuel
 - **Kill enemies** - When the bomb's flame reaches an enemy, it will kill it.
 - **Die** - The player can lose the game if they lose all their health, either by exploding themselves with a bomb or by getting caught by an enemy.
 
-![Alt text](/images/Bomb.png?raw=true "Place bombs")
-![Alt text](/images/Flames.png?raw=true "Explode obstacles")
-![Alt text](/images/Powerups.png?raw=true "Upgrading your character")
+![Alt text](images/bomb.png?raw=true "Place bombs")
+![Alt text](images/flames.png?raw=true "Explode obstacles")
+![Alt text](images/powerups.png?raw=true "Upgrading your character")
 
 ### PLANNED FEATURES
 
@@ -47,7 +47,7 @@ As explained, we implemented a LoaderArenaBuilder which reads levels from files,
 
 The following UML class diagram shows how the pattern roles, operations and associations were mapped to the concrete design classes.
 
-![Alt text](/images/arena-UML.png?raw=true "ArenaBuilder UML")
+![Alt text](images/arena-UML.png?raw=true "ArenaBuilder UML")
 
 These classes can be found in the following files:
 
@@ -84,7 +84,7 @@ As can be seen, both classes have the same functions signatures, but they allow 
 
 The following UML class diagram shows how the pattern roles, operations and associations were mapped to the concrete design classes.
 
-![Alt text](/images/states-UML.png?raw=true "States UML")
+![Alt text](images/states-UML.png?raw=true "States UML")
 
 These classes can be found in the following files:
 
@@ -122,7 +122,7 @@ As the code makes it clear, we were able to significantly remove the unwanted de
 
 The following UML class diagram shows how the pattern roles, operations and associations were mapped to the concrete design classes.
 
-![Alt text](/images/gui-UML.png?raw=true "GUI UML")
+![Alt text](images/gui-UML.png?raw=true "GUI UML")
 
 These classes can be found in the following files:
 
@@ -160,7 +160,7 @@ As the pattern states, the classes which belong to the model only store data, th
 
 The following UML class diagram shows how the pattern roles, operations and associations were mapped to the concrete design classes.
 
-![Alt text](/images/mvc-UML.png?raw=true "MVC UML")
+![Alt text](images/mvc-UML.png?raw=true "MVC UML")
 
 These classes can be found in the following packages:
 
@@ -230,7 +230,7 @@ So, we decided to leave the code as it is, because we think we get more good tha
 
 - Screenshot of coverage report.
 
-![Alt text](/images/coverage.png?raw=true "Coverage Report")
+![Alt text](images/coverage.png?raw=true "Coverage Report")
 
 - [Link to mutation testing report](reports/pitest/202212240426/index.html)
 
