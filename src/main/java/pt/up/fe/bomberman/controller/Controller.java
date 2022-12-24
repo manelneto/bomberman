@@ -6,6 +6,7 @@ import pt.up.fe.bomberman.gui.GUI;
 import java.io.IOException;
 
 public abstract class Controller<T> {
+
     private final T model;
 
     public Controller(T model) {

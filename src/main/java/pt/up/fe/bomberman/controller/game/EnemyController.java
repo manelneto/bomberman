@@ -22,7 +22,6 @@ public class EnemyController extends GameController {
                 && !getModel().isPowerup(position);
     }
 
-
     private void moveEnemy(Enemy enemy, Position position) {
         if (canMove(enemy, position)) {
             enemy.setPosition(position);

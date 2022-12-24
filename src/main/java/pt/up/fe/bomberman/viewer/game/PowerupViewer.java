@@ -14,4 +14,5 @@ public class PowerupViewer implements ElementViewer<Powerup> {
         else if (powerup.getEffect() == Powerup.EFFECT.BOMBPASS) gui.drawElement(powerup.getPosition(),'r', "#F7EF8A");
         else if (powerup.getEffect() == Powerup.EFFECT.FLAMEPASS) gui.drawElement(powerup.getPosition(),'q', "#F7EF8A");
     }
+
 }

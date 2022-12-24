@@ -21,4 +21,5 @@ public class BombermanViewer implements ElementViewer<Bomberman> {
                 break;
         }
     }
+
 }

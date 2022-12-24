@@ -25,6 +25,7 @@ public class FlameController extends GameController {
                 getModel().removeObstacle(flame.getPosition());
                 getModel().removeEnemy(flame.getPosition());
             }
+
         getModel().setFlames(flames);
     }
 }

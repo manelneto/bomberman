@@ -9,7 +9,6 @@ import java.util.List;
 public class Arena {
     private final int width;
     private final int height;
-
     private Bomberman bomberman;
     private List<Bomb> bombs = new ArrayList<>();
     private List<Flame> flames = new ArrayList<>();

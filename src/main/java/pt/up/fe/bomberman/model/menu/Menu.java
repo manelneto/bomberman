@@ -47,7 +47,6 @@ public class Menu {
     public int getCurrentOption() {
         return currentOption;
     }
-
     public String getOption(int i) {
         return options.get(i);
     }
@@ -55,7 +54,6 @@ public class Menu {
     public boolean isSelected(int i) {
         return currentOption == i;
     }
-
     public boolean isSelectedStart() {
         return isSelected(0);
     }

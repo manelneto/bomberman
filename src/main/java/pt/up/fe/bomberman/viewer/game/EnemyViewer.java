@@ -15,4 +15,5 @@ public class EnemyViewer implements ElementViewer<Enemy> {
         else if (enemy.getType() == Enemy.TYPE.PASS) gui.drawElement(enemy.getPosition(), 'w', "#FA732C");
         else if (enemy.getType() == Enemy.TYPE.PONTAM) gui.drawElement(enemy.getPosition(), 'x', "#FF0000");
     }
+
 }

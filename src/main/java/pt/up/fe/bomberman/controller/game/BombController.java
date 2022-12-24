@@ -40,7 +40,6 @@ public class BombController extends GameController {
                 || !getModel().inArena(position)
                 || getModel().isBomb(position)
                 || (getModel().isPowerup(position) && !getModel().isObstacle(position));
-
     }
 
     private void explodeBombUp(Bomb bomb, long time) {

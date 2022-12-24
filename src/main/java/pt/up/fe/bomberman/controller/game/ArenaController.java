@@ -34,4 +34,3 @@ public class ArenaController extends GameController {
         }
     }
 }
-

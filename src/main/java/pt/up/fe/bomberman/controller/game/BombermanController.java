@@ -7,7 +7,6 @@ import pt.up.fe.bomberman.model.game.arena.Arena;
 import pt.up.fe.bomberman.model.game.elements.Bomb;
 import pt.up.fe.bomberman.model.game.elements.Powerup;
 
-
 public class BombermanController extends GameController {
     private long lastMovementTime = 0;
     public BombermanController(Arena arena) {

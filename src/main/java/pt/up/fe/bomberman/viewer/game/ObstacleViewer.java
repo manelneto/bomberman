@@ -8,4 +8,5 @@ public class ObstacleViewer implements ElementViewer<Obstacle> {
     public void draw(Obstacle obstacle, GUI gui) {
         gui.drawElement(obstacle.getPosition(), '?', "#C9C9C9");
     }
+
 }

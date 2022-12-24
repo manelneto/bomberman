@@ -17,6 +17,7 @@ public abstract class State<T> {
         this.viewer = getViewer();
         this.controller = getController();
     }
+
     protected abstract Viewer<T> getViewer();
 
     protected abstract Controller<T> getController();

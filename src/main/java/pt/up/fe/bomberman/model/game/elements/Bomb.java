@@ -13,7 +13,6 @@ public class Bomb extends Element {
     public long getTime() {
         return time;
     }
-
     public int getFlames() {
         return flames;
     }

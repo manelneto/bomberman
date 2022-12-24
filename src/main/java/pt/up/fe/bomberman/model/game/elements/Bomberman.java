@@ -37,6 +37,7 @@ public class Bomberman extends Element {
     public int getSpeed() {
         return speed;
     }
+
     public boolean canWallpass() {
         return wallpass;
     }

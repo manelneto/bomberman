@@ -8,4 +8,5 @@ public class BombViewer implements ElementViewer<Bomb>  {
     public void draw(Bomb bomb, GUI gui) {
         gui.drawElement(bomb.getPosition(), 'c', "#000000");
     }
+
 }

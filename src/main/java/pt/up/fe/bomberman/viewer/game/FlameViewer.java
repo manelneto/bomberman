@@ -13,4 +13,5 @@ public class FlameViewer implements ElementViewer<Flame> {
         else if (flame.getType() == 'C')
             gui.drawElement(flame.getPosition(),'s', "#FF4500");
     }
+
 }

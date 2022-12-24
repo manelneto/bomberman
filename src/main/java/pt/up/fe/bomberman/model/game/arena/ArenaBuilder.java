@@ -5,10 +5,10 @@ import pt.up.fe.bomberman.model.game.elements.*;
 import java.util.List;
 
 public abstract class ArenaBuilder {
-    private final int width = 20;
-    private final int height = 20;
 
     public Arena createArena() {
+        int width = 20;
+        int height = 20;
         Arena arena = new Arena(width, height);
         arena.setBomberman(createBomberman());
         arena.setObstacles(createObstacles());

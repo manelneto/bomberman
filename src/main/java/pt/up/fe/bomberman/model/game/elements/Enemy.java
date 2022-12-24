@@ -2,7 +2,6 @@ package pt.up.fe.bomberman.model.game.elements;
 
 public class Enemy extends Element {
     public enum TYPE {BALLOOM, ONEAL, DOLL, MINVO, KONDORIA, OVAPI, PASS, PONTAM}
-
     private final TYPE type;
     private final int speed;
     private final int smart;
@@ -13,7 +12,6 @@ public class Enemy extends Element {
     public Enemy(int x, int y, TYPE type) {
         super(x, y);
         this.type = type;
-
         if (type == TYPE.BALLOOM) {speed = 2; smart = 1; wallpass = false;}
         else if (type == TYPE.ONEAL) {speed = 3; smart = 2; wallpass = false;}
         else if (type == TYPE.DOLL) {speed = 3; smart = 1; wallpass = false;}

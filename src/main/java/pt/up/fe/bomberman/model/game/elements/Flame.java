@@ -13,7 +13,6 @@ public class Flame extends Element {
     public long getTime() {
         return time;
     }
-
     public char getType() {
         return type;
     }
